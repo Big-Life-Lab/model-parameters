@@ -1,8 +1,8 @@
-﻿variable,dummyVariable,numValidCat,catLabel,catLabelLong,catValue,units,type,interval,databaseStart,variableStart,notes
-Sex,Sexmale_cat,2,Male,m,1,NA,cat,NA,DemPoRT_v0.1_lime,DerivedVar::[sex],
-Sex,Sexfemale_cat,2,Female,f,2,NA,cat,NA,DemPoRT_v0.1_lime,DerivedVar::[sex],
-Age_cont,NA,NA,NA,NA,NA,years,cont,"[55,100]",DemPoRT_v0.1_lime,[age],
-Edu4,EduLessHS2_cat,4,Less than secondary school,Less than secondary school,1,NA,cat,NA,DemPoRT_v0.1_lime,DerivedVar::[edu],
-Edu4,EduHSGrad2_cat,4,Secondary school graduation,Secondary school graduation,2,NA,cat,NA,DemPoRT_v0.1_lime,DerivedVar::[edu],
-Edu4,EduSomePS2_cat,4,Some postsecondary,Some postsecondary,3,NA,cat,NA,DemPoRT_v0.1_lime,DerivedVar::[edu],
-Edu4,EduPSGrad2_cat,4,Postsecondary graduation,Postsecondary graduation,4,NA,cat,NA,DemPoRT_v0.1_lime,DerivedVar::[edu],
+﻿variable,dummyVariable,numValidCat,catLabel,catLabelLong,catValue,units, variableType,interval,notes
+Sex,Sexmale_cat,2,Male,m,1,NA,cat,NA,
+Sex,Sexfemale_cat,2,Female,f,2,NA,cat,NA,
+Age_cont,NA,NA,NA,NA,NA,years,cont,"[55,100]",
+Edu4,EduLessHS2_cat,4,Less than secondary school,Less than secondary school,1,NA,cat,NA,
+Edu4,EduHSGrad2_cat,4,Secondary school graduation,Secondary school graduation,2,NA,cat,NA,
+Edu4,EduSomePS2_cat,4,Some postsecondary,Some postsecondary,3,NA,cat,NA,
+Edu4,EduPSGrad2_cat,4,Postsecondary graduation,Postsecondary graduation,4,NA,cat,NA,
