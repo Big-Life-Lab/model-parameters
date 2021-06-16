@@ -52,77 +52,32 @@ The *variables details* file should include all the variables defined in the *va
 * **interval**: The valid range for this variable. Follows the mathematical notation for intervals https://en.wikipedia.org/wiki/Interval_(mathematics).
 * **notes**: Any additional metadata about the variable
 
-## Model Steps
+## model-steps.csv
 
 The *model steps* file documents the steps to go from the start variables to the model output as well as the names of the files with additional information to implement the steps. A brief description of its columns are as follows:
 
-* **step**: The name of the step. The value of this column should match up with one of the valid steps values outlined below. 
-* **fileName**: The name of the file which documents additional information needed to implement the step. E.g., the center step file, center.csv, would need to document the variables being centered along with their centering value. The steps documentation gives more information as to the structure of the file needed for each step.
-* **notes**: This column is for documentation/metadata purpose and does not have any bearing in how the model is run.
+* **step**: name of the step: see valid steps. Valid values: center, rcs, interactions, cox, dummy (note: no file is needed for this step. All dummy variables created need to be documented in the *variables details* file). 
+* **fileName**: name of the file which documents additional information needed to implement the step (e.g., center.csv for centering)
+* **notes**: for documentation/metadata purpose and does not have any bearing in how the model is run.
 
-## Steps
+## center.csv
 
-This section documents all the supported steps. The keyword highlights what phrase should be used to represent this step in the *model steps* file.
+* **variable**: name of the variable to center
+* **centerValue**: value to use for centering
+* **centeredVariable**: name of the new centered variable
 
-### center
+## rcs.csv
 
-Keyword: center
+* **variable**: name of the variable to convert
+* **rcsVariables**: names of the new variables created, seperated by a semicolon
+* **knots** knots to use, seperated by a semicolon
 
-Columns:
-
-* **variable**: The name of the variable to center
-* **centerValue**: The value to use for centering
-* **centeredVariable**: The name of the new centered variable
-
-### RCS
-
-Keyword: rcs
-
-Columns:
-
-* **variable**: The name of the variable to convert
-* **rcsVariables**: The names of the new variables created, seperated by a semicolon
-* **knots** The knots to use, seperated by a semicolon
-
-An example file is shown below
-
-```{r}
-eg_rcs_step <- read.csv(file.path(getwd(), "/assets/model-export/rcs.csv"))
-DT::datatable(eg_rcs_step)
-```
-
-### Dummy
-
-Keyword: dummy
-
-No file is needed for this step. All dummy variables created need to be documented in the *variables details* file.
-
-### Interactions
-
-Keyword: interaction
-
-Columns:
+## interactions.csv
 
 * **interactingVariables**: The list of variables that interact, seperated by a semicolon
 * **interactionVariable**: The name of the interaction variable
 
-An example file is shown below
-
-```{r}
-eg_interactions_step <- read.csv(file.path(getwd(), "/assets/model-export/interactions.csv"))
-DT::datatable(eg_interactions_step)
-```
-
-The first row in the preceding file says that the interaction variable ageXdiabetes is created by interacting the age and diabetes variable
-Similarly the second row says that the interaction variable ageXsmoking is created by interacting the age and smoking variable
-
-### Cox
-
-A step to evaluate a cox survival model. The output of this step will be the risk of getting the outcome event.
-
-Keyword: cox
-
-Columns:
+## cox.csv
 
 * **variable**: The name of the variable
 * **coefficient**: The coefficient for this variable
