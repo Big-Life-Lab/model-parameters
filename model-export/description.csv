@@ -3,6 +3,7 @@ description,Predictive algorithm for 5-year risk of all-cause mortality in the g
 stratified,sex
 modelType,coxph
 maxTime,5
+baselineRisk,hAdj
 timeMetric,years
 author,Doug Manuel
 ocrid,0000-0003-0912-0845
