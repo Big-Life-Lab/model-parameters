@@ -74,10 +74,27 @@ The *model steps* file documents the steps to go from the start variables to the
 
 ## interactions.csv
 
-* **interactingVariables**: The list of variables that interact, seperated by a semicolon
-* **interactionVariable**: The name of the interaction variable
+* **interactingVariables**: list of variables that interact, seperated by a semicolon
+* **interactionVariable**: name of the interaction variable
 
-## cox.csv
+## cox.csv (I THINK THIS SHOULD BE MORE GENERIC - OKAY WITH MODEL.CSV?)
 
-* **variable**: The name of the variable
-* **coefficient**: The coefficient for this variable
+* **variable**: variable name
+* **coefficient**: coefficient for this variable
+
+## description.csv
+
+* **currently no column names**: (SHOULD THIS BE SET UP IN A MORE MACHINE READABLE WAY?; ALSO NEED TO DISCUSS HOW TO HANDLE HADJ AND 'BASELINE RISK' FILE)
+
+## missing-outlier-treatment.csv
+
+* **variable**: variable name
+* **fileName**: file that contains the values to be used for missing/outlier rules (usually, variables.csv)
+* **outlierTreatment**: rule to apply for values that are outside min/max setting
+* **missingTreatment**: rule to apply for values that are missing
+
+## baseline-risk.csv
+
+* **baselineTime**: baseline time 
+* **timeMetric**: unit of time for hazard function
+* **baselineHazard**: baseline hazard when all predictors are equal to zero at time t
