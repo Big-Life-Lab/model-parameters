@@ -7,15 +7,13 @@ This repo provides a template for required model export documents. The goal of a
 
 The *variables* file gives a summary of all the starting variables used in the model. A brief description of its columns are as follows:
 
-* **variable**: name of the start variable (NOTE: THIS DESCRIPTION VARIES B/W DOCUMENTS. OTHER DESCRIPTION = "name of the final transformed variable; allowable variable name in SAS, R, JS, TS, Python, Stata")
-* **role**: variable's role in the algorithm development, validation, deployment, KTE process (THIS IS NOT IN THE CURRENT TEMPLATE, INCLUDE?)
+* **variable**: name of the variable or feature that is used in the algorithm (e.g., age, sex, education)
 * **label**: short variable label, less than 15 characters
 * **labelLong**: descriptive variable label
 * **section**: major heading used to classify the variable
 * **subject**: section sub-heading used to further classify the variable
 * **typeEnd**: allowable variable types: cat (categorical), cont (continuous)
-* **units**: unit of measurement for the variable (THIS IS INCLUDED IN SOME DESCRIPTIONS OF THE VARIABLES DOCUMENT BUT NOT INCLUDED IN THE MODEL-EXPORT.RMD - INCLUDE?)
-* **description**: additional metadata about the variable (THIS IS IN THE CURRENT TEMPLATE, HOWEVER, THE FOLLOWING FIELDS ARE NOT AND, IF THE DECISION IS TO INCLUDE THEM, THEN SUGGEST THIS FIELD BE REMOVED)
+* **units**: unit of measurement for the variable
 * **reference**: reference group (level): TRUE, FALSE, NA
 * **center**: indicates variable transformation of center to mean: TRUE, FALSE (missing treated as false)
 * **spline**: indicates spline transformation: TRUE, FALSE, NA
@@ -36,6 +34,7 @@ The *variables* file gives a summary of all the starting variables used in the m
 * **outlierMin**: method used with `min`: delete, NA (missing), N/A (not applicable), number (real number) (INCLUDE HERE OR SEPARATED CSV FILE)
 * **recommended**: variable that is recommended user input: TRUE, FALSE
 * **required**: mandatory variable required for scoring the algorithm (i.e, can not be missing and replaced with centered value): TRUE, FALSE
+* **notes**: optional additional information about the variable
 
 ## variable-details.csv
 
