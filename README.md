@@ -13,3 +13,42 @@ Each branch in this repository provides a starting point for a different type of
 
 * **fine-and-gray**: Export files for a fine and gray model 
 * **logistic-regression**: Export files for a logistic regression model
+
+# Fine and Grey Model
+
+The current branch provides a starting point for fine and grey models. The files in the `model-export` folder are used to represent a fine and grey model to predict the risk developing diabetes in 5 years. The model has three variables:
+
+1. **Sex**: A two category variable representing the sex of an individual
+2. **Age**: The age of an individual in years
+3. **BMI**: The BMI of an individual in kg/m^2
+
+The files also provide the following information:
+
+1. How to map the variables from a database called `context` onto the starting variables for the model
+2. How to transform the model variables into the final variables for the model
+3. The beta coefficients and baseline hazard values for calculating a risk score
+
+## Files
+
+### /model-export
+
+* **variables.csv**: The list of variables in the model and their descriptions.
+* **variables-details.csv**: Rules for mapping variables in various databases to the variables in the model.
+* **model-export.csv**: The location of the various files needed for implementation.
+
+#### /model-export/model-steps
+
+* **model-steps.csv**: The steps for transforming the model start variables into the final variables for the model as well as how to calculate the final risk score.
+* **dummy.csv**: Rules for the dummying categorical variables
+* **center.csv**: Rules for centering variables
+* **rcs.csv**: Rules for converting certain continuous variables into restricted cubic splines
+* **interaction.csv**: Rules for creating interaction variables
+* **beta-coefficients.csv**: The beta coefficients for the fine and gray model
+* **baseline-hazards.csv**: The baseline hazard values for the fine and gray model 
+
+### /derived-vars
+
+* **bmi_cont.fun**: The function to run when creating the **BMi** derived variable
+
+
+

@@ -1,0 +1,7 @@
+﻿step,fileType,filePath,notes
+dummy,,./dummy.csv
+center,,./center.csv,
+rcs,,./rcs.csv
+interaction,,./interaction.csv
+fine-and-gray,beta-coefficients,./beta-coefficients.csv
+fine-and-gray,baseline-hazards,./baseline-hazards.csv
