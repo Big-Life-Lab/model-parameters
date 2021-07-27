@@ -11,12 +11,12 @@ Each branch in this repository provides a starting point for a different type of
 
 # Branches
 
-* **fine-and-gray**: Export files for a fine and gray model 
-* **logistic-regression**: Export files for a logistic regression model
+* **fine-and-gray-template**: Export files for a fine and gray model 
+* **logistic-regression-template**: Export files for a logistic regression model
 
-# Fine and Grey Model
+# Fine and gray Model
 
-The current branch provides a starting point for fine and grey models. The files in the `model-export` folder are used to represent a fine and grey model to predict the risk developing diabetes in 5 years. The model has three variables:
+The current branch provides a starting point for fine and gray models. The files in the `model-export` folder are used to represent a fine and gray model to predict the risk developing diabetes in 5 years. The model has three variables:
 
 1. **Sex**: A two category variable representing the sex of an individual
 2. **Age**: The age of an individual in years
