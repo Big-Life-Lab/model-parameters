@@ -11,5 +11,5 @@ Each branch in this repository provides a starting point for a different type of
 
 # Branches
 
-* **fine-and-gray**: Export files for a fine and gray model 
-* **logistic-regression**: Export files for a logistic regression model
+* **fine-and-gray-template**: Export files for a fine and gray model 
+* **logistic-regression-template**: Export files for a logistic regression model
