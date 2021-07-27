@@ -49,6 +49,3 @@ The files also provide the following information:
 ### /derived-vars
 
 * **bmi_cont.fun**: The function to run when creating the **BMi** derived variable
-
-
-
