@@ -1,5 +1,5 @@
-# model-export-template (IN PROGRESS)
-This repo provides a template for required model export documents. The goal of a model export format is to outline all the steps to go from the starting variables in the model to calculating the outcome of the model.
+# model-parameters-template (IN PROGRESS)
+This repo provides a template for required model parameters documents. The goal is to describe the model and outline all the steps to go from the starting variables in the model to calculating the outcome of the model.
 
 # Model Export Files
 
