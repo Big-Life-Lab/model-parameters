@@ -1,0 +1,39 @@
+---
+default:
+  modelName: MPoRTv2
+  project: PHIAT-YLL
+  title: Popuation Health Impact Assessment Tools for years of life lost
+  description:
+  version: 0.1.0
+  datePubished: 2019-10-15
+  funding: CIHR FRN 162222
+  copyright: The Ottawa Hosptial
+  licence: cc by-nc-sa 4.0
+  references:
+
+  authors:
+    person:
+    given: Doug
+    family: Manuel
+    email: dmanuel@ohri.ca
+    inst: The Ottawa Hospital Research Institute
+    role:
+      - aut
+      - cre
+    ORCID: 0000-0003-0912-0845
+  metadata: bllflowV0.1
+
+  modelParameters:
+    outcome: all-cause mortality
+    timeMetric: years
+    maxTime: 5
+    baselineRisk: hAdj
+
+development:
+  startData: cchs_share_2001, cchs_share_2003, cchs_share_2005, cchs_share_2007, cchs_share_2009
+  variables:
+  variablesDetails:
+
+application:
+  setting: PBL web calculator
+  variables:
