@@ -3,6 +3,16 @@ This repo provides a template for required model parameters documents. The goal 
 
 # Model Export Files
 
+## Currently Supported Templates (Most are in development)
+
+* Algorithm publication template
+  * Algorithm development
+  * Algorithm validation
+* Algorithm implementation template
+  * Web calculators
+  * EMR Integration
+  * Calibration
+  
 ## variables.csv
 
 The *variables* file gives a summary of all the starting variables used in the model. A brief description of its columns are as follows:
