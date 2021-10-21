@@ -31,9 +31,10 @@ default:
 
 development:
   startData: cchs_share_2001, cchs_share_2003, cchs_share_2005, cchs_share_2007, cchs_share_2009
-  variables:
-  variablesDetails:
+  variables: phiat-yll_variables.csv
+  variablesDetails: cchsflow_varibable-details.csv
 
 application:
   setting: PBL web calculator
-  variables:
+  variables: mportV2-web_variables.csv
+  variablesDetails: lime-survey
