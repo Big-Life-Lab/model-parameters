@@ -86,7 +86,7 @@ The *model steps* file documents the steps to go from the start variables to the
 * **interactingVariables**: list of variables that interact, seperated by a semicolon
 * **interactionVariable**: name of the interaction variable
 
-## cox.csv (I THINK THIS SHOULD BE MORE GENERIC - OKAY WITH MODEL.CSV?)
+## model.csv
 
 * **variable**: variable name
 * **coefficient**: coefficient for this variable
