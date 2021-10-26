@@ -1,5 +1,5 @@
 # model-parameters-template (IN PROGRESS)
-This repo provides templates for all current model parameters documents. The goal is to describe the model and outline all the steps to go from the starting variables in the model to calculating the outcome of the model. These files provide a transparent, detailed description of the model for publication and/or implementation
+This repo provides templates for all current model parameter documents. The goal is to describe the model and outline all the steps to go from the starting variables in the model to calculating the outcome of the model. These files provide a transparent, detailed description of the model for publication and/or implementation
 
 # Model Export Files
 
