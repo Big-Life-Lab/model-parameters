@@ -1,8 +1,19 @@
-This template repository provides a starting point when making a model export repository for a new model. In short, a model export is a set of files that togther are used to implement the model in certain contexts. The full documentation can be seen [here](https://github.com/Big-Life-Lab/bllflow/blob/master/assets/specs/model-csv-to-pmml/model-csv-to-pmml-spec.Rmd). 
+# model-parameters-template (IN PROGRESS)
+This repo provides templates for all current model parameter documents. The goal is to describe the model and outline all the steps to go from the starting variables in the model to calculating the outcome of the model. These files provide a transparent, detailed description of the model for publication and/or implementation
 
 Each branch in this repository provides a starting point for a different type of model. Look [here](#Branches) for the list of branches and the models they're for.
 
-# Usage
+## Currently Supported Templates (Most are in development)
+
+* Algorithm publication template
+  * Algorithm development
+  * Algorithm validation
+* Algorithm implementation template
+  * Web calculators
+  * EMR Integration
+  * Calibration
+  
+## variables.csv
 
 1. Create a new GitHub repository
 2. In the "Repository template" section, select the **Big-Life-Lab/model-export-template** option
@@ -48,4 +59,24 @@ The files also provide the following information:
 
 ### /derived-vars
 
-* **bmi_cont.fun**: The function to run when creating the **BMi** derived variable
+## model.csv
+
+* **variable**: variable name
+* **coefficient**: coefficient for this variable
+
+## description.csv
+
+* **currently no column names**: (SHOULD THIS BE SET UP IN A MORE MACHINE READABLE WAY?; ALSO NEED TO DISCUSS HOW TO HANDLE HADJ AND 'BASELINE RISK' FILE)
+
+## missing-outlier-treatment.csv
+
+* **variable**: variable name
+* **fileName**: file that contains the values to be used for missing/outlier rules (usually, variables.csv)
+* **outlierTreatment**: rule to apply for values that are outside min/max setting
+* **missingTreatment**: rule to apply for values that are missing
+
+## baseline-risk.csv
+
+* **baselineTime**: baseline time 
+* **timeMetric**: unit of time for hazard function
+* **baselineHazard**: baseline hazard when all predictors are equal to zero at time t
