@@ -55,12 +55,12 @@ In the above validation CSV table,
 
 This is done using the `range` column.  We use the mathematical notation to define an [interval](<https://en.wikipedia.org/wiki/Interval_(mathematics)>). Examples are:
 
-- [1, 2]: All values between 1 and 2, inclusive of 1 and 2 will be filtered out
-- (1, 2]: All values between 1 and 2, only inclusive of 2 will be filtered out
-- [1, 2): All values between 1 and 2, only inclusive of 1 will be filtered out
-- (1, 2): All values between 1 and 2, excluding 1 and 2 will be filtered out
-- [Inf, 1]: All values between negative infinity and 1, including 1 will be filtered out
-- [1, Inf]: All values between 1 and positive infinity, including 1 will be filtered out
+- [1, 2]: All values between 1 and 2, inclusive of 1 and 2 are considered valid
+- (1, 2]: All values between 1 and 2, only inclusive of 2 are considered valid
+- [1, 2): All values between 1 and 2, only inclusive of 1 are considered valid
+- (1, 2): All values between 1 and 2, excluding 1 and 2 are considered valid
+- [Inf, 1]: All values between negative infinity and 1, including 1 are considered valid
+- [1, Inf]: All values between 1 and positive infinity, including 1 are considered valid
 
 The **Inf** keyword can be used to specify infinity either as the lower or upper bound.
 
