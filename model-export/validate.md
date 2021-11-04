@@ -149,5 +149,6 @@ In the above example,
 * The validation rule for age should be used in all settings. This can also be communicated by leaving the column value empty.
 * The first validation rule for sex should only be used in the EMR_1 EMR system
 * The second validation rule for sex should only be used in the EMR_2 EMR system
+* Notice how the `default_value` column is different between the two sex rules
 
 
