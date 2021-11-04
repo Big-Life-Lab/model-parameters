@@ -107,8 +107,8 @@ This is done using the `default_value` column. When missing values are allowed f
 
 | variable | type   | range   | allowed     | nullable | default_value |
 |----------|--------|---------|-------------|----------|---------------|   
-| age      | number | [20,81] |             | TRUE     |               |
-| sex      | string |         | male;female | FALSE    | male          |
+| age      | number | [20,81] |             | FALSE    |               |
+| sex      | string |         | male;female | TRUE     | male          |
 
 In the above example, 
 
@@ -129,8 +129,8 @@ For example,
 
 | variable | type   | range   | allowed     | nullable | default_value | error_handle |
 |----------|--------|---------|-------------|----------|---------------|--------------|   
-| age      | number | [20,81] |             | TRUE     |               | error        |
-| sex      | string |         | male;female | FALSE    | male          | warning      |
+| age      | number | [20,81] |             | FALSE    |               | error        |
+| sex      | string |         | male;female | TRUE     | male          | warning      |
 
 In the above example, if the age or sex values for a row are invalid, then that row should not be scored with the algorithm.
 
@@ -140,9 +140,9 @@ There may be situations where the validation rule for a variable is different de
 
 | variable | type   | range   | allowed     | nullable | default_value | error_handle | location |
 |----------|--------|---------|-------------|----------|---------------|--------------|----------|   
-| age      | number | [20,81] |             | TRUE     |               | error        | all      |
-| sex      | string |         | male;female | FALSE    | male          | warning      | EMR_1    |
-| sex      | string |         | male;female | FALSE    | female        | warning      | EMR_2    |
+| age      | number | [20,81] |             | FALSE    |               | error        | all      |
+| sex      | string |         | male;female | TRUE     | male          | warning      | EMR_1    |
+| sex      | string |         | male;female | TRUE     | female        | warning      | EMR_2    |
 
 In the above example,
 
