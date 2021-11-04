@@ -96,8 +96,8 @@ This is done using the `nullable` column. It can have one of two values, TRUE or
 
 | variable | type   | range   | allowed     | nullable |
 |----------|--------|---------|-------------|----------|   
-| age      | number | [20,81] |             | TRUE     |
-| sex      | string |         | male;female | FALSE    |
+| age      | number | [20,81] |             | FALSE    |
+| sex      | string |         | male;female | TRUE     |
 
 In the above example, the age variable cannot have a missing value while the sex variable can.
 
