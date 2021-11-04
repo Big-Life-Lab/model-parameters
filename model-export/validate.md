@@ -130,6 +130,6 @@ For example,
 | variable | type   | range   | allowed     | nullable | default_value | error_handle |
 |----------|--------|---------|-------------|----------|---------------|--------------|   
 | age      | number | [20,81] |             | TRUE     |               | error        |
-| sex      | string |         | male;female | FALSE    | male          | error        |
+| sex      | string |         | male;female | FALSE    | male          | warning      |
 
 In the above example, if the age or sex values for a row are invalid, then that row should not be scored with the algorithm.
