@@ -133,3 +133,21 @@ For example,
 | sex      | string |         | male;female | FALSE    | male          | warning      |
 
 In the above example, if the age or sex values for a row are invalid, then that row should not be scored with the algorithm.
+
+### Specifying where a validation rule can be used
+
+There may be situations where the validation rule for a variable is different depending on the setting in which the rule is implemented, this is done using the `location` column. The value can be any string value identifying the location in which it is valid. For example,
+
+| variable | type   | range   | allowed     | nullable | default_value | error_handle | location |
+|----------|--------|---------|-------------|----------|---------------|--------------|----------|   
+| age      | number | [20,81] |             | TRUE     |               | error        | all      |
+| sex      | string |         | male;female | FALSE    | male          | warning      | EMR_1    |
+| sex      | string |         | male;female | FALSE    | female        | warning      | EMR_2    |
+
+In the above example,
+
+* The validation rule for age should be used in all settings. This can also be communicated by leaving the column value empty.
+* The first validation rule for sex should only be used in the EMR_1 EMR system
+* The second validation rule for sex should only be used in the EMR_2 EMR system
+
+
