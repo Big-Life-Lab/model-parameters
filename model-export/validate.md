@@ -88,7 +88,7 @@ This is done using the `allowed` column. It is mainly used when specifying the a
 In the above example,
 
 * The age variable does not have a value for the `allowed` column since its a number and we've already specified its valid range in the `range` column
-* The sex variable is only allowed to have one of two values: male or female
+* The sex variable is only allowed to have one of two values: male or female. These values are case-sensitive.
 
 ### Whether a missing value in a variable is allowed or not
 
