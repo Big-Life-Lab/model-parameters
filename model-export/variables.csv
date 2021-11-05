@@ -1,8 +1,8 @@
 variable,role,label,labelLong,section,subject,typeEnd,units,description
-Sex,"predictor, descriptor",Sex,Sex,About You,Sex,cat,NA,
-Age_cont,predictor,Age,Age in years,About You,Age,cont,years,
-Age_cat_5,descriptor,Age,"Age, 10 year groups",About You,Age,cont,years,
-Edu5,"predictor, predictor",Education,Education,Sociodemographic,Education,cat,NA,
+Sex,"predictor, descriptive-statistics",Sex,Sex,About You,Sex,cat,NA,
+Age_cont,"predictor, descriptive-statistics",Age,Age in years,About You,Age,cont,years,
+Age_cat_5,"predictor, descriptive-statistics",Age,"Age, 10 year groups",About You,Age,cont,years,
+Edu5,"predictor, descriptive-statistics",Education,Education,Sociodemographic,Education,cat,NA,
 MS4,predictor,Marital Status,Marital Status,Sociodemographic,Marital Status,cat,NA,
 Stress,predictor,Stress,Life stress,General Health,Stress,cat,NA,
 SmokeSimple,predictor,Smoking Status,Smoking status,Health Behaviours,Smoking,cont,NA,
