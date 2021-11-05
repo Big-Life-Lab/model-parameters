@@ -1,7 +1,37 @@
 # Descriptive files
 
-There are a few descriptive file templates
+There are the following descriptive files
 
-- Table 1 - description of your study cohort
-- Survival bins
+* **descriptive-statistics.csv**: Table 1 a description of your study cohort
+* **descriptive-lookup.csv**: a reference file for results (if appicable)
+* **descriptive-bins.csv** a reference file for results (if applicable)
+
+## descriptive-statistics.csv
+
+* **variable**: name of the variable to describe (i.e., the rows in your table 1)
+* **catValue**: the varaible category
+* **groupBy_1**: the variable used to group your results by (i.e., the colums in your table 1)
+* **groupByValue_1**: the groupBy variable category
+* **n**: number of observations
+* **propotion**: proportion of observations
+** **median**: median value
+* **percentile25**: 
+* **percentile75**:
+
+- Note 1: you can add as many groupBy variables as you want (e.g., ... groupBy_2, groupByValue_2, groupBy_3, groupByValue_3, etc )
+
+- Note 2: Change percentile columns based on your reporting values (e.g., if you report the 95% CI change the columns to percentile5 and percentile95)
+
+## descriptive_lookup.csv
+
+* **variable**: name of the variable to describe
+* **CatValue**: the variable category
+* **Minscore**: the minimum range for a calculated value to fall within a category
+* **Maxscore**: the maximum range for a calculated value to fall within a category
+
+## descriptive_bins.csv
+
+* **variable**: name of the variable to describe
+* **catValue**: the variable category
+* **percentile**: a new column for each percentile (100-1)
 

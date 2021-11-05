@@ -1,4 +1,4 @@
-index,variable,cat,groupBy_1,groupByValue_1,n,proportion,median,percentile25,percentile75
+index,variable,catValue,groupBy_1,groupByValue_1,n,proportion,median,percentile25,percentile75
 1,Edu4,1,Sex,1,12,0.05,NA,NA,NA
 2,Edu4,1,Sex,2,10,0.041666667,NA,NA,NA
 3,Edu4,1,Sex,NA::a,0,0,NA,NA,NA
