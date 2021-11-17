@@ -3,17 +3,17 @@
 There are the following descriptive files
 
 * **descriptive-statistics.csv**: Table 1 a description of your study cohort
-* **descriptive-lookup.csv**: a reference file for results (if appicable)
+* **descriptive-lookup.csv**: a reference file used to group results into a bin or category (if applicable)
 * **descriptive-bins.csv** a reference file for results (if applicable)
 
 ## descriptive-statistics.csv
 
 * **variable**: name of the variable to describe (i.e., the rows in your table 1)
-* **catValue**: the varaible category
-* **groupBy_1**: the variable used to group your results by (i.e., the colums in your table 1)
+* **catValue**: the variable category (if applicable)
+* **groupBy_1**: the variable to group your results by (i.e., the columns in your table 1)
 * **groupByValue_1**: the groupBy variable category
 * **n**: number of observations
-* **propotion**: proportion of observations
+* **proportion**: proportion of observations (could have **percent** column instead)
 ** **median**: median value
 * **percentile25**: 
 * **percentile75**:
@@ -26,12 +26,11 @@ There are the following descriptive files
 
 * **variable**: name of the variable to describe
 * **CatValue**: the variable category
-* **Minscore**: the minimum range for a calculated value to fall within a category
-* **Maxscore**: the maximum range for a calculated value to fall within a category
+* **Range**: the range for a calculated value to fall within a category. List both the minimum and maximum value using inclusive [] or exclusive () brackets. 
 
 ## descriptive_bins.csv
 
 * **variable**: name of the variable to describe
-* **catValue**: the variable category
+* **catValue**: the variable category (if applicable)
 * **percentile**: a new column for each percentile (100-1)
 
