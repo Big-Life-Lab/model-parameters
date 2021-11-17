@@ -8,6 +8,7 @@ There are the following descriptive files
 
 ## descriptive-statistics.csv
 
+* **index**: a column used to quickly locate data without having to search every row in a database table every time a database table is accessed
 * **variable**: name of the variable to describe (i.e., the rows in your table 1)
 * **catValue**: the variable category (if applicable)
 * **groupBy_1**: the variable to group your results by (i.e., the columns in your table 1)
@@ -24,12 +25,14 @@ There are the following descriptive files
 
 ## descriptive-lookup.csv
 
+* **index**: a column used to quickly locate data without having to search every row in a database table every time a database table is accessed
 * **variable**: name of the variable to describe
 * **CatValue**: the variable category
 * **Range**: the range for a calculated value to fall within a category. List both the minimum and maximum value using inclusive [] or exclusive () brackets. 
 
 ## descriptive-bins.csv
 
+* **index**: a column used to quickly locate data without having to search every row in a database table every time a database table is accessed
 * **variable**: name of the variable to describe
 * **catValue**: the variable category (if applicable)
 * **percentile**: a new column for each percentile (100-1)
