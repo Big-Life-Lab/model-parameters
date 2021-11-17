@@ -22,13 +22,13 @@ There are the following descriptive files
 
 - Note 2: Change percentile columns based on your reporting values (e.g., if you report the 95% CI change the columns to percentile5 and percentile95)
 
-## descriptive_lookup.csv
+## descriptive-lookup.csv
 
 * **variable**: name of the variable to describe
 * **CatValue**: the variable category
 * **Range**: the range for a calculated value to fall within a category. List both the minimum and maximum value using inclusive [] or exclusive () brackets. 
 
-## descriptive_bins.csv
+## descriptive-bins.csv
 
 * **variable**: name of the variable to describe
 * **catValue**: the variable category (if applicable)
