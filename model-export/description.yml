@@ -13,14 +13,15 @@ default:
 
   authors:
     person:
-    given: Doug
-    family: Manuel
-    email: dmanuel@ohri.ca
-    inst: The Ottawa Hospital Research Institute
-    role:
-      - aut
-      - cre
-    ORCID: 0000-0003-0912-0845
+      given: Doug
+      family: Manuel
+      email: dmanuel@ohri.ca
+      inst: The Ottawa Hospital Research Institute
+      role:
+        - aut
+        - cre
+      ORCID: 0000-0003-0912-0845
+      
   metadata: bllflowV0.1
 
   modelParameters:
