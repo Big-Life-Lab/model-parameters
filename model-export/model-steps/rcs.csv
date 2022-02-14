@@ -1,0 +1,3 @@
+variable,rcsVariables,knots
+age_c,age_c_rcs1;age_c_rcs2,22;50;75
+BMI_c,BMI_c_rcs1;BMI_c_rcs2,18.5;24.9;30
