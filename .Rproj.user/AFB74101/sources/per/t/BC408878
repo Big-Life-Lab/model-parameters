@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1623787801983.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "265725546",
+    "id" : "BC408878",
+    "lastKnownWriteTime" : 1637172771,
+    "last_content_update" : 1637172771,
+    "path" : "~/Code/model-parameters-template/model-export/center.csv",
+    "project_path" : "model-export/center.csv",
+    "properties" : {
+        "cursorPosition" : "0,0",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "text"
+}
