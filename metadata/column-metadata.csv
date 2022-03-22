@@ -1,0 +1,10 @@
+﻿fileName,columnName,columnLabel,key,foreignKeyFile,foreignKeyColumn,columnType,columnDesc
+variables,variable,The name of the variable,,,,string,
+variables,role,The different processes that the variable was part of during the algorithm development,,,,string,
+variables,variableType,The statistical type of the variable,,,,category,
+variables,databaseStart,The databases that the variable can be harmonized from,,,,string,
+variables,variableStart,The names of the variable for each starting database,,,,string,
+variables,units,The units for the variable,,,,string,
+variables,label,A short description of the variable,,,,string,
+variables,labelLong,A long description of the variable,,,,string,
+variables,description,Should contain any issues that need to be taken into account before using this variable,,,,string,
