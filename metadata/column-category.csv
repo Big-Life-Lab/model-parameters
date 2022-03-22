@@ -1,3 +1,7 @@
 ﻿fileName,columnName,columnValue,desc
 variables,variableType,Categorical,Categorical type
 variables,variableType,Continuous,Continuous type
+variable-details,typeEnd,cat,Categorical type
+variable-details,typeEnd,cont,Continuous type
+variable-details,typeStart,cat,Categorical type
+variable-details,typeStart,cont,Continuous type
