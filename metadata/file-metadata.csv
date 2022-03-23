@@ -4,3 +4,4 @@ variable-details,Contains the details for the variables defined in a variables s
 descriptive-lookup,Contains the score range that each bin belongs to,
 descriptive-statistics,"Contains descriptive information, for example mean, median etc. for variables",
 model-export,Contains the list of all files that are part of the export for an algorithm,
+model-steps,Contains the steps to score an algorithm,

@@ -17,3 +17,12 @@ model-export,fileType,rcs,An RCS file
 model-export,fileType,interaction,An interaction file
 model-export,fileType,fine-and-gray,A fine and gray file
 model-export,fileType,cox,A cox file
+model-steps,step,dummy,Step used to create dummy variables
+model-steps,step,center,Step used to create centered variables
+model-steps,step,rcs,Steps used to create spline terms
+model-steps,step,interaction,Step used to create interaction terms
+model-steps,step,fine-and-gray,Step used to calculate the outcome of a fine and gray model
+model-steps,step,cox,Step used to calculate the outcome of a cox proportional hazards model
+model-steps,fileType,,Empty since certain steps don't need to specify the file type
+model-steps,fileType,beta-coefficients,A beta coefficients file for a fine and gray model or a cox model
+model-steps,fileType,baseline-hazards,The baseline hazards for a fine and gray model or a cox model
