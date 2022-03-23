@@ -28,3 +28,10 @@ model-steps,fileType,beta-coefficients,A beta coefficients file for a fine and g
 model-steps,fileType,baseline-hazards,The baseline hazards for a fine and gray model or a cox model
 interaction,interactionVariableType,cat,Categorical type
 interaction,interactionVariableType,cont,Continuous type
+validate,rule,type,Validate the data type of the variable
+validate,rule,range,Validate that the variable is within a range of values. Meant for continuous variables.
+validate,rule,allowed,Validate that the variable contains a value from a set of valid values. Meant for categorical variables.
+validate,rule,nullable,Whether missing values are allowed for a variable
+validate,errorHandle,error,"Failed validations for the variable should throw an error, stopping the scoring process"
+validate,errorHandle,warning,Failed validations for the variable should log a warning and continue the scoring process
+validate,errorHandle,truncate,"Failed validations for the variable should log a warning, truncate the failed variable value, and continue scoring process"
