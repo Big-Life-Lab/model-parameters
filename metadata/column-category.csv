@@ -26,3 +26,5 @@ model-steps,step,cox,Step used to calculate the outcome of a cox proportional ha
 model-steps,fileType,,Empty since certain steps don't need to specify the file type
 model-steps,fileType,beta-coefficients,A beta coefficients file for a fine and gray model or a cox model
 model-steps,fileType,baseline-hazards,The baseline hazards for a fine and gray model or a cox model
+interaction,interactionVariableType,cat,Categorical type
+interaction,interactionVariableType,cont,Continuous type

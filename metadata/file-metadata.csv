@@ -7,3 +7,4 @@ model-export,Contains the list of all files that are part of the export for an a
 model-steps,Contains the steps to score an algorithm,
 dummy,Contains the variables to convert to dummy variables,
 center,Contains the variables to create centered variables,
+interaction,Contains the interaction variables for an algorithm,
