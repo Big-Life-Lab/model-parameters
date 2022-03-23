@@ -27,3 +27,8 @@ variable-details,notes,Any issues/problems that users of this variable should co
 descriptive-lookup,variable,,,,,,
 descriptive-lookup,catValue,The bin number,,,,number,
 descriptive-lookup,range,The interval of score values that belong to the bin,,,,string,
+descriptive-statistics,variable,The variable whose descriptive statistics the row contains,,,,string,
+descriptive-statistics,catValue,The value of the category whose descriptive statistics the row contains. N/A for continuous variables.,,,,number,
+descriptive-statistics,n,The number of individuals used to calculate the row's statistics,,,,number,
+descriptive-statistics,proportion,The proportion of all the individuals in the study used to calculate this row's statistics,,,,number,
+descriptive-statistics,median,The median statistic,,,,number,
