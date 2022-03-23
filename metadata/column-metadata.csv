@@ -32,3 +32,5 @@ descriptive-statistics,catValue,The value of the category whose descriptive stat
 descriptive-statistics,n,The number of individuals used to calculate the row's statistics,,,,number,
 descriptive-statistics,proportion,The proportion of all the individuals in the study used to calculate this row's statistics,,,,number,
 descriptive-statistics,median,The median statistic,,,,number,
+model-export,fileType,The type of file,,,,category,
+model-export,filePath,The path to the file relative to the model export file,,,,string,
