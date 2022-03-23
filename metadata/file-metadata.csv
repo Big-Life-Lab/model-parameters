@@ -1,3 +1,4 @@
 ﻿fileName,fileLabel,fileDesc
 variables,Contains all the variables needed for algorithm development and implementation,
 variable-details,Contains the details for the variables defined in a variables sheet,
+descriptive-lookup,Contains the score range that each bin belongs to,

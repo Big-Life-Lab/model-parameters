@@ -24,3 +24,6 @@ variable-details,catStartLabel,The description for the category of the start var
 variable-details,variableStartShortLabel,A short description of the starting variables,,,,string,
 variable-details,variableStartLabel,A long description of the starting variables,,,,string,
 variable-details,notes,Any issues/problems that users of this variable should consider. Can also include any problems encountered during harmonization.,,,,string,
+descriptive-lookup,variable,,,,,,
+descriptive-lookup,catValue,The bin number,,,,number,
+descriptive-lookup,range,The interval of score values that belong to the bin,,,,string,
