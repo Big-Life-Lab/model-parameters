@@ -35,3 +35,5 @@ validate,rule,nullable,Whether missing values are allowed for a variable
 validate,errorHandle,error,"Failed validations for the variable should throw an error, stopping the scoring process"
 validate,errorHandle,warning,Failed validations for the variable should log a warning and continue the scoring process
 validate,errorHandle,truncate,"Failed validations for the variable should log a warning, truncate the failed variable value, and continue scoring process"
+beta-coefficients,type,cat,Categorical type
+beta-coefficients,type,cont,Continuous type
