@@ -59,3 +59,5 @@ validate,location,Which step in the scoring process the validation should be use
 beta-coefficients,variable,The name of the variable whose beta coefficient the row contains,,,,string,
 beta-coefficients,coefficient,The beta coefficient,,,,number,
 beta-coefficients,type,The statistical type of the variable,,,,category,
+baseline-hazards,time,The time upto which the baseline hazard should be used,,,,number,
+baseline-hazards,baselineHazard,The baseline hazard value,,,,number,
