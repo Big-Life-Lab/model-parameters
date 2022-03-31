@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Data Validation | Model Parameter Files</title>
+  <meta name="description" content="2 Data Validation | Model Parameter Files" />
+  <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Data Validation | Model Parameter Files" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Data Validation | Model Parameter Files" />
+  
+  
+  
+
+<meta name="author" content="Yulric Sequeira" />
+
+
+<meta name="date" content="2022-03-31" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction<span></span></a></li>
+<li class="chapter" data-level="2" data-path="data-validation.html"><a href="data-validation.html"><i class="fa fa-check"></i><b>2</b> Data Validation<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="data-validation.html"><a href="data-validation.html#introduction-1"><i class="fa fa-check"></i><b>2.1</b> Introduction<span></span></a></li>
+<li class="chapter" data-level="2.2" data-path="data-validation.html"><a href="data-validation.html#validation-csv-file-overview"><i class="fa fa-check"></i><b>2.2</b> Validation CSV File Overview<span></span></a></li>
+<li class="chapter" data-level="2.3" data-path="data-validation.html"><a href="data-validation.html#validation-features"><i class="fa fa-check"></i><b>2.3</b> Validation Features<span></span></a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="data-validation.html"><a href="data-validation.html#specifying-the-name-of-the-variable-to-validate"><i class="fa fa-check"></i><b>2.3.1</b> Specifying the name of the variable to validate<span></span></a></li>
+<li class="chapter" data-level="2.3.2" data-path="data-validation.html"><a href="data-validation.html#specifying-the-validation-rule-to-apply-to-the-variable-and-its-value"><i class="fa fa-check"></i><b>2.3.2</b> Specifying the validation rule to apply to the variable and its value<span></span></a></li>
+<li class="chapter" data-level="2.3.3" data-path="data-validation.html"><a href="data-validation.html#specifying-how-to-handle-failed-validations"><i class="fa fa-check"></i><b>2.3.3</b> Specifying how to handle failed validations<span></span></a></li>
+<li class="chapter" data-level="2.3.4" data-path="data-validation.html"><a href="data-validation.html#specifying-where-a-validation-rule-can-be-used"><i class="fa fa-check"></i><b>2.3.4</b> Specifying where a validation rule can be used<span></span></a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Model Parameter Files</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-validation" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Data Validation<a href="data-validation.html#data-validation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction-1" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Introduction<a href="data-validation.html#introduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When it comes time to integrate or implement an algorithm in a setting (EMR system, online tool, mobile application etc.), there are several data processing steps that may need to be done during the algorithm scoring process. One of these steps involves ensuring that the data coming from an implementation setting is valid before it can be used to score an algorithm. For example, if an algorithm has age as a covariate which has a valid range between 21 and 80, the implementation setting needs to flag rows with age values outside of this range as invalid. In addition, decisions need to be made and documented on how to deal with invalid values. For example, if age is invalid, should the algorithm scoring process be stopped? or do we move on but replace the invalid value with a valid one such as the population mean?</p>
+<p>The goal of the validation CSV file is to be the single source of truth for these data validation questions for an algorithm. In addition, the validation CSV file is meant to be a standard that will accomodate the data validation needs for all algorithms that need to be implemented. Finally, it will be machine actionable, meaning that a computer program should be able to read a validation CSV file and implement its rules on a dataset.</p>
+<p>This document is meant to be the single source of truth for the validation CSV file. It will go over the different validation features currently supported by the file, how to represent each feature in the file and a summary of all the columns in the file.</p>
+</div>
+<div id="validation-csv-file-overview" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Validation CSV File Overview<a href="data-validation.html#validation-csv-file-overview" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The validation CSV file is a CSV file that specifies the validation rules for the variables in an algorithm. Each row in the CSV file specifies a validation rule to apply to a variable as well as what to do when validation fails. Altogether the columns in the file specify:</p>
+<ul>
+<li>The name of the variable to validate</li>
+<li>The validation rule to apply to a variable</li>
+<li>The value to use for the specified validation rule</li>
+<li>What to do when the validation rule fails</li>
+</ul>
+</div>
+<div id="validation-features" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Validation Features<a href="data-validation.html#validation-features" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="specifying-the-name-of-the-variable-to-validate" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Specifying the name of the variable to validate<a href="data-validation.html#specifying-the-name-of-the-variable-to-validate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This is done using the <code>variable</code> column. For example,</p>
+<table>
+<thead>
+<tr class="header">
+<th>variable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>age</td>
+</tr>
+<tr class="even">
+<td>sex</td>
+</tr>
+</tbody>
+</table>
+<p>The above validation CSV table has two rows, one to specify the validation rules for the age variable and one row for the sex variable.</p>
+</div>
+<div id="specifying-the-validation-rule-to-apply-to-the-variable-and-its-value" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Specifying the validation rule to apply to the variable and its value<a href="data-validation.html#specifying-the-validation-rule-to-apply-to-the-variable-and-its-value" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This is done using the <code>rule</code> and <code>value</code> column. All the currently supported rules are described in the following sections</p>
+<div id="validating-the-data-type-of-a-variable" class="section level4 hasAnchor" number="2.3.2.1">
+<h4><span class="header-section-number">2.3.2.1</span> Validating the data type of a variable<a href="data-validation.html#validating-the-data-type-of-a-variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>This is done by using the <code>type</code> keyword in the <code>rule</code> column. The allowed values are:</p>
+<table>
+<colgroup>
+<col width="9%" />
+<col width="90%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Type Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>number</td>
+<td>Use when the variable value should be a number such as a deciaml or an integer</td>
+</tr>
+<tr class="even">
+<td>string</td>
+<td>Use when the variable value should be a string such as a categorical sex variable with categories “male” and “female”</td>
+</tr>
+</tbody>
+</table>
+<p>For example,</p>
+<table>
+<thead>
+<tr class="header">
+<th>variable</th>
+<th>rule</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>age</td>
+<td>type</td>
+<td>number</td>
+</tr>
+<tr class="even">
+<td>sex</td>
+<td>type</td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+<p>In the above validation CSV table,</p>
+<ul>
+<li>The age variable is a <code>number</code> type</li>
+<li>The sex variable is a <code>string</code> type</li>
+</ul>
+</div>
+<div id="validating-the-allowed-ranges-for-a-number-variable" class="section level4 hasAnchor" number="2.3.2.2">
+<h4><span class="header-section-number">2.3.2.2</span> Validating the allowed range(s) for a number variable<a href="data-validation.html#validating-the-allowed-ranges-for-a-number-variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>This is done using the <code>range</code> keyword in the <code>rule</code> column. We use the mathematical notation to define an <a href="https://en.wikipedia.org/wiki/Interval_(mathematics)">interval</a>. Examples are:</p>
+<ul>
+<li></li>
+<li>(1, 2]: All values between 1 and 2, only inclusive of 2 are considered valid</li>
+<li>[1, 2): All values between 1 and 2, only inclusive of 1 are considered valid</li>
+<li>(1, 2): All values between 1 and 2, excluding 1 and 2 are considered valid</li>
+<li></li>
+<li></li>
+</ul>
+<p>The <strong>Inf</strong> keyword can be used to specify infinity either as the lower or upper bound.</p>
+<p>For example,</p>
+<table>
+<thead>
+<tr class="header">
+<th>variable</th>
+<th>rule</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>age</td>
+<td>range</td>
+<td>[20,81]</td>
+</tr>
+</tbody>
+</table>
+<p>In the above example,</p>
+<ul>
+<li>The age variable has a valid range between 20 and 81, inclusive of its endpoints</li>
+<li>The sex variable is a string and adding a range rule would not make sense</li>
+</ul>
+</div>
+<div id="validating-the-allowed-values-for-a-string-variable" class="section level4 hasAnchor" number="2.3.2.3">
+<h4><span class="header-section-number">2.3.2.3</span> Validating the allowed values for a string variable<a href="data-validation.html#validating-the-allowed-values-for-a-string-variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>This is done using the <code>allowed</code> keyword in the <code>rule</code> column. It is mainly used when specifying the allowed category values for a categorical variable. Each allowed value should be seperated by a semi-colon. For example,</p>
+<table>
+<thead>
+<tr class="header">
+<th>variable</th>
+<th>rule</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>sex</td>
+<td>allowed</td>
+<td>male;female</td>
+</tr>
+</tbody>
+</table>
+<p>In the above example,</p>
+<ul>
+<li>The sex variable is only allowed to have one of two values: male or female. These values are case-sensitive.</li>
+<li>The age variable is a variable and adding an allowed rule would not make sense</li>
+</ul>
+</div>
+<div id="whether-a-missing-value-in-a-variable-is-allowed-or-not" class="section level4 hasAnchor" number="2.3.2.4">
+<h4><span class="header-section-number">2.3.2.4</span> Whether a missing value in a variable is allowed or not<a href="data-validation.html#whether-a-missing-value-in-a-variable-is-allowed-or-not" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>This is done using the <code>nullable</code> keyword in the <code>rule</code> column. It can have one of two values, TRUE or FALSE, to specify that missing values are allowed and the opposite respectively. For example,</p>
+<table>
+<thead>
+<tr class="header">
+<th>variable</th>
+<th>rule</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>age</td>
+<td>nullable</td>
+<td>FALSE</td>
+</tr>
+<tr class="even">
+<td>sex</td>
+<td>nullable</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<p>In the above example, the age variable cannot have a missing value while the sex variable can.</p>
+</div>
+</div>
+<div id="specifying-how-to-handle-failed-validations" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Specifying how to handle failed validations<a href="data-validation.html#specifying-how-to-handle-failed-validations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This is done using the <code>error_handle</code> column. The allowed values are:</p>
+<table>
+<colgroup>
+<col width="3%" />
+<col width="96%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>error</td>
+<td>Stop the algorithm scoring process</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>Log a warning but continue the algorithm scoring process</td>
+</tr>
+<tr class="odd">
+<td>truncate</td>
+<td>Only valid for number type variables. Replaces the invalid value with one of its range limits. If the value is above the upper limit, it will be set to the upper limit. If the value is below the lower limit, it will be set to the lower limit</td>
+</tr>
+</tbody>
+</table>
+<p>When handling a validation rule failure, there may be certain situations where the invalid value should be replaced with another valid value. This can be done using the <code>error_replace</code> column. This column can be a any value but will only be used when the <code>error_handle</code> column’s value is <strong>warning</strong></p>
+<p>For example,</p>
+<table>
+<thead>
+<tr class="header">
+<th>variable</th>
+<th>rule</th>
+<th>value</th>
+<th>error_handle</th>
+<th>error_replace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>age</td>
+<td>type</td>
+<td>number</td>
+<td>error</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>age</td>
+<td>range</td>
+<td>[20,81]</td>
+<td>truncate</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>age</td>
+<td>nullable</td>
+<td>FALSE</td>
+<td>error</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>sex</td>
+<td>type</td>
+<td>string</td>
+<td>error</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>sex</td>
+<td>allowed</td>
+<td>male;female</td>
+<td>error</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>sex</td>
+<td>nullable</td>
+<td>FALSE</td>
+<td>warning</td>
+<td>male</td>
+</tr>
+</tbody>
+</table>
+<p>In the above example,</p>
+<ul>
+<li>For the age variable, if its not a number or if its missing, then the process should throw an error and stop. However, if the valuie is a number and not in the valid range, it will be truncated to either the maximum and minimum range.</li>
+<li>For the sex variable, if its not a string or if it is a string but its not one of its allowed values, then the process should throw an error and stop. However, if the value is missing, it should log a warning and replace the missing value with <strong>male</strong>.</li>
+</ul>
+</div>
+<div id="specifying-where-a-validation-rule-can-be-used" class="section level3 hasAnchor" number="2.3.4">
+<h3><span class="header-section-number">2.3.4</span> Specifying where a validation rule can be used<a href="data-validation.html#specifying-where-a-validation-rule-can-be-used" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There may be situations where the validation rule for a variable is different depending on the setting in which the rule is implemented, this is done using the <code>location</code> column. The value can be any string value identifying the location in which it is valid. For example,</p>
+<table>
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="18%" />
+<col width="18%" />
+<col width="22%" />
+<col width="13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>variable</th>
+<th>rule</th>
+<th>value</th>
+<th>error_handle</th>
+<th>error_replace</th>
+<th>location</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>age</td>
+<td>type</td>
+<td>number</td>
+<td>error</td>
+<td></td>
+<td>all</td>
+</tr>
+<tr class="even">
+<td>age</td>
+<td>range</td>
+<td>[20,81]</td>
+<td>truncate</td>
+<td></td>
+<td>all</td>
+</tr>
+<tr class="odd">
+<td>age</td>
+<td>nullable</td>
+<td>FALSE</td>
+<td>error</td>
+<td></td>
+<td>all</td>
+</tr>
+<tr class="even">
+<td>sex</td>
+<td>type</td>
+<td>string</td>
+<td>error</td>
+<td></td>
+<td>all</td>
+</tr>
+<tr class="odd">
+<td>sex</td>
+<td>allowed</td>
+<td>male;female</td>
+<td>error</td>
+<td></td>
+<td>all</td>
+</tr>
+<tr class="even">
+<td>sex</td>
+<td>nullable</td>
+<td>FALSE</td>
+<td>warning</td>
+<td>male</td>
+<td>EMR_1</td>
+</tr>
+<tr class="odd">
+<td>sex</td>
+<td>nullable</td>
+<td>FALSE</td>
+<td>warning</td>
+<td>female</td>
+<td>EMR_2</td>
+</tr>
+</tbody>
+</table>
+<p>In the above example,</p>
+<ul>
+<li>The validation rule for age should be used in all settings. This can also be communicated by leaving the column value empty.</li>
+<li>All validation rules for sex should be used in all settings except for <strong>nullable</strong>. In the EMR_1 system, if sex is missing then it will be replaced with <strong>male</strong> whereas in EMR_2, if sex is missing then it will be replaced with <strong>female</strong>.</li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

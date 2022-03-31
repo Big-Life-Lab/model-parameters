@@ -1,0 +1,13 @@
+introduction
+data-validation
+introduction-1
+validation-csv-file-overview
+validation-features
+specifying-the-name-of-the-variable-to-validate
+specifying-the-validation-rule-to-apply-to-the-variable-and-its-value
+validating-the-data-type-of-a-variable
+validating-the-allowed-ranges-for-a-number-variable
+validating-the-allowed-values-for-a-string-variable
+whether-a-missing-value-in-a-variable-is-allowed-or-not
+specifying-how-to-handle-failed-validations
+specifying-where-a-validation-rule-can-be-used
