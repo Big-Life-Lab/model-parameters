@@ -1,0 +1,3 @@
+book_filename: "Model-Parameter-Files"
+rmd_subdir: ["Rmd/"]
+output_dir: "../docs"
