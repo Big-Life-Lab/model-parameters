@@ -42,7 +42,7 @@ This is done by using the `type` keyword in the `rule` column. The allowed value
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | number                | Use when the variable value should be a number such as a deciaml or an integer                                                                                               |
 | string                | Use when the variable value should be a string such as a categorical sex variable with categories "male" and "female"                                                        |
-| date::[<date format>] | Use when the variable is a string that contains a date. The format of the date should be specified using [R notation](https://www.r-bloggers.com/2013/08/date-formats-in-r/) |
+| date::[date_format] | Use when the variable is a string that contains a date. The format of the date should be specified using [R notation](https://www.r-bloggers.com/2013/08/date-formats-in-r/) |
 
 For example,
 
