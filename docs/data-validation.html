@@ -146,8 +146,8 @@
 <p>This is done by using the <code>type</code> keyword in the <code>rule</code> column. The allowed values are:</p>
 <table>
 <colgroup>
-<col width="9%" />
-<col width="90%" />
+<col width="11%" />
+<col width="88%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -163,6 +163,10 @@
 <tr class="even">
 <td>string</td>
 <td>Use when the variable value should be a string such as a categorical sex variable with categories “male” and “female”</td>
+</tr>
+<tr class="odd">
+<td>date::[date_format]</td>
+<td>Use when the variable is a string that contains a date. The format of the date should be specified using <a href="https://www.r-bloggers.com/2013/08/date-formats-in-r/">R notation</a></td>
 </tr>
 </tbody>
 </table>
@@ -186,12 +190,18 @@
 <td>type</td>
 <td>string</td>
 </tr>
+<tr class="odd">
+<td>date_of_birth</td>
+<td>type</td>
+<td>date::[%d-%m-%Y]</td>
+</tr>
 </tbody>
 </table>
 <p>In the above validation CSV table,</p>
 <ul>
 <li>The age variable is a <code>number</code> type</li>
 <li>The sex variable is a <code>string</code> type</li>
+<li>The date_of_birth variable is a <code>date</code> type and is formatted as <strong>%d-%m-%Y</strong>, for example, <strong>13-04-1989</strong>.</li>
 </ul>
 </div>
 <div id="validating-the-allowed-ranges-for-a-number-variable" class="section level4 hasAnchor" number="2.3.2.2">
