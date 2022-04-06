@@ -38,10 +38,11 @@ This is done using the `rule` and `value` column. All the currently supported ru
 
 This is done by using the `type` keyword in the `rule` column. The allowed values are:
 
-| Type Value | Description                                                                                                           |
-|------------|-----------------------------------------------------------------------------------------------------------------------|
-| number     | Use when the variable value should be a number such as a deciaml or an integer                                        |
-| string     | Use when the variable value should be a string such as a categorical sex variable with categories "male" and "female" |
+| Type Value            | Description                                                                                                                                                                  |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| number                | Use when the variable value should be a number such as a deciaml or an integer                                                                                               |
+| string                | Use when the variable value should be a string such as a categorical sex variable with categories "male" and "female"                                                        |
+| date::[date_format] | Use when the variable is a string that contains a date. The format of the date should be specified using [R notation](https://www.r-bloggers.com/2013/08/date-formats-in-r/) |
 
 For example,
 
@@ -49,11 +50,13 @@ For example,
 |----------|--------|--------|
 | age      | type   | number |
 | sex      | type   | string |
+| date_of_birth | type | date::[%d-%m-%Y] |
 
 In the above validation CSV table,
 
 * The age variable is a `number` type
 * The sex variable is a `string` type
+* The date_of_birth variable is a `date` type and is formatted as **%d-%m-%Y**, for example, **13-04-1989**.
 
 #### Validating the allowed range(s) for a number variable
 

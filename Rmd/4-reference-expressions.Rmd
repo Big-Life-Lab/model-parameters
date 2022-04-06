@@ -1,0 +1,87 @@
+# Reference Expressions
+
+```{r echo=FALSE}
+library(DT)
+```
+
+When creating a set of model parameter files for an algorithm, you may encounter situations where you're copying values between files. For example, you may want to use the median value of a variable described in a descriptive statistics file in a centering step file. Rather than copying the median value to the centering step file, we can use a reference expression to ensure that the two values are always synchronized, for example if the descriptive statistics file is updated. By using a reference expression we're creating a link between the cells of two different model parameter files.
+
+Imagine an algorithm developed to predict the risk of developing diabetes that has three variables, age, sex, and ethnicity. Age is a continuous variable, sex is dichotomous with categories male and female, and ethnicity is dichotomous with categories white and other. The descriptive statistics file named **diabetes-des-stats** with the mean for each variable and its categories are shown below.
+
+```{r echo=FALSE}
+descriptive_statistics <- data.frame(
+  variable = c("Age", "Sex", "Sex", "Ethnicity", "Ethnicity"),
+  catValue = c("N/A", "Male", "Female", "White", "Other"),
+  mean = c(45, 0.45, 0.55, 0.75, 0.25)
+)
+
+DT::datatable(descriptive_statistics)
+```
+
+Lets assume this is a cox proportionals hazards model, so the model parameter files should include all the steps to transform the initial set of variables to their final form, before they can be scored to calculate the risk of developing diabetes. This algorithm has only two steps, a step to create the dummy variables and a centering step. The variables are centered on their mean and the centering file can be seen below, 
+
+```{r echo=FALSE}
+no_ref_expressions_centering_step <- data.frame(
+  origVariable = c("Age", "Sex_Male", "Ethnicity_White"),
+  centerValue = c(
+    '45',
+    '0.45',
+    '0.75'
+  ),
+  centeredVariable = c("Age_centered", "Sex_Male_centered", "Ethnicity_White_centered"),
+  centeredVariableType = c("cont", "cat", "cat")
+)
+
+DT::datatable(no_ref_expressions_centering_step)
+```
+
+Note that only the male and ethnicity white variables were centered, females and ethnicity "other" are the reference.
+
+Without reference expressions the centering values in the centerValue column need to be copied from the descriptive statistics file. Every time the descriptive statistics file changes, the centering values need to be updated also. This may work for one file or for an algorithm with a few variables but gets tedious for more complicated algorithms with more model parameter files.
+
+Using reference expressions, we can eliminate these issues. The new centering step file is shown below.
+
+```{r echo=FALSE}
+ref_expressions_centering_step <- data.frame(  
+  origVariable = c("Age", "Sex_Male", "Ethnicity_White"),
+  centerValue = c(
+    'diabetes-des-stats[diabetes-des-stats$variable == "Age", ]$mean',
+    'diabetes-des-stats[diabetes-des-stats$variable == "Sex" & diabetes-des-stats$catValue == "Male", ]$mean',
+    'diabetes-des-stats[diabetes-des-stats$variable == "Ethnicity" & diabetes-des-stats$catValue == "White", ]$mean'
+  ),
+  centeredVariable = c("Age_centered", "Sex_Male_centered", "Ethnicity_White_centered"),
+  centeredVariableType = c("cont", "cat", "cat")
+)
+
+DT::datatable(ref_expressions_centering_step)
+```
+
+The centerValue column no longer has numbers but reference expressions. Each reference expression refers to a particular cell in the descriptive statistics file. If you're familiar with R code than you'll notice that its the same code you would use to subset a data frame. If you're unfamiliar with R, you can use [this](https://campus.datacamp.com/courses/model-a-quantitative-trading-strategy-in-r/chapter-1-introduction-to-r-for-trading?ex=4) datacamp tutorial to learn. In R, you would need to use the name of the data frame in your code, similarly here you would use the name of the referenced file instead. For example here the file name is **diabetes-des-stats**. There's no need to include the file extension for example .csv when referencing a file.
+
+Lets look at another example, but this time in the validation file for this algorithm. 
+
+```{r echo=FALSE}
+validation_file <- data.frame(
+  variable = c("Sex", "Age_centered"),
+  type = c("allowed", "nullable"),
+  value = c('diabetes-des-stats[diabetes-des-stats$variable == "Sex", ]$catValue', 'FALSE'),
+  error_handle = c("error", "warning"),
+  error_replace = c('diabetes-des-stats[diabetes-des-stats$variable == "Age", ]$mean', ""),
+  location = c("", "")
+)
+
+DT::datatable(validation_file)
+```
+
+The validation file has two cells where a reference expression was used:
+
+1. To specify the values that are allowed for the `Sex` variable. Here we want to specify all the category values for this variable but rather than adding in `Male;Female` we can simply reference these values from the `catValue` column in the descriptive statistics file using a reference expression.
+2. To specify the replacement value if the `Age_centered` variable is missing. Once again, rather than adding the actual mean value from the descriptive statistics file we can reference it using a reference expression.
+
+Currently, reference expressions can only be used in the following columns:
+
+* The `value` column in the validation file for an **allowed** rule
+* The `error_replace` column in the validation file
+* The `centerValue` column in a centering step file
+
+Also note that, referenced files need to be included in the list of files in a model export file.
