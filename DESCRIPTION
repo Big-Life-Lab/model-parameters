@@ -1,0 +1,19 @@
+Package: model-parameters-template
+Type: Package
+Title: Provides documentation for the different model parameter files and templates to start from
+Version: 1.0.0
+Date: 2021-11-01
+Authors@R: c(
+    person(given = "Yulric", 
+          family = "Sequeira",
+          role = c("ctb"),
+          email = "ysequeira@ohri.ca")
+  )
+Depends:
+  R (>= 4.1),
+  bookdown (>= 0.25)
+Encoding: UTF-8
+LazyData: true
+URL: https://github.com/Big-Life-Lab/model-parameters-template
+BugReports: https://github.com/Big-Life-Lab/model-parameters-template/issues
+RoxygenNote: 7.1.2
