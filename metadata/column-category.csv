@@ -23,7 +23,7 @@ model-steps,step,rcs,Steps used to create spline terms
 model-steps,step,interaction,Step used to create interaction terms
 model-steps,step,fine-and-gray,Step used to calculate the outcome of a fine and gray model
 model-steps,step,cox,Step used to calculate the outcome of a cox proportional hazards model
-model-steps,fileType,,Empty since certain steps don't need to specify the file type
+model-steps,fileType,N/A,Missing since certain steps don't need to specify the file type
 model-steps,fileType,beta-coefficients,A beta coefficients file for a fine and gray model or a cox model
 model-steps,fileType,baseline-hazards,The baseline hazards for a fine and gray model or a cox model
 interaction,interactionVariableType,cat,Categorical type
