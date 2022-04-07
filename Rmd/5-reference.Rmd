@@ -1,0 +1,21 @@
+```{r, echo=FALSE, results='asis'}
+source("../R/create-reference-Rmd.R")
+
+file_metadata <- read.csv(
+  "../metadata/file-metadata.csv",
+  fileEncoding = "UTF-8-BOM"
+)
+column_metadata <- read.csv(
+  "../metadata/column-metadata.csv",
+  fileEncoding = "UTF-8-BOM"
+)
+column_category_metadata <- read.csv(
+  "../metadata/column-category.csv",
+  fileEncoding = "UTF-8-BOM"
+)
+create_reference_Rmd(
+  file_metadata,
+  column_metadata,
+  column_category_metadata
+)
+```
