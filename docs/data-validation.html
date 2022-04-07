@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Data Validation | Model Parameter Files</title>
-  <meta name="description" content="2 Data Validation | Model Parameter Files" />
+  <title>3 Data Validation | Model Parameter Files</title>
+  <meta name="description" content="3 Data Validation | Model Parameter Files" />
   <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Data Validation | Model Parameter Files" />
+  <meta property="og:title" content="3 Data Validation | Model Parameter Files" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Data Validation | Model Parameter Files" />
+  <meta name="twitter:title" content="3 Data Validation | Model Parameter Files" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-
+<link rel="prev" href="model-parameter-files.html"/>
+<link rel="next" href="reference-expressions.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -52,8 +52,80 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.21/datatables.js"></script>
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 </head>
@@ -69,16 +141,84 @@
 
 <ul class="summary">
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction<span></span></a></li>
-<li class="chapter" data-level="2" data-path="data-validation.html"><a href="data-validation.html"><i class="fa fa-check"></i><b>2</b> Data Validation<span></span></a>
+<li class="chapter" data-level="2" data-path="model-parameter-files.html"><a href="model-parameter-files.html"><i class="fa fa-check"></i><b>2</b> Model Parameter files<span></span></a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="data-validation.html"><a href="data-validation.html#introduction-1"><i class="fa fa-check"></i><b>2.1</b> Introduction<span></span></a></li>
-<li class="chapter" data-level="2.2" data-path="data-validation.html"><a href="data-validation.html#validation-csv-file-overview"><i class="fa fa-check"></i><b>2.2</b> Validation CSV File Overview<span></span></a></li>
-<li class="chapter" data-level="2.3" data-path="data-validation.html"><a href="data-validation.html#validation-features"><i class="fa fa-check"></i><b>2.3</b> Validation Features<span></span></a>
+<li class="chapter" data-level="2.1" data-path="model-parameter-files.html"><a href="model-parameter-files.html#model-exports-file"><i class="fa fa-check"></i><b>2.1</b> Model Exports File<span></span></a></li>
+<li class="chapter" data-level="2.2" data-path="model-parameter-files.html"><a href="model-parameter-files.html#model-steps-file"><i class="fa fa-check"></i><b>2.2</b> Model Steps File<span></span></a></li>
+<li class="chapter" data-level="2.3" data-path="model-parameter-files.html"><a href="model-parameter-files.html#variable-details-file"><i class="fa fa-check"></i><b>2.3</b> Variable Details File<span></span></a></li>
+<li class="chapter" data-level="2.4" data-path="model-parameter-files.html"><a href="model-parameter-files.html#variables-file"><i class="fa fa-check"></i><b>2.4</b> Variables File<span></span></a></li>
+<li class="chapter" data-level="2.5" data-path="model-parameter-files.html"><a href="model-parameter-files.html#dummy-step-file"><i class="fa fa-check"></i><b>2.5</b> Dummy Step File<span></span></a></li>
+<li class="chapter" data-level="2.6" data-path="model-parameter-files.html"><a href="model-parameter-files.html#centering-step-file"><i class="fa fa-check"></i><b>2.6</b> Centering Step File<span></span></a></li>
+<li class="chapter" data-level="2.7" data-path="model-parameter-files.html"><a href="model-parameter-files.html#restricted-cubic-spline-rcs-step-file"><i class="fa fa-check"></i><b>2.7</b> Restricted Cubic Spline (RCS) Step File<span></span></a></li>
+<li class="chapter" data-level="2.8" data-path="model-parameter-files.html"><a href="model-parameter-files.html#interaction-step-file"><i class="fa fa-check"></i><b>2.8</b> Interaction Step File<span></span></a></li>
+<li class="chapter" data-level="2.9" data-path="model-parameter-files.html"><a href="model-parameter-files.html#fine-and-gray-model-step-files"><i class="fa fa-check"></i><b>2.9</b> Fine and Gray Model Step Files<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-validation.html"><a href="data-validation.html"><i class="fa fa-check"></i><b>3</b> Data Validation<span></span></a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="data-validation.html"><a href="data-validation.html#specifying-the-name-of-the-variable-to-validate"><i class="fa fa-check"></i><b>2.3.1</b> Specifying the name of the variable to validate<span></span></a></li>
-<li class="chapter" data-level="2.3.2" data-path="data-validation.html"><a href="data-validation.html#specifying-the-validation-rule-to-apply-to-the-variable-and-its-value"><i class="fa fa-check"></i><b>2.3.2</b> Specifying the validation rule to apply to the variable and its value<span></span></a></li>
-<li class="chapter" data-level="2.3.3" data-path="data-validation.html"><a href="data-validation.html#specifying-how-to-handle-failed-validations"><i class="fa fa-check"></i><b>2.3.3</b> Specifying how to handle failed validations<span></span></a></li>
-<li class="chapter" data-level="2.3.4" data-path="data-validation.html"><a href="data-validation.html#specifying-where-a-validation-rule-can-be-used"><i class="fa fa-check"></i><b>2.3.4</b> Specifying where a validation rule can be used<span></span></a></li>
+<li class="chapter" data-level="3.1" data-path="data-validation.html"><a href="data-validation.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction<span></span></a></li>
+<li class="chapter" data-level="3.2" data-path="data-validation.html"><a href="data-validation.html#validation-csv-file-overview"><i class="fa fa-check"></i><b>3.2</b> Validation CSV File Overview<span></span></a></li>
+<li class="chapter" data-level="3.3" data-path="data-validation.html"><a href="data-validation.html#validation-features"><i class="fa fa-check"></i><b>3.3</b> Validation Features<span></span></a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="data-validation.html"><a href="data-validation.html#specifying-the-name-of-the-variable-to-validate"><i class="fa fa-check"></i><b>3.3.1</b> Specifying the name of the variable to validate<span></span></a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-validation.html"><a href="data-validation.html#specifying-the-validation-rule-to-apply-to-the-variable-and-its-value"><i class="fa fa-check"></i><b>3.3.2</b> Specifying the validation rule to apply to the variable and its value<span></span></a></li>
+<li class="chapter" data-level="3.3.3" data-path="data-validation.html"><a href="data-validation.html#specifying-how-to-handle-failed-validations"><i class="fa fa-check"></i><b>3.3.3</b> Specifying how to handle failed validations<span></span></a></li>
+<li class="chapter" data-level="3.3.4" data-path="data-validation.html"><a href="data-validation.html#specifying-where-a-validation-rule-can-be-used"><i class="fa fa-check"></i><b>3.3.4</b> Specifying where a validation rule can be used<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="reference-expressions.html"><a href="reference-expressions.html"><i class="fa fa-check"></i><b>4</b> Reference Expressions<span></span></a></li>
+<li class="chapter" data-level="5" data-path="reference.html"><a href="reference.html"><i class="fa fa-check"></i><b>5</b> Reference<span></span></a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="reference.html"><a href="reference.html#variables"><i class="fa fa-check"></i><b>5.1</b> variables<span></span></a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="reference.html"><a href="reference.html#columns"><i class="fa fa-check"></i><b>5.1.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="reference.html"><a href="reference.html#variable-details"><i class="fa fa-check"></i><b>5.2</b> variable-details<span></span></a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="reference.html"><a href="reference.html#columns-1"><i class="fa fa-check"></i><b>5.2.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="reference.html"><a href="reference.html#descriptive-lookup"><i class="fa fa-check"></i><b>5.3</b> descriptive-lookup<span></span></a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="reference.html"><a href="reference.html#columns-2"><i class="fa fa-check"></i><b>5.3.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="reference.html"><a href="reference.html#descriptive-statistics"><i class="fa fa-check"></i><b>5.4</b> descriptive-statistics<span></span></a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="reference.html"><a href="reference.html#columns-3"><i class="fa fa-check"></i><b>5.4.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="reference.html"><a href="reference.html#model-export"><i class="fa fa-check"></i><b>5.5</b> model-export<span></span></a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="reference.html"><a href="reference.html#columns-4"><i class="fa fa-check"></i><b>5.5.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="reference.html"><a href="reference.html#model-steps"><i class="fa fa-check"></i><b>5.6</b> model-steps<span></span></a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="reference.html"><a href="reference.html#columns-5"><i class="fa fa-check"></i><b>5.6.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="reference.html"><a href="reference.html#dummy"><i class="fa fa-check"></i><b>5.7</b> dummy<span></span></a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="reference.html"><a href="reference.html#columns-6"><i class="fa fa-check"></i><b>5.7.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="reference.html"><a href="reference.html#center"><i class="fa fa-check"></i><b>5.8</b> center<span></span></a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="reference.html"><a href="reference.html#columns-7"><i class="fa fa-check"></i><b>5.8.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="reference.html"><a href="reference.html#interaction"><i class="fa fa-check"></i><b>5.9</b> interaction<span></span></a>
+<ul>
+<li class="chapter" data-level="5.9.1" data-path="reference.html"><a href="reference.html#columns-8"><i class="fa fa-check"></i><b>5.9.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.10" data-path="reference.html"><a href="reference.html#rcs"><i class="fa fa-check"></i><b>5.10</b> rcs<span></span></a>
+<ul>
+<li class="chapter" data-level="5.10.1" data-path="reference.html"><a href="reference.html#columns-9"><i class="fa fa-check"></i><b>5.10.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.11" data-path="reference.html"><a href="reference.html#validate"><i class="fa fa-check"></i><b>5.11</b> validate<span></span></a>
+<ul>
+<li class="chapter" data-level="5.11.1" data-path="reference.html"><a href="reference.html#columns-10"><i class="fa fa-check"></i><b>5.11.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.12" data-path="reference.html"><a href="reference.html#beta-coefficients"><i class="fa fa-check"></i><b>5.12</b> beta-coefficients<span></span></a>
+<ul>
+<li class="chapter" data-level="5.12.1" data-path="reference.html"><a href="reference.html#columns-11"><i class="fa fa-check"></i><b>5.12.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.13" data-path="reference.html"><a href="reference.html#baseline-hazards"><i class="fa fa-check"></i><b>5.13</b> baseline-hazards<span></span></a>
+<ul>
+<li class="chapter" data-level="5.13.1" data-path="reference.html"><a href="reference.html#columns-12"><i class="fa fa-check"></i><b>5.13.1</b> Columns<span></span></a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -98,16 +238,16 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-validation" class="section level1 hasAnchor" number="2">
-<h1><span class="header-section-number">2</span> Data Validation<a href="data-validation.html#data-validation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="introduction-1" class="section level2 hasAnchor" number="2.1">
-<h2><span class="header-section-number">2.1</span> Introduction<a href="data-validation.html#introduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="data-validation" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Data Validation<a href="data-validation.html#data-validation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction-1" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Introduction<a href="data-validation.html#introduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>When it comes time to integrate or implement an algorithm in a setting (EMR system, online tool, mobile application etc.), there are several data processing steps that may need to be done during the algorithm scoring process. One of these steps involves ensuring that the data coming from an implementation setting is valid before it can be used to score an algorithm. For example, if an algorithm has age as a covariate which has a valid range between 21 and 80, the implementation setting needs to flag rows with age values outside of this range as invalid. In addition, decisions need to be made and documented on how to deal with invalid values. For example, if age is invalid, should the algorithm scoring process be stopped? or do we move on but replace the invalid value with a valid one such as the population mean?</p>
 <p>The goal of the validation CSV file is to be the single source of truth for these data validation questions for an algorithm. In addition, the validation CSV file is meant to be a standard that will accomodate the data validation needs for all algorithms that need to be implemented. Finally, it will be machine actionable, meaning that a computer program should be able to read a validation CSV file and implement its rules on a dataset.</p>
 <p>This document is meant to be the single source of truth for the validation CSV file. It will go over the different validation features currently supported by the file, how to represent each feature in the file and a summary of all the columns in the file.</p>
 </div>
-<div id="validation-csv-file-overview" class="section level2 hasAnchor" number="2.2">
-<h2><span class="header-section-number">2.2</span> Validation CSV File Overview<a href="data-validation.html#validation-csv-file-overview" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="validation-csv-file-overview" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Validation CSV File Overview<a href="data-validation.html#validation-csv-file-overview" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The validation CSV file is a CSV file that specifies the validation rules for the variables in an algorithm. Each row in the CSV file specifies a validation rule to apply to a variable as well as what to do when validation fails. Altogether the columns in the file specify:</p>
 <ul>
 <li>The name of the variable to validate</li>
@@ -116,10 +256,10 @@
 <li>What to do when the validation rule fails</li>
 </ul>
 </div>
-<div id="validation-features" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> Validation Features<a href="data-validation.html#validation-features" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="specifying-the-name-of-the-variable-to-validate" class="section level3 hasAnchor" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> Specifying the name of the variable to validate<a href="data-validation.html#specifying-the-name-of-the-variable-to-validate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="validation-features" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Validation Features<a href="data-validation.html#validation-features" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="specifying-the-name-of-the-variable-to-validate" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Specifying the name of the variable to validate<a href="data-validation.html#specifying-the-name-of-the-variable-to-validate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This is done using the <code>variable</code> column. For example,</p>
 <table>
 <thead>
@@ -138,11 +278,11 @@
 </table>
 <p>The above validation CSV table has two rows, one to specify the validation rules for the age variable and one row for the sex variable.</p>
 </div>
-<div id="specifying-the-validation-rule-to-apply-to-the-variable-and-its-value" class="section level3 hasAnchor" number="2.3.2">
-<h3><span class="header-section-number">2.3.2</span> Specifying the validation rule to apply to the variable and its value<a href="data-validation.html#specifying-the-validation-rule-to-apply-to-the-variable-and-its-value" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="specifying-the-validation-rule-to-apply-to-the-variable-and-its-value" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Specifying the validation rule to apply to the variable and its value<a href="data-validation.html#specifying-the-validation-rule-to-apply-to-the-variable-and-its-value" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This is done using the <code>rule</code> and <code>value</code> column. All the currently supported rules are described in the following sections</p>
-<div id="validating-the-data-type-of-a-variable" class="section level4 hasAnchor" number="2.3.2.1">
-<h4><span class="header-section-number">2.3.2.1</span> Validating the data type of a variable<a href="data-validation.html#validating-the-data-type-of-a-variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="validating-the-data-type-of-a-variable" class="section level4 hasAnchor" number="3.3.2.1">
+<h4><span class="header-section-number">3.3.2.1</span> Validating the data type of a variable<a href="data-validation.html#validating-the-data-type-of-a-variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>This is done by using the <code>type</code> keyword in the <code>rule</code> column. The allowed values are:</p>
 <table>
 <colgroup>
@@ -204,8 +344,8 @@
 <li>The date_of_birth variable is a <code>date</code> type and is formatted as <strong>%d-%m-%Y</strong>, for example, <strong>13-04-1989</strong>.</li>
 </ul>
 </div>
-<div id="validating-the-allowed-ranges-for-a-number-variable" class="section level4 hasAnchor" number="2.3.2.2">
-<h4><span class="header-section-number">2.3.2.2</span> Validating the allowed range(s) for a number variable<a href="data-validation.html#validating-the-allowed-ranges-for-a-number-variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="validating-the-allowed-ranges-for-a-number-variable" class="section level4 hasAnchor" number="3.3.2.2">
+<h4><span class="header-section-number">3.3.2.2</span> Validating the allowed range(s) for a number variable<a href="data-validation.html#validating-the-allowed-ranges-for-a-number-variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>This is done using the <code>range</code> keyword in the <code>rule</code> column. We use the mathematical notation to define an <a href="https://en.wikipedia.org/wiki/Interval_(mathematics)">interval</a>. Examples are:</p>
 <ul>
 <li></li>
@@ -239,8 +379,8 @@
 <li>The sex variable is a string and adding a range rule would not make sense</li>
 </ul>
 </div>
-<div id="validating-the-allowed-values-for-a-string-variable" class="section level4 hasAnchor" number="2.3.2.3">
-<h4><span class="header-section-number">2.3.2.3</span> Validating the allowed values for a string variable<a href="data-validation.html#validating-the-allowed-values-for-a-string-variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="validating-the-allowed-values-for-a-string-variable" class="section level4 hasAnchor" number="3.3.2.3">
+<h4><span class="header-section-number">3.3.2.3</span> Validating the allowed values for a string variable<a href="data-validation.html#validating-the-allowed-values-for-a-string-variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>This is done using the <code>allowed</code> keyword in the <code>rule</code> column. It is mainly used when specifying the allowed category values for a categorical variable. Each allowed value should be seperated by a semi-colon. For example,</p>
 <table>
 <thead>
@@ -264,8 +404,8 @@
 <li>The age variable is a variable and adding an allowed rule would not make sense</li>
 </ul>
 </div>
-<div id="whether-a-missing-value-in-a-variable-is-allowed-or-not" class="section level4 hasAnchor" number="2.3.2.4">
-<h4><span class="header-section-number">2.3.2.4</span> Whether a missing value in a variable is allowed or not<a href="data-validation.html#whether-a-missing-value-in-a-variable-is-allowed-or-not" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="whether-a-missing-value-in-a-variable-is-allowed-or-not" class="section level4 hasAnchor" number="3.3.2.4">
+<h4><span class="header-section-number">3.3.2.4</span> Whether a missing value in a variable is allowed or not<a href="data-validation.html#whether-a-missing-value-in-a-variable-is-allowed-or-not" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>This is done using the <code>nullable</code> keyword in the <code>rule</code> column. It can have one of two values, TRUE or FALSE, to specify that missing values are allowed and the opposite respectively. For example,</p>
 <table>
 <thead>
@@ -291,8 +431,8 @@
 <p>In the above example, the age variable cannot have a missing value while the sex variable can.</p>
 </div>
 </div>
-<div id="specifying-how-to-handle-failed-validations" class="section level3 hasAnchor" number="2.3.3">
-<h3><span class="header-section-number">2.3.3</span> Specifying how to handle failed validations<a href="data-validation.html#specifying-how-to-handle-failed-validations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="specifying-how-to-handle-failed-validations" class="section level3 hasAnchor" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Specifying how to handle failed validations<a href="data-validation.html#specifying-how-to-handle-failed-validations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This is done using the <code>error_handle</code> column. The allowed values are:</p>
 <table>
 <colgroup>
@@ -383,8 +523,8 @@
 <li>For the sex variable, if its not a string or if it is a string but its not one of its allowed values, then the process should throw an error and stop. However, if the value is missing, it should log a warning and replace the missing value with <strong>male</strong>.</li>
 </ul>
 </div>
-<div id="specifying-where-a-validation-rule-can-be-used" class="section level3 hasAnchor" number="2.3.4">
-<h3><span class="header-section-number">2.3.4</span> Specifying where a validation rule can be used<a href="data-validation.html#specifying-where-a-validation-rule-can-be-used" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="specifying-where-a-validation-rule-can-be-used" class="section level3 hasAnchor" number="3.3.4">
+<h3><span class="header-section-number">3.3.4</span> Specifying where a validation rule can be used<a href="data-validation.html#specifying-where-a-validation-rule-can-be-used" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There may be situations where the validation rule for a variable is different depending on the setting in which the rule is implemented, this is done using the <code>location</code> column. The value can be any string value identifying the location in which it is valid. For example,</p>
 <table>
 <colgroup>
@@ -478,8 +618,8 @@
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="model-parameter-files.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="reference-expressions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

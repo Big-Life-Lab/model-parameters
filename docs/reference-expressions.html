@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | Model Parameter Files</title>
-  <meta name="description" content="Page not found | Model Parameter Files" />
+  <title>4 Reference Expressions | Model Parameter Files</title>
+  <meta name="description" content="4 Reference Expressions | Model Parameter Files" />
   <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | Model Parameter Files" />
+  <meta property="og:title" content="4 Reference Expressions | Model Parameter Files" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | Model Parameter Files" />
+  <meta name="twitter:title" content="4 Reference Expressions | Model Parameter Files" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="data-validation.html"/>
+<link rel="next" href="reference.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -238,19 +238,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="reference-expressions" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Reference Expressions<a href="reference-expressions.html#reference-expressions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>When creating a set of model parameter files for an algorithm, you may encounter situations where you’re copying values between files. For example, you may want to use the median value of a variable described in a descriptive statistics file in a centering step file. Rather than copying the median value to the centering step file, we can use a reference expression to ensure that the two values are always synchronized, for example if the descriptive statistics file is updated. By using a reference expression we’re creating a link between the cells of two different model parameter files.</p>
+<p>Imagine an algorithm developed to predict the risk of developing diabetes that has three variables, age, sex, and ethnicity. Age is a continuous variable, sex is dichotomous with categories male and female, and ethnicity is dichotomous with categories white and other. The descriptive statistics file named <strong>diabetes-des-stats</strong> with the mean for each variable and its categories are shown below.</p>
+<div id="htmlwidget-5a15c0d51a75b96a8255" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5a15c0d51a75b96a8255">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5"],["Age","Sex","Sex","Ethnicity","Ethnicity"],["N/A","Male","Female","White","Other"],[45,0.45,0.55,0.75,0.25]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>variable<\/th>\n      <th>catValue<\/th>\n      <th>mean<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>Lets assume this is a cox proportionals hazards model, so the model parameter files should include all the steps to transform the initial set of variables to their final form, before they can be scored to calculate the risk of developing diabetes. This algorithm has only two steps, a step to create the dummy variables and a centering step. The variables are centered on their mean and the centering file can be seen below,</p>
+<div id="htmlwidget-4ba2fc0176d65b1ba9d6" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4ba2fc0176d65b1ba9d6">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["Age","Sex_Male","Ethnicity_White"],["45","0.45","0.75"],["Age_centered","Sex_Male_centered","Ethnicity_White_centered"],["cont","cat","cat"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>origVariable<\/th>\n      <th>centerValue<\/th>\n      <th>centeredVariable<\/th>\n      <th>centeredVariableType<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>Note that only the male and ethnicity white variables were centered, females and ethnicity “other” are the reference.</p>
+<p>Without reference expressions the centering values in the centerValue column need to be copied from the descriptive statistics file. Every time the descriptive statistics file changes, the centering values need to be updated also. This may work for one file or for an algorithm with a few variables but gets tedious for more complicated algorithms with more model parameter files.</p>
+<p>Using reference expressions, we can eliminate these issues. The new centering step file is shown below.</p>
+<div id="htmlwidget-1b9b8dd2eb2b441c462a" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1b9b8dd2eb2b441c462a">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["Age","Sex_Male","Ethnicity_White"],["diabetes-des-stats[diabetes-des-stats$variable == \"Age\", ]$mean","diabetes-des-stats[diabetes-des-stats$variable == \"Sex\" &amp; diabetes-des-stats$catValue == \"Male\", ]$mean","diabetes-des-stats[diabetes-des-stats$variable == \"Ethnicity\" &amp; diabetes-des-stats$catValue == \"White\", ]$mean"],["Age_centered","Sex_Male_centered","Ethnicity_White_centered"],["cont","cat","cat"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>origVariable<\/th>\n      <th>centerValue<\/th>\n      <th>centeredVariable<\/th>\n      <th>centeredVariableType<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>The centerValue column no longer has numbers but reference expressions. Each reference expression refers to a particular cell in the descriptive statistics file. If you’re familiar with R code than you’ll notice that its the same code you would use to subset a data frame. If you’re unfamiliar with R, you can use <a href="https://campus.datacamp.com/courses/model-a-quantitative-trading-strategy-in-r/chapter-1-introduction-to-r-for-trading?ex=4">this</a> datacamp tutorial to learn. In R, you would need to use the name of the data frame in your code, similarly here you would use the name of the referenced file instead. For example here the file name is <strong>diabetes-des-stats</strong>. There’s no need to include the file extension for example .csv when referencing a file.</p>
+<p>Lets look at another example, but this time in the validation file for this algorithm.</p>
+<div id="htmlwidget-d6a0a3c0580043f36af5" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d6a0a3c0580043f36af5">{"x":{"filter":"none","vertical":false,"data":[["1","2"],["Sex","Age_centered"],["allowed","nullable"],["diabetes-des-stats[diabetes-des-stats$variable == \"Sex\", ]$catValue","FALSE"],["error","warning"],["diabetes-des-stats[diabetes-des-stats$variable == \"Age\", ]$mean",""],["",""]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>variable<\/th>\n      <th>type<\/th>\n      <th>value<\/th>\n      <th>error_handle<\/th>\n      <th>error_replace<\/th>\n      <th>location<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>The validation file has two cells where a reference expression was used:</p>
+<ol style="list-style-type: decimal">
+<li>To specify the values that are allowed for the <code>Sex</code> variable. Here we want to specify all the category values for this variable but rather than adding in <code>Male;Female</code> we can simply reference these values from the <code>catValue</code> column in the descriptive statistics file using a reference expression.</li>
+<li>To specify the replacement value if the <code>Age_centered</code> variable is missing. Once again, rather than adding the actual mean value from the descriptive statistics file we can reference it using a reference expression.</li>
+</ol>
+<p>Currently, reference expressions can only be used in the following columns:</p>
+<ul>
+<li>The <code>value</code> column in the validation file for an <strong>allowed</strong> rule</li>
+<li>The <code>error_replace</code> column in the validation file</li>
+<li>The <code>centerValue</code> column in a centering step file</li>
+</ul>
+<p>Also note that, referenced files need to be included in the list of files in a model export file.</p>
+
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="data-validation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="reference.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

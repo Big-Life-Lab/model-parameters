@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Reference | Model Parameter Files</title>
+  <meta name="description" content="5 Reference | Model Parameter Files" />
+  <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Reference | Model Parameter Files" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Reference | Model Parameter Files" />
+  
+  
+  
+
+<meta name="author" content="Yulric Sequeira" />
+
+
+<meta name="date" content="2022-03-31" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="reference-expressions.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.21/datatables.js"></script>
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction<span></span></a></li>
+<li class="chapter" data-level="2" data-path="model-parameter-files.html"><a href="model-parameter-files.html"><i class="fa fa-check"></i><b>2</b> Model Parameter files<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="model-parameter-files.html"><a href="model-parameter-files.html#model-exports-file"><i class="fa fa-check"></i><b>2.1</b> Model Exports File<span></span></a></li>
+<li class="chapter" data-level="2.2" data-path="model-parameter-files.html"><a href="model-parameter-files.html#model-steps-file"><i class="fa fa-check"></i><b>2.2</b> Model Steps File<span></span></a></li>
+<li class="chapter" data-level="2.3" data-path="model-parameter-files.html"><a href="model-parameter-files.html#variable-details-file"><i class="fa fa-check"></i><b>2.3</b> Variable Details File<span></span></a></li>
+<li class="chapter" data-level="2.4" data-path="model-parameter-files.html"><a href="model-parameter-files.html#variables-file"><i class="fa fa-check"></i><b>2.4</b> Variables File<span></span></a></li>
+<li class="chapter" data-level="2.5" data-path="model-parameter-files.html"><a href="model-parameter-files.html#dummy-step-file"><i class="fa fa-check"></i><b>2.5</b> Dummy Step File<span></span></a></li>
+<li class="chapter" data-level="2.6" data-path="model-parameter-files.html"><a href="model-parameter-files.html#centering-step-file"><i class="fa fa-check"></i><b>2.6</b> Centering Step File<span></span></a></li>
+<li class="chapter" data-level="2.7" data-path="model-parameter-files.html"><a href="model-parameter-files.html#restricted-cubic-spline-rcs-step-file"><i class="fa fa-check"></i><b>2.7</b> Restricted Cubic Spline (RCS) Step File<span></span></a></li>
+<li class="chapter" data-level="2.8" data-path="model-parameter-files.html"><a href="model-parameter-files.html#interaction-step-file"><i class="fa fa-check"></i><b>2.8</b> Interaction Step File<span></span></a></li>
+<li class="chapter" data-level="2.9" data-path="model-parameter-files.html"><a href="model-parameter-files.html#fine-and-gray-model-step-files"><i class="fa fa-check"></i><b>2.9</b> Fine and Gray Model Step Files<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-validation.html"><a href="data-validation.html"><i class="fa fa-check"></i><b>3</b> Data Validation<span></span></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-validation.html"><a href="data-validation.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction<span></span></a></li>
+<li class="chapter" data-level="3.2" data-path="data-validation.html"><a href="data-validation.html#validation-csv-file-overview"><i class="fa fa-check"></i><b>3.2</b> Validation CSV File Overview<span></span></a></li>
+<li class="chapter" data-level="3.3" data-path="data-validation.html"><a href="data-validation.html#validation-features"><i class="fa fa-check"></i><b>3.3</b> Validation Features<span></span></a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="data-validation.html"><a href="data-validation.html#specifying-the-name-of-the-variable-to-validate"><i class="fa fa-check"></i><b>3.3.1</b> Specifying the name of the variable to validate<span></span></a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-validation.html"><a href="data-validation.html#specifying-the-validation-rule-to-apply-to-the-variable-and-its-value"><i class="fa fa-check"></i><b>3.3.2</b> Specifying the validation rule to apply to the variable and its value<span></span></a></li>
+<li class="chapter" data-level="3.3.3" data-path="data-validation.html"><a href="data-validation.html#specifying-how-to-handle-failed-validations"><i class="fa fa-check"></i><b>3.3.3</b> Specifying how to handle failed validations<span></span></a></li>
+<li class="chapter" data-level="3.3.4" data-path="data-validation.html"><a href="data-validation.html#specifying-where-a-validation-rule-can-be-used"><i class="fa fa-check"></i><b>3.3.4</b> Specifying where a validation rule can be used<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="reference-expressions.html"><a href="reference-expressions.html"><i class="fa fa-check"></i><b>4</b> Reference Expressions<span></span></a></li>
+<li class="chapter" data-level="5" data-path="reference.html"><a href="reference.html"><i class="fa fa-check"></i><b>5</b> Reference<span></span></a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="reference.html"><a href="reference.html#variables"><i class="fa fa-check"></i><b>5.1</b> variables<span></span></a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="reference.html"><a href="reference.html#columns"><i class="fa fa-check"></i><b>5.1.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="reference.html"><a href="reference.html#variable-details"><i class="fa fa-check"></i><b>5.2</b> variable-details<span></span></a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="reference.html"><a href="reference.html#columns-1"><i class="fa fa-check"></i><b>5.2.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="reference.html"><a href="reference.html#descriptive-lookup"><i class="fa fa-check"></i><b>5.3</b> descriptive-lookup<span></span></a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="reference.html"><a href="reference.html#columns-2"><i class="fa fa-check"></i><b>5.3.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="reference.html"><a href="reference.html#descriptive-statistics"><i class="fa fa-check"></i><b>5.4</b> descriptive-statistics<span></span></a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="reference.html"><a href="reference.html#columns-3"><i class="fa fa-check"></i><b>5.4.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="reference.html"><a href="reference.html#model-export"><i class="fa fa-check"></i><b>5.5</b> model-export<span></span></a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="reference.html"><a href="reference.html#columns-4"><i class="fa fa-check"></i><b>5.5.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="reference.html"><a href="reference.html#model-steps"><i class="fa fa-check"></i><b>5.6</b> model-steps<span></span></a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="reference.html"><a href="reference.html#columns-5"><i class="fa fa-check"></i><b>5.6.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="reference.html"><a href="reference.html#dummy"><i class="fa fa-check"></i><b>5.7</b> dummy<span></span></a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="reference.html"><a href="reference.html#columns-6"><i class="fa fa-check"></i><b>5.7.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="reference.html"><a href="reference.html#center"><i class="fa fa-check"></i><b>5.8</b> center<span></span></a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="reference.html"><a href="reference.html#columns-7"><i class="fa fa-check"></i><b>5.8.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="reference.html"><a href="reference.html#interaction"><i class="fa fa-check"></i><b>5.9</b> interaction<span></span></a>
+<ul>
+<li class="chapter" data-level="5.9.1" data-path="reference.html"><a href="reference.html#columns-8"><i class="fa fa-check"></i><b>5.9.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.10" data-path="reference.html"><a href="reference.html#rcs"><i class="fa fa-check"></i><b>5.10</b> rcs<span></span></a>
+<ul>
+<li class="chapter" data-level="5.10.1" data-path="reference.html"><a href="reference.html#columns-9"><i class="fa fa-check"></i><b>5.10.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.11" data-path="reference.html"><a href="reference.html#validate"><i class="fa fa-check"></i><b>5.11</b> validate<span></span></a>
+<ul>
+<li class="chapter" data-level="5.11.1" data-path="reference.html"><a href="reference.html#columns-10"><i class="fa fa-check"></i><b>5.11.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.12" data-path="reference.html"><a href="reference.html#beta-coefficients"><i class="fa fa-check"></i><b>5.12</b> beta-coefficients<span></span></a>
+<ul>
+<li class="chapter" data-level="5.12.1" data-path="reference.html"><a href="reference.html#columns-11"><i class="fa fa-check"></i><b>5.12.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.13" data-path="reference.html"><a href="reference.html#baseline-hazards"><i class="fa fa-check"></i><b>5.13</b> baseline-hazards<span></span></a>
+<ul>
+<li class="chapter" data-level="5.13.1" data-path="reference.html"><a href="reference.html#columns-12"><i class="fa fa-check"></i><b>5.13.1</b> Columns<span></span></a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Model Parameter Files</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="reference" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> Reference<a href="reference.html#reference" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="variables" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> variables<a href="reference.html#variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Contains all the variables needed for algorithm development and implementation</p>
+<div id="columns" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Columns<a href="reference.html#columns" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="variable" class="section level4 hasAnchor" number="5.1.1.1">
+<h4><span class="header-section-number">5.1.1.1</span> variable<a href="reference.html#variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The name of the variable</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="role" class="section level4 hasAnchor" number="5.1.1.2">
+<h4><span class="header-section-number">5.1.1.2</span> role<a href="reference.html#role" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The different processes that the variable was part of during the algorithm development</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="variabletype" class="section level4 hasAnchor" number="5.1.1.3">
+<h4><span class="header-section-number">5.1.1.3</span> variableType<a href="reference.html#variabletype" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The statistical type of the variable</p>
+<p><strong>Type:</strong> category</p>
+<table>
+<thead>
+<tr class="header">
+<th>Category Value</th>
+<th>Category Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Categorical</td>
+<td>Categorical type</td>
+</tr>
+<tr class="even">
+<td>Continuous</td>
+<td>Continuous type</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="databasestart" class="section level4 hasAnchor" number="5.1.1.4">
+<h4><span class="header-section-number">5.1.1.4</span> databaseStart<a href="reference.html#databasestart" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The databases that the variable can be harmonized from</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="variablestart" class="section level4 hasAnchor" number="5.1.1.5">
+<h4><span class="header-section-number">5.1.1.5</span> variableStart<a href="reference.html#variablestart" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The names of the variable for each starting database</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="units" class="section level4 hasAnchor" number="5.1.1.6">
+<h4><span class="header-section-number">5.1.1.6</span> units<a href="reference.html#units" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The units for the variable</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="label" class="section level4 hasAnchor" number="5.1.1.7">
+<h4><span class="header-section-number">5.1.1.7</span> label<a href="reference.html#label" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A short description of the variable</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="labellong" class="section level4 hasAnchor" number="5.1.1.8">
+<h4><span class="header-section-number">5.1.1.8</span> labelLong<a href="reference.html#labellong" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A long description of the variable</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="description" class="section level4 hasAnchor" number="5.1.1.9">
+<h4><span class="header-section-number">5.1.1.9</span> description<a href="reference.html#description" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Should contain any issues that need to be taken into account before using this variable</p>
+<p><strong>Type:</strong> string</p>
+</div>
+</div>
+</div>
+<div id="variable-details" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> variable-details<a href="reference.html#variable-details" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Contains the details for the variables defined in a variables sheet</p>
+<div id="columns-1" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Columns<a href="reference.html#columns-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="variable-1" class="section level4 hasAnchor" number="5.2.1.1">
+<h4><span class="header-section-number">5.2.1.1</span> variable<a href="reference.html#variable-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The name of the variable</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="dummyvariable" class="section level4 hasAnchor" number="5.2.1.2">
+<h4><span class="header-section-number">5.2.1.2</span> dummyVariable<a href="reference.html#dummyvariable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The name of the dummy variable. Not valid if the variable is continuous.</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="typeend" class="section level4 hasAnchor" number="5.2.1.3">
+<h4><span class="header-section-number">5.2.1.3</span> typeEnd<a href="reference.html#typeend" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The type of the variable</p>
+<p><strong>Type:</strong> category</p>
+<table>
+<thead>
+<tr class="header">
+<th>Category Value</th>
+<th>Category Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>cat</td>
+<td>Categorical type</td>
+</tr>
+<tr class="even">
+<td>cont</td>
+<td>Continuous type</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="databasestart-1" class="section level4 hasAnchor" number="5.2.1.4">
+<h4><span class="header-section-number">5.2.1.4</span> databaseStart<a href="reference.html#databasestart-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The starting databases whose harmonization details this row contains</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="variablestart-1" class="section level4 hasAnchor" number="5.2.1.5">
+<h4><span class="header-section-number">5.2.1.5</span> variableStart<a href="reference.html#variablestart-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The names of the variable for each starting database</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="typestart" class="section level4 hasAnchor" number="5.2.1.6">
+<h4><span class="header-section-number">5.2.1.6</span> typeStart<a href="reference.html#typestart" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The type of the starting variables</p>
+<p><strong>Type:</strong> category</p>
+<table>
+<thead>
+<tr class="header">
+<th>Category Value</th>
+<th>Category Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>cat</td>
+<td>Categorical type</td>
+</tr>
+<tr class="even">
+<td>cont</td>
+<td>Continuous type</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="recend" class="section level4 hasAnchor" number="5.2.1.7">
+<h4><span class="header-section-number">5.2.1.7</span> recEnd<a href="reference.html#recend" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The value that the variable will be harmonized to. Can be a number or an interval.</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="catlabel" class="section level4 hasAnchor" number="5.2.1.8">
+<h4><span class="header-section-number">5.2.1.8</span> catLabel<a href="reference.html#catlabel" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The description for the category.</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="catlabellong" class="section level4 hasAnchor" number="5.2.1.9">
+<h4><span class="header-section-number">5.2.1.9</span> catLabelLong<a href="reference.html#catlabellong" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A longer description for the category.</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="numvalidcat" class="section level4 hasAnchor" number="5.2.1.10">
+<h4><span class="header-section-number">5.2.1.10</span> numValidCat<a href="reference.html#numvalidcat" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The number of valid categories for the variables.</p>
+<p><strong>Type:</strong> number</p>
+</div>
+<div id="units-1" class="section level4 hasAnchor" number="5.2.1.11">
+<h4><span class="header-section-number">5.2.1.11</span> units<a href="reference.html#units-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The units for the variable. Only for continuous variables.</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="recstart" class="section level4 hasAnchor" number="5.2.1.12">
+<h4><span class="header-section-number">5.2.1.12</span> recStart<a href="reference.html#recstart" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The value of the starting variable to harmonize from. Can be a single value or an interval.</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="catstartlabel" class="section level4 hasAnchor" number="5.2.1.13">
+<h4><span class="header-section-number">5.2.1.13</span> catStartLabel<a href="reference.html#catstartlabel" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The description for the category of the start variable.</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="variablestartshortlabel" class="section level4 hasAnchor" number="5.2.1.14">
+<h4><span class="header-section-number">5.2.1.14</span> variableStartShortLabel<a href="reference.html#variablestartshortlabel" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A short description of the starting variables</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="variablestartlabel" class="section level4 hasAnchor" number="5.2.1.15">
+<h4><span class="header-section-number">5.2.1.15</span> variableStartLabel<a href="reference.html#variablestartlabel" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A long description of the starting variables</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="notes" class="section level4 hasAnchor" number="5.2.1.16">
+<h4><span class="header-section-number">5.2.1.16</span> notes<a href="reference.html#notes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Any issues/problems that users of this variable should consider. Can also include any problems encountered during harmonization.</p>
+<p><strong>Type:</strong> string</p>
+</div>
+</div>
+</div>
+<div id="descriptive-lookup" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> descriptive-lookup<a href="reference.html#descriptive-lookup" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Contains the score range that each bin belongs to</p>
+<div id="columns-2" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Columns<a href="reference.html#columns-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="variable-2" class="section level4 hasAnchor" number="5.3.1.1">
+<h4><span class="header-section-number">5.3.1.1</span> variable<a href="reference.html#variable-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Type:</strong></p>
+</div>
+<div id="catvalue" class="section level4 hasAnchor" number="5.3.1.2">
+<h4><span class="header-section-number">5.3.1.2</span> catValue<a href="reference.html#catvalue" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The bin number</p>
+<p><strong>Type:</strong> number</p>
+</div>
+<div id="range" class="section level4 hasAnchor" number="5.3.1.3">
+<h4><span class="header-section-number">5.3.1.3</span> range<a href="reference.html#range" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The interval of score values that belong to the bin</p>
+<p><strong>Type:</strong> string</p>
+</div>
+</div>
+</div>
+<div id="descriptive-statistics" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> descriptive-statistics<a href="reference.html#descriptive-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Contains descriptive information, for example mean, median etc. for variables</p>
+<div id="columns-3" class="section level3 hasAnchor" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Columns<a href="reference.html#columns-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="variable-3" class="section level4 hasAnchor" number="5.4.1.1">
+<h4><span class="header-section-number">5.4.1.1</span> variable<a href="reference.html#variable-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The variable whose descriptive statistics the row contains</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="catvalue-1" class="section level4 hasAnchor" number="5.4.1.2">
+<h4><span class="header-section-number">5.4.1.2</span> catValue<a href="reference.html#catvalue-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The value of the category whose descriptive statistics the row contains. N/A for continuous variables.</p>
+<p><strong>Type:</strong> number</p>
+</div>
+<div id="n" class="section level4 hasAnchor" number="5.4.1.3">
+<h4><span class="header-section-number">5.4.1.3</span> n<a href="reference.html#n" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The number of individuals used to calculate the row’s statistics</p>
+<p><strong>Type:</strong> number</p>
+</div>
+<div id="proportion" class="section level4 hasAnchor" number="5.4.1.4">
+<h4><span class="header-section-number">5.4.1.4</span> proportion<a href="reference.html#proportion" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The proportion of all the individuals in the study used to calculate this row’s statistics</p>
+<p><strong>Type:</strong> number</p>
+</div>
+<div id="median" class="section level4 hasAnchor" number="5.4.1.5">
+<h4><span class="header-section-number">5.4.1.5</span> median<a href="reference.html#median" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The median statistic</p>
+<p><strong>Type:</strong> number</p>
+</div>
+</div>
+</div>
+<div id="model-export" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> model-export<a href="reference.html#model-export" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Contains the list of all files that are part of the export for an algorithm</p>
+<div id="columns-4" class="section level3 hasAnchor" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> Columns<a href="reference.html#columns-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="filetype" class="section level4 hasAnchor" number="5.5.1.1">
+<h4><span class="header-section-number">5.5.1.1</span> fileType<a href="reference.html#filetype" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The type of file</p>
+<p><strong>Type:</strong> category</p>
+<table>
+<thead>
+<tr class="header">
+<th>Category Value</th>
+<th>Category Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>variables</td>
+<td>A variables file</td>
+</tr>
+<tr class="even">
+<td>variable-details</td>
+<td>A variable details file</td>
+</tr>
+<tr class="odd">
+<td>descriptive-lookup</td>
+<td>A descriptive lookup file</td>
+</tr>
+<tr class="even">
+<td>descriptive-bins</td>
+<td>A descriptive bins file</td>
+</tr>
+<tr class="odd">
+<td>model-export</td>
+<td>A model export file</td>
+</tr>
+<tr class="even">
+<td>model-steps</td>
+<td>A model steps</td>
+</tr>
+<tr class="odd">
+<td>dummy</td>
+<td>A dummy file</td>
+</tr>
+<tr class="even">
+<td>center</td>
+<td>A centering file</td>
+</tr>
+<tr class="odd">
+<td>rcs</td>
+<td>An RCS file</td>
+</tr>
+<tr class="even">
+<td>interaction</td>
+<td>An interaction file</td>
+</tr>
+<tr class="odd">
+<td>fine-and-gray</td>
+<td>A fine and gray file</td>
+</tr>
+<tr class="even">
+<td>cox</td>
+<td>A cox file</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="filepath" class="section level4 hasAnchor" number="5.5.1.2">
+<h4><span class="header-section-number">5.5.1.2</span> filePath<a href="reference.html#filepath" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The path to the file relative to the model export file</p>
+<p><strong>Type:</strong> string</p>
+</div>
+</div>
+</div>
+<div id="model-steps" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> model-steps<a href="reference.html#model-steps" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Contains the steps to score an algorithm</p>
+<div id="columns-5" class="section level3 hasAnchor" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> Columns<a href="reference.html#columns-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="step" class="section level4 hasAnchor" number="5.6.1.1">
+<h4><span class="header-section-number">5.6.1.1</span> step<a href="reference.html#step" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The type of step to perform</p>
+<p><strong>Type:</strong> category</p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Category Value</th>
+<th>Category Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>dummy</td>
+<td>Step used to create dummy variables</td>
+</tr>
+<tr class="even">
+<td>center</td>
+<td>Step used to create centered variables</td>
+</tr>
+<tr class="odd">
+<td>rcs</td>
+<td>Steps used to create spline terms</td>
+</tr>
+<tr class="even">
+<td>interaction</td>
+<td>Step used to create interaction terms</td>
+</tr>
+<tr class="odd">
+<td>fine-and-gray</td>
+<td>Step used to calculate the outcome of a fine and gray model</td>
+</tr>
+<tr class="even">
+<td>cox</td>
+<td>Step used to calculate the outcome of a cox proportional hazards model</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="filetype-1" class="section level4 hasAnchor" number="5.6.1.2">
+<h4><span class="header-section-number">5.6.1.2</span> fileType<a href="reference.html#filetype-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The type of file referenced in the file path column</p>
+<p><strong>Type:</strong> category</p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Category Value</th>
+<th>Category Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>N/A</td>
+<td>Missing since certain steps don’t need to specify the file type</td>
+</tr>
+<tr class="even">
+<td>beta-coefficients</td>
+<td>A beta coefficients file for a fine and gray model or a cox model</td>
+</tr>
+<tr class="odd">
+<td>baseline-hazards</td>
+<td>The baseline hazards for a fine and gray model or a cox model</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="filepath-1" class="section level4 hasAnchor" number="5.6.1.3">
+<h4><span class="header-section-number">5.6.1.3</span> filePath<a href="reference.html#filepath-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The path to the file relative to the model location of the model steps file</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="notes-1" class="section level4 hasAnchor" number="5.6.1.4">
+<h4><span class="header-section-number">5.6.1.4</span> notes<a href="reference.html#notes-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Any notes for the future</p>
+<p><strong>Type:</strong> string</p>
+</div>
+</div>
+</div>
+<div id="dummy" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> dummy<a href="reference.html#dummy" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Contains the variables to convert to dummy variables</p>
+<div id="columns-6" class="section level3 hasAnchor" number="5.7.1">
+<h3><span class="header-section-number">5.7.1</span> Columns<a href="reference.html#columns-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="origvariable" class="section level4 hasAnchor" number="5.7.1.1">
+<h4><span class="header-section-number">5.7.1.1</span> origVariable<a href="reference.html#origvariable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The name of the variable to dummy</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="catvalue-2" class="section level4 hasAnchor" number="5.7.1.2">
+<h4><span class="header-section-number">5.7.1.2</span> catValue<a href="reference.html#catvalue-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The category value in the original variable which the dummy variable represents</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="dummyvariable-1" class="section level4 hasAnchor" number="5.7.1.3">
+<h4><span class="header-section-number">5.7.1.3</span> dummyVariable<a href="reference.html#dummyvariable-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The name of the dummy variable</p>
+<p><strong>Type:</strong> string</p>
+</div>
+</div>
+</div>
+<div id="center" class="section level2 hasAnchor" number="5.8">
+<h2><span class="header-section-number">5.8</span> center<a href="reference.html#center" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Contains the variables to create centered variables</p>
+<div id="columns-7" class="section level3 hasAnchor" number="5.8.1">
+<h3><span class="header-section-number">5.8.1</span> Columns<a href="reference.html#columns-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="origvariable-1" class="section level4 hasAnchor" number="5.8.1.1">
+<h4><span class="header-section-number">5.8.1.1</span> origVariable<a href="reference.html#origvariable-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The name of the variable to center</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="centervalue" class="section level4 hasAnchor" number="5.8.1.2">
+<h4><span class="header-section-number">5.8.1.2</span> centerValue<a href="reference.html#centervalue" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The value to center with</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="centeredvariable" class="section level4 hasAnchor" number="5.8.1.3">
+<h4><span class="header-section-number">5.8.1.3</span> centeredVariable<a href="reference.html#centeredvariable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The name of the new centered variable</p>
+<p><strong>Type:</strong> string</p>
+</div>
+</div>
+</div>
+<div id="interaction" class="section level2 hasAnchor" number="5.9">
+<h2><span class="header-section-number">5.9</span> interaction<a href="reference.html#interaction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Contains the interaction variables for an algorithm</p>
+<div id="columns-8" class="section level3 hasAnchor" number="5.9.1">
+<h3><span class="header-section-number">5.9.1</span> Columns<a href="reference.html#columns-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="interactingvariables" class="section level4 hasAnchor" number="5.9.1.1">
+<h4><span class="header-section-number">5.9.1.1</span> interactingVariables<a href="reference.html#interactingvariables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The names of the variables that are part of this interaction variable</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="interactionvariable" class="section level4 hasAnchor" number="5.9.1.2">
+<h4><span class="header-section-number">5.9.1.2</span> interactionVariable<a href="reference.html#interactionvariable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The name of the interaction variable</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="interactionvariabletype" class="section level4 hasAnchor" number="5.9.1.3">
+<h4><span class="header-section-number">5.9.1.3</span> interactionVariableType<a href="reference.html#interactionvariabletype" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The statistical type of the interaction variable</p>
+<p><strong>Type:</strong> category</p>
+<table>
+<thead>
+<tr class="header">
+<th>Category Value</th>
+<th>Category Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>cat</td>
+<td>Categorical type</td>
+</tr>
+<tr class="even">
+<td>cont</td>
+<td>Continuous type</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="rcs" class="section level2 hasAnchor" number="5.10">
+<h2><span class="header-section-number">5.10</span> rcs<a href="reference.html#rcs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Contains the RCS variables for an algorithm</p>
+<div id="columns-9" class="section level3 hasAnchor" number="5.10.1">
+<h3><span class="header-section-number">5.10.1</span> Columns<a href="reference.html#columns-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="variable-4" class="section level4 hasAnchor" number="5.10.1.1">
+<h4><span class="header-section-number">5.10.1.1</span> variable<a href="reference.html#variable-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The name of the variable which will be splined</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="rcsvariables" class="section level4 hasAnchor" number="5.10.1.2">
+<h4><span class="header-section-number">5.10.1.2</span> rcsVariables<a href="reference.html#rcsvariables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The names of the spline variables in correct order</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="knots" class="section level4 hasAnchor" number="5.10.1.3">
+<h4><span class="header-section-number">5.10.1.3</span> knots<a href="reference.html#knots" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The knot values to use seperated by a semi-colon</p>
+<p><strong>Type:</strong> string</p>
+</div>
+</div>
+</div>
+<div id="validate" class="section level2 hasAnchor" number="5.11">
+<h2><span class="header-section-number">5.11</span> validate<a href="reference.html#validate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Contains the validation rules for variables in the algorithm</p>
+<div id="columns-10" class="section level3 hasAnchor" number="5.11.1">
+<h3><span class="header-section-number">5.11.1</span> Columns<a href="reference.html#columns-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="variable-5" class="section level4 hasAnchor" number="5.11.1.1">
+<h4><span class="header-section-number">5.11.1.1</span> variable<a href="reference.html#variable-5" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The name of the variable to validate</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="rule" class="section level4 hasAnchor" number="5.11.1.2">
+<h4><span class="header-section-number">5.11.1.2</span> rule<a href="reference.html#rule" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The type of validation rule to apply to a variable</p>
+<p><strong>Type:</strong> category</p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Category Value</th>
+<th>Category Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>type</td>
+<td>Validate the data type of the variable</td>
+</tr>
+<tr class="even">
+<td>range</td>
+<td>Validate that the variable is within a range of values. Meant for continuous variables.</td>
+</tr>
+<tr class="odd">
+<td>allowed</td>
+<td>Validate that the variable contains a value from a set of valid values. Meant for categorical variables.</td>
+</tr>
+<tr class="even">
+<td>nullable</td>
+<td>Whether missing values are allowed for a variable</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="value" class="section level4 hasAnchor" number="5.11.1.3">
+<h4><span class="header-section-number">5.11.1.3</span> value<a href="reference.html#value" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The value to use when applying the validation</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="errorhandle" class="section level4 hasAnchor" number="5.11.1.4">
+<h4><span class="header-section-number">5.11.1.4</span> errorHandle<a href="reference.html#errorhandle" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>How to handle failed validations</p>
+<p><strong>Type:</strong> category</p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Category Value</th>
+<th>Category Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>error</td>
+<td>Failed validations for the variable should throw an error, stopping the scoring process</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>Failed validations for the variable should log a warning and continue the scoring process</td>
+</tr>
+<tr class="odd">
+<td>truncate</td>
+<td>Failed validations for the variable should log a warning, truncate the failed variable value, and continue scoring process</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="errorreplace" class="section level4 hasAnchor" number="5.11.1.5">
+<h4><span class="header-section-number">5.11.1.5</span> errorReplace<a href="reference.html#errorreplace" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Value to replace variables that fail validations whose errorHandle value is warning</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="location" class="section level4 hasAnchor" number="5.11.1.6">
+<h4><span class="header-section-number">5.11.1.6</span> location<a href="reference.html#location" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Which step in the scoring process the validation should be used</p>
+<p><strong>Type:</strong> string</p>
+</div>
+</div>
+</div>
+<div id="beta-coefficients" class="section level2 hasAnchor" number="5.12">
+<h2><span class="header-section-number">5.12</span> beta-coefficients<a href="reference.html#beta-coefficients" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Contains the beta coefficients used to evaluate a cox proportional hazards model or a fine and grey model</p>
+<div id="columns-11" class="section level3 hasAnchor" number="5.12.1">
+<h3><span class="header-section-number">5.12.1</span> Columns<a href="reference.html#columns-11" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="variable-6" class="section level4 hasAnchor" number="5.12.1.1">
+<h4><span class="header-section-number">5.12.1.1</span> variable<a href="reference.html#variable-6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The name of the variable whose beta coefficient the row contains</p>
+<p><strong>Type:</strong> string</p>
+</div>
+<div id="coefficient" class="section level4 hasAnchor" number="5.12.1.2">
+<h4><span class="header-section-number">5.12.1.2</span> coefficient<a href="reference.html#coefficient" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The beta coefficient</p>
+<p><strong>Type:</strong> number</p>
+</div>
+<div id="type" class="section level4 hasAnchor" number="5.12.1.3">
+<h4><span class="header-section-number">5.12.1.3</span> type<a href="reference.html#type" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The statistical type of the variable</p>
+<p><strong>Type:</strong> category</p>
+<table>
+<thead>
+<tr class="header">
+<th>Category Value</th>
+<th>Category Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>cat</td>
+<td>Categorical type</td>
+</tr>
+<tr class="even">
+<td>cont</td>
+<td>Continuous type</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="baseline-hazards" class="section level2 hasAnchor" number="5.13">
+<h2><span class="header-section-number">5.13</span> baseline-hazards<a href="reference.html#baseline-hazards" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Contains the baseline hazards to use with a cox proportional hazards model or a fine and grey model</p>
+<div id="columns-12" class="section level3 hasAnchor" number="5.13.1">
+<h3><span class="header-section-number">5.13.1</span> Columns<a href="reference.html#columns-12" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="time" class="section level4 hasAnchor" number="5.13.1.1">
+<h4><span class="header-section-number">5.13.1.1</span> time<a href="reference.html#time" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The time upto which the baseline hazard should be used</p>
+<p><strong>Type:</strong> number</p>
+</div>
+<div id="baselinehazard" class="section level4 hasAnchor" number="5.13.1.2">
+<h4><span class="header-section-number">5.13.1.2</span> baselineHazard<a href="reference.html#baselinehazard" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The baseline hazard value</p>
+<p><strong>Type:</strong> number</p>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="reference-expressions.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
