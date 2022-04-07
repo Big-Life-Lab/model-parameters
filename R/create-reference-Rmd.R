@@ -45,7 +45,7 @@ create_reference_Rmd <- function(
 
       reference_Rmd_lines <- c(
         reference_Rmd_lines,
-        paste("Type:", column_type)
+        paste("**Type:**", column_type)
       )
 
       if(column_type == "category") {
@@ -54,22 +54,29 @@ create_reference_Rmd <- function(
         if(nrow(column_categories) == 0) {
           stop(paste("No categories found for column", column_type, "for file", file_name))
         }
-
-        reference_Rmd_lines <- c(
-          reference_Rmd_lines,
-          paste("##### Categories")
+        
+        category_rmd_string <- c()
+        category_rmd_string <- c(
+          category_rmd_string,
+          "| Category Value | Category Description |",
+          "|-|-|"
         )
         for(column_category_index in 1:nrow(column_categories)) {
-          reference_Rmd_lines <- c(
-            reference_Rmd_lines,
-            paste("Value:", column_categories[column_category_index, "columnValue"])
-          )
-
-          reference_Rmd_lines <- c(
-            reference_Rmd_lines,
-            paste("Description:", column_categories[column_category_index, "desc"])
+          category_rmd_string <- c(
+            category_rmd_string,
+            paste(
+              "|", 
+              column_categories[column_category_index, "columnValue"],
+              "|",
+              column_categories[column_category_index, "desc"],
+              "|"
+            )
           )
         }
+        reference_Rmd_lines <- c(
+          reference_Rmd_lines,
+          paste(category_rmd_string, collapse = "\n")
+        )
       }
     }
   }
