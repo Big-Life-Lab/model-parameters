@@ -1,6 +1,6 @@
 # Model Parameter files
 
-This section will go over the different CSV files that the user needs to provide.
+This section will go over the different model parameter files.
 
 ## Model Exports File
 
