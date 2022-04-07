@@ -11,7 +11,7 @@ Authors@R: c(
   )
 Depends:
   R (>= 4.1),
-  bookdown (>= 0.25)
+  bookdown (>= 0.25),
   DT (>= 0.21)
 Encoding: UTF-8
 LazyData: true
