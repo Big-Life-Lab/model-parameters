@@ -12,6 +12,7 @@ Authors@R: c(
 Depends:
   R (>= 4.1),
   bookdown (>= 0.25)
+  DT (>= 0.21)
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/Big-Life-Lab/model-parameters-template
