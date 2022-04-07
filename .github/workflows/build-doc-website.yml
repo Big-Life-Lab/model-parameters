@@ -9,5 +9,5 @@ jobs:
         with:
           r-version: '4.1.2'
       - uses: r-lib/actions/setup-r-dependencies@v2
-      - run: bookdown::render_book('./Rmd')
+      - run: Rscript -e 'bookdown::render_book("./Rmd")'
   
