@@ -1,13 +1,14 @@
-﻿fileName,columnName,columnValue,desc
+fileName,columnName,columnValue,desc
 variables,variableType,Categorical,Categorical type
 variables,variableType,Continuous,Continuous type
 variable-details,typeEnd,cat,Categorical type
 variable-details,typeEnd,cont,Continuous type
 variable-details,typeStart,cat,Categorical type
 variable-details,typeStart,cont,Continuous type
+variable-details,typeStart,N/A,Used mainly for derived variables when there are many start variables
 model-export,fileType,variables,A variables file
 model-export,fileType,variable-details,A variable details file
-model-export,fileType,descriptive-lookup,A descriptive lookup file
+model-export,fileType,descriptive-statistics,A descriptive lookup file
 model-export,fileType,descriptive-bins,A descriptive bins file
 model-export,fileType,model-export,A model export file
 model-export,fileType,model-steps,A model steps
@@ -17,6 +18,9 @@ model-export,fileType,rcs,An RCS file
 model-export,fileType,interaction,An interaction file
 model-export,fileType,fine-and-gray,A fine and gray file
 model-export,fileType,cox,A cox file
+model-export,fileType,survival-bins,File with survival data for the different bins
+model-export,fileType,bins-lookup,Contains the range of score values for each biin in a survival algorithm
+model-export,fileType,validate,Contains the validation rules for variables in the algorithm
 model-steps,step,dummy,Step used to create dummy variables
 model-steps,step,center,Step used to create centered variables
 model-steps,step,rcs,Steps used to create spline terms
