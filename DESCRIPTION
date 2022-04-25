@@ -12,7 +12,7 @@ Authors@R: c(
 Depends:
   R (>= 4.1),
   bookdown (>= 0.25),
-  DT (>= 0.21)
+  DT (>= 0.21),
   glue (>= 1.6.2)
 Encoding: UTF-8
 LazyData: true
