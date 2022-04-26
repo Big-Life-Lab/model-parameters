@@ -8,7 +8,7 @@ variable-details,typeStart,cont,Continuous type
 variable-details,typeStart,N/A,Used mainly for derived variables when there are many start variables
 model-export,fileType,variables,A variables file
 model-export,fileType,variable-details,A variable details file
-model-export,fileType,descriptive-statistics,A descriptive lookup file
+model-export,fileType,descriptive,A descriptive lookup file
 model-export,fileType,descriptive-bins,A descriptive bins file
 model-export,fileType,model-export,A model export file
 model-export,fileType,model-steps,A model steps
@@ -18,8 +18,8 @@ model-export,fileType,rcs,An RCS file
 model-export,fileType,interaction,An interaction file
 model-export,fileType,fine-and-gray,A fine and gray file
 model-export,fileType,cox,A cox file
-model-export,fileType,survival-bins,File with survival data for the different bins
-model-export,fileType,bins-lookup,Contains the range of score values for each biin in a survival algorithm
+model-export,fileType,survival_bins,File with survival data for the different bins
+model-export,fileType,lookup,Contains the range of score values for each biin in a survival algorithm
 model-export,fileType,validate,Contains the validation rules for variables in the algorithm
 model-steps,step,dummy,Step used to create dummy variables
 model-steps,step,center,Step used to create centered variables
@@ -36,8 +36,8 @@ validate,rule,type,Validate the data type of the variable
 validate,rule,range,Validate that the variable is within a range of values. Meant for continuous variables.
 validate,rule,allowed,Validate that the variable contains a value from a set of valid values. Meant for categorical variables.
 validate,rule,nullable,Whether missing values are allowed for a variable
-validate,errorHandle,error,"Failed validations for the variable should throw an error, stopping the scoring process"
-validate,errorHandle,warning,Failed validations for the variable should log a warning and continue the scoring process
-validate,errorHandle,truncate,"Failed validations for the variable should log a warning, truncate the failed variable value, and continue scoring process"
+validate,error_handle,error,"Failed validations for the variable should throw an error, stopping the scoring process"
+validate,error_handle,warning,Failed validations for the variable should log a warning and continue the scoring process
+validate,error_handle,truncate,"Failed validations for the variable should log a warning, truncate the failed variable value, and continue scoring process"
 beta-coefficients,type,cat,Categorical type
 beta-coefficients,type,cont,Continuous type
