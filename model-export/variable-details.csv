@@ -1,8 +1,8 @@
 ﻿variable,dummyVariable,numValidCat,catLabel,catLabelLong,catValue,units, variableType,interval,notes
-Sex,Sexmale_cat,4,Male,Male,1,NA,cat,NA,
-Sex,Sexfemale_cat,4,Female,Male,2,NA,cat,NA,
-Sex,SexNAA,4,Missing,Missing - no response,NA:a,NA,cat,NA,
-Sex,SexNAB,4,Missing ,Missing - not asked,NA:b,NA,cat,NA,
+DHH_SEX,Sexmale_cat,4,Male,Male,1,NA,cat,NA,
+DHH_SEX,Sexfemale_cat,4,Female,Male,2,NA,cat,NA,
+DHH_SEX,SexNAA,4,Missing,Missing - no response,NA:a,NA,cat,NA,
+DHH_SEX,SexNAB,4,Missing ,Missing - not asked,NA:b,NA,cat,NA,
 Age_cont,NA,NA,NA,NA,NA,years,cont,"[55,100]",
 Edu4,EduLessHS2_cat,5,Less than secondary school,Less than secondary school,1,NA,cat,NA,
 Edu4,EduHSGrad2_cat,5,Secondary school graduation,Secondary school graduation,2,NA,cat,NA,
