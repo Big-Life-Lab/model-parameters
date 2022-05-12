@@ -1,0 +1,30 @@
+name: check-model-parameter-files
+on:
+  workflow_call:
+    inputs:
+      model-parameters-file-path:
+        description: 'Path to the models parameters file. Should be relative to the repo root.'
+        required: true
+        type: string
+    secrets:
+      read-repos-token:
+        description: 'Github token to allow the workflow to read the model-parameters package'
+        required: true
+  jobs:
+    check-model-parameter-files:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout the repository
+          uses: actions/checkout@v2
+        - name: Install R
+          uses: r-lib/actions/setup-r@v2
+          with:
+            r-version: '4.1.2'
+        - name: Install all project dependencies
+          uses: r-lib/actions/setup-r-dependencies@v2
+          env:
+            R_COMPILE_AND_INSTALL_PACKAGES: 'never'
+        - name: Install the model.parameters package from github
+          run: Rscript -e 'devtools::install_github("Big-Life-Lab/model-parameters-template", ref="validate", auth_token="${{ secrets.read-repos-token }}")'
+        - name: Check the model parameter files
+          run: Rscript -e 'errors <- model.parameters:::validate_model_parameters("${{ github.workspace }}/${{ inputs.model-parameters-file-path }}"); ifelse(errors == TRUE, TRUE, stop(cat(errors, sep = "\n")))'
