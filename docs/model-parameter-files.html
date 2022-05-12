@@ -54,7 +54,7 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.21/datatables.js"></script>
+<script src="libs/datatables-binding-0.22/datatables.js"></script>
 <link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
@@ -62,70 +62,6 @@
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 
 </head>
@@ -176,11 +112,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="reference.html"><a href="reference.html#columns-1"><i class="fa fa-check"></i><b>5.2.1</b> Columns<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="reference.html"><a href="reference.html#descriptive-lookup"><i class="fa fa-check"></i><b>5.3</b> descriptive-lookup<span></span></a>
+<li class="chapter" data-level="5.3" data-path="reference.html"><a href="reference.html#lookup"><i class="fa fa-check"></i><b>5.3</b> lookup<span></span></a>
 <ul>
 <li class="chapter" data-level="5.3.1" data-path="reference.html"><a href="reference.html#columns-2"><i class="fa fa-check"></i><b>5.3.1</b> Columns<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="reference.html"><a href="reference.html#descriptive-statistics"><i class="fa fa-check"></i><b>5.4</b> descriptive-statistics<span></span></a>
+<li class="chapter" data-level="5.4" data-path="reference.html"><a href="reference.html#descriptive"><i class="fa fa-check"></i><b>5.4</b> descriptive<span></span></a>
 <ul>
 <li class="chapter" data-level="5.4.1" data-path="reference.html"><a href="reference.html#columns-3"><i class="fa fa-check"></i><b>5.4.1</b> Columns<span></span></a></li>
 </ul></li>
@@ -220,6 +156,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.13.1" data-path="reference.html"><a href="reference.html#columns-12"><i class="fa fa-check"></i><b>5.13.1</b> Columns<span></span></a></li>
 </ul></li>
+<li class="chapter" data-level="5.14" data-path="reference.html"><a href="reference.html#survival_bins"><i class="fa fa-check"></i><b>5.14</b> survival_bins<span></span></a>
+<ul>
+<li class="chapter" data-level="5.14.1" data-path="reference.html"><a href="reference.html#columns-13"><i class="fa fa-check"></i><b>5.14.1</b> Columns<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.15" data-path="reference.html"><a href="reference.html#lookup-1"><i class="fa fa-check"></i><b>5.15</b> lookup<span></span></a>
+<ul>
+<li class="chapter" data-level="5.15.1" data-path="reference.html"><a href="reference.html#columns-14"><i class="fa fa-check"></i><b>5.15.1</b> Columns<span></span></a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -240,16 +184,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="model-parameter-files" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">2</span> Model Parameter files<a href="model-parameter-files.html#model-parameter-files" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This section will go over the different model parameter files.</p>
+<p>Model parameter files are created to identify what needs to be done to the data, how the algorithm works, and where to find the files. This document is the single source of truth for all model parameter CSV files. It will go over the different features currently supported by the files, how to represent each feature in the files and a summary of all the columns in the files.</p>
 <div id="model-exports-file" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Model Exports File<a href="model-parameter-files.html#model-exports-file" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>One of the four mandatory files that the user has to provide. Each row in this CSV file gives the location of a file needed for implementation. The metadata for this file is given below:</p>
-<div id="htmlwidget-dfde646627bd798b9d75" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-dfde646627bd798b9d75">{"x":{"filter":"none","vertical":false,"data":[["1","2"],["model exports","model exports"],["fileType","filePath"],["enum","string"],["Used to identify what file this row is referring to","The relative path to this file. The path should be relative to the location of the model export file"],["variables;<br/>\n    variable-details;<br/>\n    model-steps","N/A"],["Value for the variables sheet. There has to be an entry in this file with this value; <br/> \n    Value for the variable details sheet. There has to be an entry in this file with this value; <br/> \n    Value for the model steps sheet. There has to be an entry in this file with this value",""],["mandatory","mandatory"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>fileType<\/th>\n      <th>columnName<\/th>\n      <th>columnType<\/th>\n      <th>description<\/th>\n      <th>enumValues<\/th>\n      <th>enumLabels<\/th>\n      <th>restrictions<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>One of the four mandatory files that the user has to provide. This file contains a list and location of all the files required by the algorithm (e.g., files to transform data) and after the algorithm (e.g., validation, categorization of outcomes (if applicable)). The metadata for this file is given below:</p>
+<div id="htmlwidget-a1830875a5cf0f171015" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a1830875a5cf0f171015">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"],["fileType","","","","","","","","","","","","","","","filePath"],["The type of file","","","","","","","","","","","","","","","The path to the file relative to the model export file"],["category","","","","","","","","","","","","","","","string"],["variables","variable-details","descriptive","descriptive-bins","model-export","model-steps","dummy","center","rcs","interaction","fine-and-gray","cox","survival_bins","lookup","validate",""],["A variables file","A variable details file","A descriptive lookup file","A descriptive bins file","A model export file","A model steps","A dummy file","A centering file","An RCS file","An interaction file","A fine and gray file","A cox file","File with survival data for the different bins","Contains the range of score values for each biin in a survival algorithm","Contains the validation rules for variables in the algorithm",""]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Name<\/th>\n      <th>Label<\/th>\n      <th>Type<\/th>\n      <th>Category Name<\/th>\n      <th>Category Label<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-left","targets":"_all"},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>An example is provided below</p>
-<div id="htmlwidget-9a37b190ed7a8aaad6d7" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9a37b190ed7a8aaad6d7">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["variables","variable-details","model-steps"],["./variables.csv","../../variable-details.csv","./model-steps.csv"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>fileType<\/th>\n      <th>filePath<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-<p>Going into more details,</p>
+<div id="htmlwidget-237a2645981559f0ca14" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-237a2645981559f0ca14">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["variables","variable-details","model-steps"],["./variables.csv","../../variable-details.csv","./model-steps.csv"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>fileType<\/th>\n      <th>filePath<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-left","targets":"_all"},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>Going into more detail,</p>
 <ul>
 <li>The first row gives the location of the variables file. It’s located in the same folder as the model export file and is called <code>variables.csv</code></li>
 <li>The second row gives the location of the variable details file. It’s located two folders above the model export file and is called <code>variable-details.csv</code></li>
@@ -258,12 +202,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="model-steps-file" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> Model Steps File<a href="model-parameter-files.html#model-steps-file" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>One of three mandatory files for this function, the other two are the variable details file and the variables file. This file specifies the steps for calculating the outcome of the model as well as their order. It does not specify the data for each step which will be defined in other files below. The metadata for this file is:</p>
-<div id="htmlwidget-b186c74cb7ca3caa29af" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b186c74cb7ca3caa29af">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4"],["model steps","model steps","model steps","model steps"],["step","fileType","filePath","notes"],["enum","enum","string","string"],["Used to identify what step the file referenced in this row is meant for","Used to identify the type of file specified in the `filePath` column","Relative path to the file with the data for this step. The path is relative to the location of this model steps file","Used for metadata purposes"],["dummy; <br/>\n    center; <br/>\n    interaction; <br/>\n    rcs; <br/>\n    fine-and-gray; <br/>\n    linear-regression;","beta-coefficients; <br/>\n    baseline-hazards; <br/>","N/A","N/A"],["Create dummy variables; <br/>\n    Center a set of variables; <br/>\n    Create interaction terms; <br/>\n    Create restricted cubic spline terms; <br/>\n    Calculate the outcome of a fine and gray model; <br/>\n    Calculate the outcome of a linear regression model; <br />","Used to specify the beta coefficients file for a fine and gray step; <br/>\n    Used to specify the baseline hazards file for a fine and gray step; <br />","N/A","N/A"],["mandatory","","mandatory",""]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>fileType<\/th>\n      <th>columnName<\/th>\n      <th>columnType<\/th>\n      <th>description<\/th>\n      <th>enumValues<\/th>\n      <th>enumLabels<\/th>\n      <th>restrictions<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>One of four mandatory files. This file specifies the steps for calculating the outcome of the model as well as their order. It does not specify the data for each step, this will be defined in other files. The metadata for this file is:</p>
+<div id="htmlwidget-2a12490476c532336141" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2a12490476c532336141">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11"],["step","","","","","","fileType","","","filePath","notes"],["The type of step to perform","","","","","","The type of file referenced in the file path column","","","The path to the file relative to the model location of the model steps file","Any notes for the future"],["category","","","","","","category","","","string","string"],["dummy","center","rcs","interaction","fine-and-gray","cox","N/A","beta-coefficients","baseline-hazards","",""],["Step used to create dummy variables","Step used to create centered variables","Steps used to create spline terms","Step used to create interaction terms","Step used to calculate the outcome of a fine and gray model","Step used to calculate the outcome of a cox proportional hazards model","Missing since certain steps don't need to specify the file type","A beta coefficients file for a fine and gray model or a cox model","The baseline hazards for a fine and gray model or a cox model","",""]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Name<\/th>\n      <th>Label<\/th>\n      <th>Type<\/th>\n      <th>Category Name<\/th>\n      <th>Category Label<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-left","targets":"_all"},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>An example is given below</p>
-<div id="htmlwidget-b7ac76103d7b6d049d4d" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b7ac76103d7b6d049d4d">{"x":{"filter":"none","vertical":false,"data":[["1","2"],["dummy","center"],["N/A","N/A"],["dummy-data.csv","../center-data.csv"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>step<\/th>\n      <th>fileType<\/th>\n      <th>filePath<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a9660034e394b8f950f8" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a9660034e394b8f950f8">{"x":{"filter":"none","vertical":false,"data":[["1","2"],["dummy","center"],["N/A","N/A"],["dummy-data.csv","../center-data.csv"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>step<\/th>\n      <th>fileType<\/th>\n      <th>filePath<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-left","targets":"_all"},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>The above example model steps file has two steps, dummy and center, defined in the order in which they should be done.</p>
 <p>The file which describes the dummy step is called <code>dummy-data.csv</code> and is in the same folder as the model steps file.</p>
 <p>The file which describes the center step is called <code>center-data.csv</code> and is in the folder above the model steps file.</p>
@@ -271,21 +215,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="variable-details-file" class="section level2 hasAnchor" number="2.3">
 <h2><span class="header-section-number">2.3</span> Variable Details File<a href="model-parameter-files.html#variable-details-file" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>One of the mandatory files. Its structure is defined here <a href="https://big-life-lab.github.io/cchsflow/articles/variable_details.html" class="uri">https://big-life-lab.github.io/cchsflow/articles/variable_details.html</a>.</p>
+<p>One of the mandatory files. Its structure is defined <a href="https://big-life-lab.github.io/cchsflow/articles/variable_details.html">here</a>).</p>
 </div>
 <div id="variables-file" class="section level2 hasAnchor" number="2.4">
 <h2><span class="header-section-number">2.4</span> Variables File<a href="model-parameter-files.html#variables-file" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>One of the mandatory files that defines the starting variables in the model. Its columns have been defined here <a href="https://big-life-lab.github.io/cchsflow/articles/variables_sheet.html" class="uri">https://big-life-lab.github.io/cchsflow/articles/variables_sheet.html</a>.</p>
+<p>One of the mandatory files that defines the starting variables in the model. Its columns have been defined <a href="https://big-life-lab.github.io/cchsflow/articles/variables_sheet.html">here</a>).</p>
 </div>
 <div id="dummy-step-file" class="section level2 hasAnchor" number="2.5">
 <h2><span class="header-section-number">2.5</span> Dummy Step File<a href="model-parameter-files.html#dummy-step-file" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Dummying is a transformation where a categorical variable with greater than n &gt; 2 categories, is converted to a set of n dicotomous variables. Information about how this transformation is done can be seen <a href="https://en.wikiversity.org/wiki/Dummy_variable_(statistics)">here</a>.</p>
+<p>Dummying is a transformation where a categorical variable with greater than categories is converted to a set of dicotomous variables. Information about how this transformation is done can be seen <a href="https://en.wikiversity.org/wiki/Dummy_variable_(statistics)">here</a>.</p>
 <p>The metadata for this file is provided below:</p>
-<div id="htmlwidget-7967a648aa50b3862c90" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7967a648aa50b3862c90">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["dummy step","dummy step","dummy step"],["origVariable","catValue","dummyVariable"],["string","string | number","string"],["The name of the variable to be dummied","The value of the category that this dummy variable will represent","The name of the dummy variable for the category of the original variable in this row"],["N/A","N/A","N/A"],["N/A","N/A","N/A"],["Each variable should be defined either in the variables or variables details sheet, or in a previous step file","mandatory","mandatory"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>fileType<\/th>\n      <th>columnName<\/th>\n      <th>columnType<\/th>\n      <th>description<\/th>\n      <th>enumValues<\/th>\n      <th>enumLabels<\/th>\n      <th>restrictions<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-52d4fc2a676161d52922" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-52d4fc2a676161d52922">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["origVariable","catValue","dummyVariable"],["The name of the variable to dummy","The category value in the original variable which the dummy variable represents","The name of the dummy variable"],["string","string","string"],["","",""],["","",""]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Name<\/th>\n      <th>Label<\/th>\n      <th>Type<\/th>\n      <th>Category Name<\/th>\n      <th>Category Label<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-left","targets":"_all"},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>An example is given below</p>
-<div id="htmlwidget-2cbbbc451753d4764b0a" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2cbbbc451753d4764b0a">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7"],["smoker_type","smoker_type","smoker_type","drinker_type","drinker_type","drinker_type","drinker_type"],[0,1,2,0,1,2,3],["non_smoker","current_smoker","former_smoker","non_drinker","current_light_drinker","current_heavy_drinker","former_drinker"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>origVariable<\/th>\n      <th>catValue<\/th>\n      <th>dummyVariable<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-67bc34871fa9eff96cc6" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-67bc34871fa9eff96cc6">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7"],["smoker_type","smoker_type","smoker_type","drinker_type","drinker_type","drinker_type","drinker_type"],[0,1,2,0,1,2,3],["non_smoker","current_smoker","former_smoker","non_drinker","current_light_drinker","current_heavy_drinker","former_drinker"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>origVariable<\/th>\n      <th>catValue<\/th>\n      <th>dummyVariable<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-left","targets":"_all"},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>The example above describes the data for dummying two variables:</p>
 <ul>
 <li>smoker_type</li>
@@ -307,25 +251,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="centering-step-file" class="section level2 hasAnchor" number="2.6">
 <h2><span class="header-section-number">2.6</span> Centering Step File<a href="model-parameter-files.html#centering-step-file" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Centering is a transformation where the original variable is subtracted by a value, usually it’s mean or median. The metadata for this file is given below:</p>
-<div id="htmlwidget-69bb9aba0e1be0857144" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-69bb9aba0e1be0857144">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4"],["center step","center step","center step","center step"],["origVariable","centerValue","centeredVariable","centeredVariableType"],["string","number","string","enum"],["The name of the variable being centered","The value to center the variable with","The name of the new centered variable","Type of the new centered variable"],["N/A","N/A","N/A","cat; <br/>\n    cont"],["N/A","N/A","N/A","Categorical; <br/>\n    Continuous"],["Each variable should be defined either in the variables or variables details sheet, or in a previous step file","mandatory","mandatory","mandatory"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>fileType<\/th>\n      <th>columnName<\/th>\n      <th>columnType<\/th>\n      <th>description<\/th>\n      <th>enumValues<\/th>\n      <th>enumLabels<\/th>\n      <th>restrictions<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>Centering is a transformation where the original variable is subtracted by a value, usually it’s mean or median, to redifine the 0 point for the predictor to be whatever value you subtracted. The metadata for this file is given below:</p>
+<div id="htmlwidget-a395cb76a36c3e376145" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a395cb76a36c3e376145">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["origVariable","centerValue","centeredVariable"],["The name of the variable to center","The value to center with","The name of the new centered variable"],["string","string","string"],["","",""],["","",""]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Name<\/th>\n      <th>Label<\/th>\n      <th>Type<\/th>\n      <th>Category Name<\/th>\n      <th>Category Label<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-left","targets":"_all"},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>An example is given below,</p>
-<div id="htmlwidget-9ace87a39982f9728d30" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9ace87a39982f9728d30">{"x":{"filter":"none","vertical":false,"data":[["1","2"],["age","diet_score"],[40,4],["age_C","diet_score_C"],["cont","cont"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>origVariable<\/th>\n      <th>centerValue<\/th>\n      <th>centeredVariable<\/th>\n      <th>centeredVariableType<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-5c77c751d63b9a2ea630" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5c77c751d63b9a2ea630">{"x":{"filter":"none","vertical":false,"data":[["1","2"],["age","diet_score"],[40,4],["age_C","diet_score_C"],["cont","cont"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>origVariable<\/th>\n      <th>centerValue<\/th>\n      <th>centeredVariable<\/th>\n      <th>centeredVariableType<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-left","targets":"_all"},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>The example above describes the data for centering two variables, <code>age</code> and <code>diet_score</code></p>
 <p>The values used to center the two variables are <code>40</code> and <code>4</code> respectively</p>
 <p>The names of the new centered variables are <code>age_C</code> and <code>diet_score_C</code> and they are both continuous</p>
 </div>
 <div id="restricted-cubic-spline-rcs-step-file" class="section level2 hasAnchor" number="2.7">
 <h2><span class="header-section-number">2.7</span> Restricted Cubic Spline (RCS) Step File<a href="model-parameter-files.html#restricted-cubic-spline-rcs-step-file" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The metadata for this file is given below:</p>
-<div id="htmlwidget-ff8e8feb74542598f643" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ff8e8feb74542598f643">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["rcs step","rcs step","rcs step"],["variable","rcsVariable","knots"],["string","string","string"],["The name of the variable that should be splined","The names of the new spline variables. The name of each variable should be seperated by a semi-colon (;)","The knots for this spline. Each knot should be seperated by a semi-colon (;)"],["N/A","N/A","N/A"],["N/A","N/A","N/A"],["Each variable should be defined either in the variables or variables details sheet, or in a previous step file","mandatory","mandatory"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>fileType<\/th>\n      <th>columnName<\/th>\n      <th>columnType<\/th>\n      <th>description<\/th>\n      <th>enumValues<\/th>\n      <th>enumLabels<\/th>\n      <th>restrictions<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>Rubric cubic splines are often used to interpolate a set of data points and guarantee smoothness at the data points. The metadata for this file is given below:</p>
+<div id="htmlwidget-6879fb5941cc224b8f90" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6879fb5941cc224b8f90">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["variable","rcsVariables","knots"],["The name of the variable which will be splined","The names of the spline variables in correct order","The knot values to use seperated by a semi-colon"],["string","string","string"],["","",""],["","",""]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Name<\/th>\n      <th>Label<\/th>\n      <th>Type<\/th>\n      <th>Category Name<\/th>\n      <th>Category Label<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-left","targets":"_all"},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>An example is given below,</p>
-<div id="htmlwidget-dce977a39ddd5fd0dca1" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-dce977a39ddd5fd0dca1">{"x":{"filter":"none","vertical":false,"data":[["1","2"],["Age_c","PackYears_c"],["AgeC_rcs1;AgeC_rcs2;AgeC_rcs3;AgeC_rcs4","PackYearsC_rcs1;PackYearsC_rcs2"],["-11.5;-6.5;-1.5;5.5;16.5","-21.2;-10.35;34.8"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>variable<\/th>\n      <th>rcsVariables<\/th>\n      <th>knots<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-<p>The example describes the data for creating new spline variable for two variables, <code>Age_c</code> and <code>PackYears_c</code></p>
+<div id="htmlwidget-104fd3a8bd5f91055a29" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-104fd3a8bd5f91055a29">{"x":{"filter":"none","vertical":false,"data":[["1","2"],["Age_c","PackYears_c"],["AgeC_rcs1;AgeC_rcs2;AgeC_rcs3;AgeC_rcs4","PackYearsC_rcs1;PackYearsC_rcs2"],["-11.5;-6.5;-1.5;5.5;16.5","-21.2;-10.35;34.8"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>variable<\/th>\n      <th>rcsVariables<\/th>\n      <th>knots<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-left","targets":"_all"},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>The example describes the data for creating new spline variables for two variables, <code>Age_c</code> and <code>PackYears_c</code></p>
 <p>For <code>Age_c</code>, a 5 knot spline is used and 4 new spline variables are created. The knots given are,</p>
 <ol style="list-style-type: decimal">
 <li>-11.5</li>
@@ -348,75 +292,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.8</span> Interaction Step File<a href="model-parameter-files.html#interaction-step-file" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Theoretically, an interaction variable is created to model effect modification. Effect modification occurs when the magnitude of the effect of a risk factor on a outcome differs depending on another risk factor. An example is age, cancer and their effect on mortality, where as you get older the effect that cancer has on your risk of mortality increases. Here, age is said to modify the effect that cancer has on mortality. Mathematically, an effect modification is modeled by creating a new variable whose value is the product of the two “interacting” variables, e.g., age and cancer.</p>
 <p>The metadata for this file is given below:</p>
-<div id="htmlwidget-da1ee68848e0dc33ab63" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-da1ee68848e0dc33ab63">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["interaction step","interaction step","interaction step"],["interactingVariables","interactionVariable","interactionVariableType"],["string","string","string"],["The names of the interacting variables seperated by a semi-colon (;)","The name of the new interaction variable","The type of the new interaction variable"],["N/A","N/A","N/A"],["N/A","N/A","N/A"],["mandatory; <br/>\n    Each interacting variable should be defined either in the variables or variable details sheet, or in a previous step file","mandatory","mandatory"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>fileType<\/th>\n      <th>columnName<\/th>\n      <th>columnType<\/th>\n      <th>description<\/th>\n      <th>enumValues<\/th>\n      <th>enumLabels<\/th>\n      <th>restrictions<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-7a26b309f86490eb9cbf" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7a26b309f86490eb9cbf">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4"],["interactionVariable","interactingVariables","interactionVariableType",""],["The name of the interaction variable","The names of the variables that are part of this interaction variable","The statistical type of the interaction variable",""],["string","string","category",""],["","","cat","cont"],["","","Categorical type","Continuous type"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Name<\/th>\n      <th>Label<\/th>\n      <th>Type<\/th>\n      <th>Category Name<\/th>\n      <th>Category Label<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-left","targets":"_all"},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>An example is given below,</p>
-<div id="htmlwidget-a7bf7f4b638f8cdd43e0" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a7bf7f4b638f8cdd43e0">{"x":{"filter":"none","vertical":false,"data":[["1","2"],["AgeXCancer","AgeXHypertension"],["Age;Cancer","Age;Hypertension"],["cont","cont"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>interactionVariable<\/th>\n      <th>interactingVariables<\/th>\n      <th>interactionVariableType<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-8c0a0acf6a9e22ffbdbc" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8c0a0acf6a9e22ffbdbc">{"x":{"filter":"none","vertical":false,"data":[["1","2"],["AgeXCancer","AgeXHypertension"],["Age;Cancer","Age;Hypertension"],["cont","cont"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>interactionVariable<\/th>\n      <th>interactingVariables<\/th>\n      <th>interactionVariableType<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-left","targets":"_all"},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>The example above creates two new interaction variables, <code>AgeXCancer</code> and <code>AgeXHypertension</code>. <code>AgeXCancer</code> is created using the <code>Age</code> and <code>Cancer</code> variables while <code>AgeXHypertension</code> is created using the <code>Age</code> and <code>Hypertension</code> variables. Both new interaction variables are continuous. Notice how the interacting variables are seperated by a semi-colon in the example.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="model-parameter-files.html#cb1-1" aria-hidden="true" tabindex="-1"></a>beta_coefficients_step_file_metadata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-2"><a href="model-parameter-files.html#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">fileType =</span> <span class="fu">c</span>(<span class="st">&quot;beta coefficients step&quot;</span>, <span class="st">&quot;beta coefficients step&quot;</span>, <span class="st">&quot;beta coefficients step&quot;</span>),</span>
-<span id="cb1-3"><a href="model-parameter-files.html#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">columnName =</span> <span class="fu">c</span>(<span class="st">&quot;variable&quot;</span>, <span class="st">&quot;coefficient&quot;</span>, <span class="st">&quot;type&quot;</span>),</span>
-<span id="cb1-4"><a href="model-parameter-files.html#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">columnType =</span> <span class="fu">c</span>(<span class="st">&quot;string&quot;</span>, <span class="st">&quot;number&quot;</span>, <span class="st">&quot;enum&quot;</span>),</span>
-<span id="cb1-5"><a href="model-parameter-files.html#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">description =</span> <span class="fu">c</span>(</span>
-<span id="cb1-6"><a href="model-parameter-files.html#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;The name of a covariate in the model&quot;</span>,</span>
-<span id="cb1-7"><a href="model-parameter-files.html#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;The value of the beta coefficient for the covariate&quot;</span>,</span>
-<span id="cb1-8"><a href="model-parameter-files.html#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;The type of the covariate&quot;</span></span>
-<span id="cb1-9"><a href="model-parameter-files.html#cb1-9" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb1-10"><a href="model-parameter-files.html#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">enumValues =</span> <span class="fu">c</span>(</span>
-<span id="cb1-11"><a href="model-parameter-files.html#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;N/A&quot;</span>,</span>
-<span id="cb1-12"><a href="model-parameter-files.html#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;N/A&quot;</span>,</span>
-<span id="cb1-13"><a href="model-parameter-files.html#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;cat; &lt;br/&gt;</span></span>
-<span id="cb1-14"><a href="model-parameter-files.html#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="st">    cont&quot;</span></span>
-<span id="cb1-15"><a href="model-parameter-files.html#cb1-15" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb1-16"><a href="model-parameter-files.html#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">enumLabels =</span> <span class="fu">c</span>(</span>
-<span id="cb1-17"><a href="model-parameter-files.html#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;N/A&quot;</span>,</span>
-<span id="cb1-18"><a href="model-parameter-files.html#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;N/A&quot;</span>,</span>
-<span id="cb1-19"><a href="model-parameter-files.html#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Categorical; &lt;br/&gt;</span></span>
-<span id="cb1-20"><a href="model-parameter-files.html#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="st">    Continuous;&quot;</span></span>
-<span id="cb1-21"><a href="model-parameter-files.html#cb1-21" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb1-22"><a href="model-parameter-files.html#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">restrictions =</span> <span class="fu">c</span>(</span>
-<span id="cb1-23"><a href="model-parameter-files.html#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;mandatory; &lt;br/&gt;</span></span>
-<span id="cb1-24"><a href="model-parameter-files.html#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="st">    Each variable should be defined either in the variables or variables details sheet, or in a previous step file&quot;</span>, </span>
-<span id="cb1-25"><a href="model-parameter-files.html#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;mandatory&quot;</span>, </span>
-<span id="cb1-26"><a href="model-parameter-files.html#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;mandatory&quot;</span></span>
-<span id="cb1-27"><a href="model-parameter-files.html#cb1-27" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-28"><a href="model-parameter-files.html#cb1-28" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 <div id="fine-and-gray-model-step-files" class="section level2 hasAnchor" number="2.9">
 <h2><span class="header-section-number">2.9</span> Fine and Gray Model Step Files<a href="model-parameter-files.html#fine-and-gray-model-step-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Similar to a cox regression model, a fine and gray model estimates the risk of an event occuring at some time in the future, the difference being that it takes competing risks into account. Specifying this step requires two files,</p>
+<p>Similar to a Cox regression model, a Fine and Gray model estimates the risk of an event occuring at some time in the future, the difference being that it takes competing risks into account. Specifying this step requires two files:</p>
 <ol style="list-style-type: decimal">
-<li>A beta coefficients file which specifies the names of the covariates in the model and their beta coefficient</li>
-<li>A baseline hazards file which specifies a time value and the baseline hazard value associated with it</li>
+<li>A beta coefficients file that specifies the names of the covariates in the model and their beta coefficient</li>
+<li>A baseline hazards file that specifies a time value and the baseline hazard value associated with it</li>
 </ol>
 <p>The metadata for the beta coefficients file is given below:</p>
-<div id="htmlwidget-8b4ac9ec31c8e4974e54" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8b4ac9ec31c8e4974e54">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["beta coefficients step","beta coefficients step","beta coefficients step"],["variable","coefficient","type"],["string","number","enum"],["The name of a covariate in the model","The value of the beta coefficient for the covariate","The type of the covariate"],["N/A","N/A","cat; <br/>\n    cont"],["N/A","N/A","Categorical; <br/>\n    Continuous;"],["mandatory; <br/>\n    Each variable should be defined either in the variables or variables details sheet, or in a previous step file","mandatory","mandatory"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>fileType<\/th>\n      <th>columnName<\/th>\n      <th>columnType<\/th>\n      <th>description<\/th>\n      <th>enumValues<\/th>\n      <th>enumLabels<\/th>\n      <th>restrictions<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-6d7b822368460029591f" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6d7b822368460029591f">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4"],["variable","coefficient","type",""],["The name of the variable whose beta coefficient the row contains","The beta coefficient","The statistical type of the variable",""],["string","number","category",""],["","","cat","cont"],["","","Categorical type","Continuous type"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Name<\/th>\n      <th>Label<\/th>\n      <th>Type<\/th>\n      <th>Category Name<\/th>\n      <th>Category Label<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-left","targets":"_all"},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>The metadata for the baseline hazards file is given below:</p>
-<div id="htmlwidget-312e56f597b938b5a954" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-312e56f597b938b5a954">{"x":{"filter":"none","vertical":false,"data":[["1","2"],["baseline hazards step","baseline hazards step"],["time","baselineHazard"],["string","number"],["The time upto which this baseline hazard should be used","The baseline hazard value for this time"],["N/A","N/A"],["N/A","N/A"],["mandatory","mandatory"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>fileType<\/th>\n      <th>columnName<\/th>\n      <th>columnType<\/th>\n      <th>description<\/th>\n      <th>enumValues<\/th>\n      <th>enumLabels<\/th>\n      <th>restrictions<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-95726260fd488793e6a7" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-95726260fd488793e6a7">{"x":{"filter":"none","vertical":false,"data":[["1","2"],["time","baselineHazard"],["The time upto which the baseline hazard should be used","The baseline hazard value"],["number","number"],["",""],["",""]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Name<\/th>\n      <th>Label<\/th>\n      <th>Type<\/th>\n      <th>Category Name<\/th>\n      <th>Category Label<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-left","targets":"_all"},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>The baseline hazards file has the following columns:</p>
 <ol style="list-style-type: decimal">
-<li><strong>time</strong>: The time upto which this baseline hazard should be used
-<strong>type</strong>: number</li>
-<li><strong>baselineHazard</strong>: The baseline hazard value for this time
-<strong>type</strong>: number</li>
+<li><p><strong>time</strong>: The time up to which this baseline hazard should be used</p></li>
+<li><p><strong>baselineHazard</strong>: The baseline hazard value for this time period</p></li>
 </ol>
-<p>When adding a fine and gray model step, make sure to add a variable in the variable details sheet called time. This variable represents the time interval when the model is valid. It should be a continuous variable whose <code>recTo</code> values represents the time interval. It’s <code>units</code> column should specify the time metric being used for example <code>years</code>. For example, a model that can predict risk at any point in time between 1 year and 5 years from today would have the following entry in the variable details sheet,</p>
-<div id="htmlwidget-800605f4fae0d4f8f9c3" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-800605f4fae0d4f8f9c3">{"x":{"filter":"none","vertical":false,"data":[["1","2"],["time","time"],[1,5],["Start Time","End Time"],["Start Time","End Time"],["years","years"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>variable<\/th>\n      <th>recTo<\/th>\n      <th>catLabel<\/th>\n      <th>catLabelLong<\/th>\n      <th>units<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>When adding a Fine and Gray model step, make sure to add a variable in the variable details sheet called “time”. This variable represents the time interval when the model is valid. It should be a continuous variable whose <code>recTo</code> values represents the time interval. It’s <code>units</code> column should specify the time metric being used for example <code>years</code>. For example, a model that can predict risk at any point in time between 1 year and 5 years from today would have the following entry in the variable details sheet,</p>
+<div id="htmlwidget-5cde8af2c71140ac41da" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5cde8af2c71140ac41da">{"x":{"filter":"none","vertical":false,"data":[["1","2"],["time","time"],[1,5],["Start Time","End Time"],["Start Time","End Time"],["years","years"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>variable<\/th>\n      <th>recTo<\/th>\n      <th>catLabel<\/th>\n      <th>catLabelLong<\/th>\n      <th>units<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-left","targets":"_all"},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>The values of the other columns in the variable details sheet for this variable should be <code>N/A</code>.</p>
 <p>An example model steps file and the referenced fine and gray model files are shown below.</p>
-<div id="htmlwidget-d0935dbe14f1c2dad7fa" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d0935dbe14f1c2dad7fa">{"x":{"filter":"none","vertical":false,"data":[["1","2"],["fine-and-gray","fine-and-gray"],["beta-coefficients","baseline-hazards"],["beta-coefficients.csv","baseline-hazards.csv"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>step<\/th>\n      <th>fileType<\/th>\n      <th>filePath<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-<div id="htmlwidget-8d86003050caf624497e" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8d86003050caf624497e">{"x":{"filter":"none","vertical":false,"data":[["1","2"],["Age","Sex"],[0.01,2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>variable<\/th>\n      <th>coefficient<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-<div id="htmlwidget-01083cac7d4901cdc733" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-01083cac7d4901cdc733">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5"],[1,2,3,4,5],[0.1,0.2,0.3,0.4,0.5]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>time<\/th>\n      <th>baselineHazard<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-<p>The model steps file has 2 rows, both of which are a fine and gray step. The type of file described in each row is is given by <code>fileType</code> column. The first row references the a beta coefficients file and the second row references a baseline hazards file. The path to each file is given in the <code>filePath</code> column and once again should be relative to the model steps file that described them.</p>
+<div id="htmlwidget-0a239020e709f2b6a5f0" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0a239020e709f2b6a5f0">{"x":{"filter":"none","vertical":false,"data":[["1","2"],["fine-and-gray","fine-and-gray"],["beta-coefficients","baseline-hazards"],["beta-coefficients.csv","baseline-hazards.csv"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>step<\/th>\n      <th>fileType<\/th>\n      <th>filePath<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-left","targets":"_all"},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-7dc474bc4d8f9d40c429" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7dc474bc4d8f9d40c429">{"x":{"filter":"none","vertical":false,"data":[["1","2"],["Age","Sex"],[0.01,2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>variable<\/th>\n      <th>coefficient<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-left","targets":"_all"},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-929b2a0aa9f5a42faabb" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-929b2a0aa9f5a42faabb">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5"],[1,2,3,4,5],[0.1,0.2,0.3,0.4,0.5]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>time<\/th>\n      <th>baselineHazard<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-left","targets":"_all"},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>The model steps file has 2 rows, both of which are a Fine and Gray step. The type of file described in each row is is given by <code>fileType</code> column. The first row references the a beta coefficients file and the second row references a baseline hazards file. The path to each file is given in the <code>filePath</code> column and once again should be relative to the model steps file that described them.</p>
 <p>The beta coefficients file says that the model has two covariates, <code>Age</code> and <code>Sex</code> and specifies the beta coefficients for each one which are <code>0.01</code> and <code>2</code> respectively.</p>
-<p>The baseline hazards has 5 rows and describes the baseline hazards for each year in the model. Notice how the lowest time value is <code>1</code> and the highest value is <code>5</code>. This is because of the time variable we specified earlier which goes from 1 to 5.</p>
+<p>The baseline hazards has 5 rows and describes the baseline hazards for each year in the model. Notice how the lowest time value is <code>1</code> and the highest value is <code>5</code>. This is because the time variable we specified earlier goes from 1 to 5.</p>
 
 </div>
 </div>
