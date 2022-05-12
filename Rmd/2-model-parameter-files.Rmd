@@ -1,3 +1,13 @@
+```{r echo=FALSE}
+source("../R/create-Rmd-table.R")
+```
+
+```{r read metadata files, echo=FALSE}
+file_metadata <- read.csv("../inst/metadata/file-metadata.csv", fileEncoding = "UTF-8-BOM")
+column_metadata <- read.csv("../inst/metadata/column-metadata.csv", fileEncoding = "UTF-8-BOM")
+column_category_metadata <- read.csv("../inst/metadata/column-category.csv", fileEncoding = "UTF-8-BOM")
+```
+
 # Model Parameter files
 
 This section will go over the different model parameter files.
@@ -7,33 +17,12 @@ This section will go over the different model parameter files.
 One of the four mandatory files that the user has to provide. Each row in this CSV file gives the location of a file needed for implementation. The metadata for this file is given below:
 
 ```{r echo=FALSE}
-model_exports_file_metadata <- data.frame(
-  fileType = c("model exports", "model exports"),
-  columnName = c("fileType", "filePath"),
-  columnType = c("enum", "string"),
-  description = c(
-    "Used to identify what file this row is referring to",
-    "The relative path to this file. The path should be relative to the location of the model export file"
-  ),
-  enumValues = c(
-    "variables;<br/>
-    variable-details;<br/>
-    model-steps", 
-    "N/A"
-  ),
-  enumLabels = c(
-    "Value for the variables sheet. There has to be an entry in this file with this value; <br/> 
-    Value for the variable details sheet. There has to be an entry in this file with this value; <br/> 
-    Value for the model steps sheet. There has to be an entry in this file with this value",
-    ""
-  ),
-  restrictions = c(
-    "mandatory", 
-    "mandatory"
-  )
+create_Rmd_table(
+  "model-export",
+  file_metadata,
+  column_metadata,
+  column_category_metadata
 )
-
-DT::datatable(model_exports_file_metadata, escape = FALSE)
 ```
         
 An example is provided below
@@ -44,7 +33,10 @@ model_export_file <- data.frame(
   filePath = c("./variables.csv", "../../variable-details.csv", "./model-steps.csv")
 )
 
-DT::datatable(model_export_file)
+DT::datatable(
+  model_export_file, 
+  options = list(columnDefs = list(list(className = "dt-left", targets = "_all")))
+)
 ```
 
 Going into more details,
@@ -58,50 +50,12 @@ Going into more details,
 One of three mandatory files for this function, the other two are the variable details file and the variables file. This file specifies the steps for calculating the outcome of the model as well as their order. It does not specify the data for each step which will be defined in other files below. The metadata for this file is:
 
 ```{r echo=FALSE}
-model_steps_file_metadata <- data.frame(
-  fileType = c("model steps", "model steps", "model steps", "model steps"),
-  columnName = c("step", "fileType", "filePath", "notes"),
-  columnType = c("enum", "enum", "string", "string"),
-  description = c(
-    "Used to identify what step the file referenced in this row is meant for",
-    "Used to identify the type of file specified in the `filePath` column",
-    "Relative path to the file with the data for this step. The path is relative to the location of this model steps file",
-    "Used for metadata purposes"
-  ),
-  enumValues = c(
-    "dummy; <br/>
-    center; <br/>
-    interaction; <br/>
-    rcs; <br/>
-    fine-and-gray; <br/>
-    linear-regression;",
-    
-    "beta-coefficients; <br/>
-    baseline-hazards; <br/>",
-    
-    "N/A",
-    
-    "N/A"
-  ),
-  enumLabels = c(
-    "Create dummy variables; <br/>
-    Center a set of variables; <br/>
-    Create interaction terms; <br/>
-    Create restricted cubic spline terms; <br/>
-    Calculate the outcome of a fine and gray model; <br/>
-    Calculate the outcome of a linear regression model; <br />",
-    
-    "Used to specify the beta coefficients file for a fine and gray step; <br/>
-    Used to specify the baseline hazards file for a fine and gray step; <br />",
-    
-    "N/A",
-    
-    "N/A"
-  ),
-  restrictions = c("mandatory", "", "mandatory", "")
+create_Rmd_table(
+  "model-steps",
+  file_metadata,
+  column_metadata,
+  column_category_metadata
 )
-
-DT::datatable(model_steps_file_metadata, escape = FALSE)
 ```
     
 An example is given below
@@ -113,7 +67,7 @@ eg_model_steps <- data.frame(
   "filePath" = c("dummy-data.csv", "../center-data.csv")
 )
 
-DT::datatable(eg_model_steps)
+DT::datatable(eg_model_steps, options = list(columnDefs = list(list(className = "dt-left", targets = "_all"))))
 ```
     
 The above example model steps file has two steps, dummy and center, defined in the order in which they should be done. 
@@ -139,33 +93,12 @@ Dummying is a transformation where a categorical variable with greater than n > 
 The metadata for this file is provided below:
 
 ```{r echo=FALSE}
-dummy_step_file_metadata <- data.frame(
-  fileType = c("dummy step", "dummy step", "dummy step"),
-  columnName = c("origVariable", "catValue", "dummyVariable"),
-  columnType = c("string", "string | number", "string"),
-  description = c(
-    "The name of the variable to be dummied",
-    "The value of the category that this dummy variable will represent",
-    "The name of the dummy variable for the category of the original variable in this row"
-  ),
-  enumValues = c(
-    "N/A",
-    "N/A",
-    "N/A"
-  ),
-  enumLabels = c(
-    "N/A",
-    "N/A",
-    "N/A"
-  ),
-  restrictions = c(
-    "Each variable should be defined either in the variables or variables details sheet, or in a previous step file", 
-    "mandatory", 
-    "mandatory"
-  )
+create_Rmd_table(
+  "dummy",
+  file_metadata,
+  column_metadata,
+  column_category_metadata
 )
-
-DT::datatable(dummy_step_file_metadata, escape = FALSE)
 ```
     
 An example is given below
@@ -177,7 +110,7 @@ eg_dummy_step <- data.frame(
   "dummyVariable" = c("non_smoker", "current_smoker", "former_smoker", "non_drinker", "current_light_drinker", "current_heavy_drinker", "former_drinker")
 )
 
-DT::datatable(eg_dummy_step)
+DT::datatable(eg_dummy_step, options = list(columnDefs = list(list(className = "dt-left", targets = "_all"))))
 ```
 
 The example above describes the data for dummying two variables:
@@ -203,39 +136,12 @@ The `drinker_type` variable has four dummy variables:
 Centering is a transformation where the original variable is subtracted by a value, usually it's mean or median. The metadata for this file is given below:
 
 ```{r echo=FALSE}
-center_step_file_metadata <- data.frame(
-  fileType = c("center step", "center step", "center step", "center step"),
-  columnName = c("origVariable", "centerValue", "centeredVariable", "centeredVariableType"),
-  columnType = c("string", "number", "string", "enum"),
-  description = c(
-    "The name of the variable being centered",
-    "The value to center the variable with",
-    "The name of the new centered variable",
-    "Type of the new centered variable"
-  ),
-  enumValues = c(
-    "N/A",
-    "N/A",
-    "N/A",
-    "cat; <br/>
-    cont"
-  ),
-  enumLabels = c(
-    "N/A",
-    "N/A",
-    "N/A",
-    "Categorical; <br/>
-    Continuous"
-  ),
-  restrictions = c(
-    "Each variable should be defined either in the variables or variables details sheet, or in a previous step file", 
-    "mandatory", 
-    "mandatory",
-    "mandatory"
-  )
+create_Rmd_table(
+  "center",
+  file_metadata,
+  column_metadata,
+  column_category_metadata
 )
-
-DT::datatable(center_step_file_metadata, escape = FALSE)
 ```
     
 An example is given below,
@@ -248,7 +154,7 @@ eg_centering_step <- data.frame(
   "centeredVariableType" = c("cont", "cont")
 )
 
-DT::datatable(eg_centering_step)
+DT::datatable(eg_centering_step, options = list(columnDefs = list(list(className = "dt-left", targets = "_all"))))
 ```
 
 The example above describes the data for centering two variables, `age` and `diet_score`
@@ -262,33 +168,12 @@ The names of the new centered variables are `age_C` and `diet_score_C` and they 
 The metadata for this file is given below:
 
 ```{r echo=FALSE}
-rcs_step_file_metadata <- data.frame(
-  fileType = c("rcs step", "rcs step", "rcs step"),
-  columnName = c("variable", "rcsVariable", "knots"),
-  columnType = c("string", "string", "string"),
-  description = c(
-    "The name of the variable that should be splined",
-    "The names of the new spline variables. The name of each variable should be seperated by a semi-colon (;)",
-    "The knots for this spline. Each knot should be seperated by a semi-colon (;)"
-  ),
-  enumValues = c(
-    "N/A",
-    "N/A",
-    "N/A"
-  ),
-  enumLabels = c(
-    "N/A",
-    "N/A",
-    "N/A"
-  ),
-  restrictions = c(
-    "Each variable should be defined either in the variables or variables details sheet, or in a previous step file", 
-    "mandatory", 
-    "mandatory"
-  )
+create_Rmd_table(
+  "rcs",
+  file_metadata,
+  column_metadata,
+  column_category_metadata
 )
-
-DT::datatable(rcs_step_file_metadata, escape = FALSE)
 ```
     
 An example is given below,
@@ -300,7 +185,7 @@ eg_rcs_step <- data.frame(
   "knots" = c("-11.5;-6.5;-1.5;5.5;16.5", "-21.2;-10.35;34.8")
 )
 
-DT::datatable(eg_rcs_step)
+DT::datatable(eg_rcs_step, options = list(columnDefs = list(list(className = "dt-left", targets = "_all"))))
 ```
 
 The example describes the data for creating new spline variable for two variables, `Age_c` and `PackYears_c`
@@ -331,34 +216,12 @@ Theoretically, an interaction variable is created to model effect modification. 
 The metadata for this file is given below:
 
 ```{r echo=FALSE}
-interaction_step_file_metadata <- data.frame(
-  fileType = c("interaction step", "interaction step", "interaction step"),
-  columnName = c("interactingVariables", "interactionVariable", "interactionVariableType"),
-  columnType = c("string", "string", "string"),
-  description = c(
-    "The names of the interacting variables seperated by a semi-colon (;)",
-    "The name of the new interaction variable",
-    "The type of the new interaction variable"
-  ),
-  enumValues = c(
-    "N/A",
-    "N/A",
-    "N/A"
-  ),
-  enumLabels = c(
-    "N/A",
-    "N/A",
-    "N/A"
-  ),
-  restrictions = c(
-    "mandatory; <br/>
-    Each interacting variable should be defined either in the variables or variable details sheet, or in a previous step file", 
-    "mandatory", 
-    "mandatory"
-  )
+create_Rmd_table(
+  "interaction",
+  file_metadata,
+  column_metadata,
+  column_category_metadata
 )
-
-DT::datatable(interaction_step_file_metadata, escape = FALSE)
 ```
     
 An example is given below,
@@ -370,41 +233,10 @@ eg_interaction_step <- data.frame(
   "interactionVariableType" = c("cont", "cont")
 )
 
-DT::datatable(eg_interaction_step)
+DT::datatable(eg_interaction_step, options = list(columnDefs = list(list(className = "dt-left", targets = "_all"))))
 ```
 
 The example above creates two new interaction variables, `AgeXCancer` and `AgeXHypertension`. `AgeXCancer` is created using the `Age` and `Cancer` variables while `AgeXHypertension` is created using the `Age` and `Hypertension` variables. Both new interaction variables are continuous. Notice how the interacting variables are seperated by a semi-colon in the example.
-
-```{r}
-beta_coefficients_step_file_metadata <- data.frame(
-  fileType = c("beta coefficients step", "beta coefficients step", "beta coefficients step"),
-  columnName = c("variable", "coefficient", "type"),
-  columnType = c("string", "number", "enum"),
-  description = c(
-    "The name of a covariate in the model",
-    "The value of the beta coefficient for the covariate",
-    "The type of the covariate"
-  ),
-  enumValues = c(
-    "N/A",
-    "N/A",
-    "cat; <br/>
-    cont"
-  ),
-  enumLabels = c(
-    "N/A",
-    "N/A",
-    "Categorical; <br/>
-    Continuous;"
-  ),
-  restrictions = c(
-    "mandatory; <br/>
-    Each variable should be defined either in the variables or variables details sheet, or in a previous step file", 
-    "mandatory", 
-    "mandatory"
-  )
-)
-```
 
 ## Fine and Gray Model Step Files
 
@@ -416,35 +248,23 @@ Similar to a cox regression model, a fine and gray model estimates the risk of a
 The metadata for the beta coefficients file is given below:
 
 ```{r echo=FALSE}
-DT::datatable(beta_coefficients_step_file_metadata, escape = FALSE)
+create_Rmd_table(
+  "beta-coefficients",
+  file_metadata,
+  column_metadata,
+  column_category_metadata
+)
 ```
     
 The metadata for the baseline hazards file is given below:
 
 ```{r echo=FALSE}
-baseline_hazards_step_file_metadata <- data.frame(
-  fileType = c("baseline hazards step", "baseline hazards step"),
-  columnName = c("time", "baselineHazard"),
-  columnType = c("string", "number"),
-  description = c(
-    "The time upto which this baseline hazard should be used",
-    "The baseline hazard value for this time"
-  ),
-  enumValues = c(
-    "N/A",
-    "N/A"
-  ),
-  enumLabels = c(
-    "N/A",
-    "N/A"
-  ),
-  restrictions = c(
-    "mandatory", 
-    "mandatory"
-  )
+create_Rmd_table(
+  "baseline-hazards",
+  file_metadata,
+  column_metadata,
+  column_category_metadata
 )
-
-DT::datatable(baseline_hazards_step_file_metadata, escape = FALSE)
 ```
 
 The baseline hazards file has the following columns:
@@ -456,7 +276,7 @@ The baseline hazards file has the following columns:
     
 When adding a fine and gray model step, make sure to add a variable in the variable details sheet called time. This variable represents the time interval when the model is valid. It should be a continuous variable whose `recTo` values represents the time interval. It's `units` column should specify the time metric being used for example `years`. For example, a model that can predict risk at any point in time between 1 year and 5 years from today would have the following entry in the variable details sheet,
 
-```{r echo=FALSE}
+```{r example time variable, echo=FALSE}
 eg_time_variable <- data.frame(
   "variable" = c("time", "time"),
   "recTo" = c(1, 5),
@@ -465,32 +285,32 @@ eg_time_variable <- data.frame(
   "units" = c("years", "years")
 )
 
-DT::datatable(eg_time_variable)
+DT::datatable(eg_time_variable, options = list(columnDefs = list(list(className = "dt-left", targets = "_all"))))
 ```
 
 The values of the other columns in the variable details sheet for this variable should be `N/A`.
 
 An example model steps file and the referenced fine and gray model files are shown below.
 
-```{r echo=FALSE}
+```{r example fine and gray model, echo=FALSE}
 eg_fine_and_gray_model_steps_file <- data.frame(
   "step" = c("fine-and-gray", "fine-and-gray"),
   "fileType" = c("beta-coefficients", "baseline-hazards"),
   "filePath" = c("beta-coefficients.csv", "baseline-hazards.csv")
 )
-DT::datatable(eg_fine_and_gray_model_steps_file)
+DT::datatable(eg_fine_and_gray_model_steps_file, options = list(columnDefs = list(list(className = "dt-left", targets = "_all"))))
 
 eg_beta_coefficients_csv <- data.frame(
   "variable" = c("Age", "Sex"),
   "coefficient" = c(0.01, 2)
 )
-DT::datatable(eg_beta_coefficients_csv)
+DT::datatable(eg_beta_coefficients_csv, options = list(columnDefs = list(list(className = "dt-left", targets = "_all"))))
 
 eg_baseline_hazards_csv <- data.frame(
   "time" = c(1, 2, 3, 4, 5),
   "baselineHazard" = c(0.1, 0.2, 0.3, 0.4, 0.5)
 )
-DT::datatable(eg_baseline_hazards_csv)
+DT::datatable(eg_baseline_hazards_csv, options = list(columnDefs = list(list(className = "dt-left", targets = "_all"))))
 ```
 
 The model steps file has 2 rows, both of which are a fine and gray step. The type of file described in each row is is given by `fileType` column. The first row references the a beta coefficients file and the second row references a baseline hazards file. The path to each file is given in the `filePath` column and once again should be relative to the model steps file that described them.
