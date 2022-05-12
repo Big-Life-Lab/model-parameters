@@ -10,11 +10,11 @@ column_category_metadata <- read.csv("../inst/metadata/column-category.csv", fil
 
 # Model Parameter files
 
-This section will go over the different model parameter files.
+Model parameter files are created to identify what needs to be done to the data, how the algorithm works, and where to find the files. This document is the single source of truth for all model parameter CSV files. It will go over the different features currently supported by the files, how to represent each feature in the files and a summary of all the columns in the files.
 
 ## Model Exports File
 
-One of the four mandatory files that the user has to provide. Each row in this CSV file gives the location of a file needed for implementation. The metadata for this file is given below:
+One of the four mandatory files that the user has to provide.  This file contains a list and location of all the files required by the algorithm (e.g., files to transform data) and after the algorithm (e.g., validation, categorization of outcomes (if applicable)). The metadata for this file is given below:
 
 ```{r echo=FALSE}
 create_Rmd_table(
@@ -165,7 +165,7 @@ The names of the new centered variables are `age_C` and `diet_score_C` and they 
 
 ## Restricted Cubic Spline (RCS) Step File
 
-The metadata for this file is given below:
+ Rubric cubic splines are often used to interpolate a set of data points and guarantee smoothness at the data points. The metadata for this file is given below:
 
 ```{r echo=FALSE}
 create_Rmd_table(
