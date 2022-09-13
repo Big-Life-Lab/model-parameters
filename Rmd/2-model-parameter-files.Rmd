@@ -86,6 +86,21 @@ One of the mandatory files. Its structure is defined [here](https://big-life-lab
 
 One of the mandatory files that defines the starting variables in the model. Its columns have been defined [here](https://big-life-lab.github.io/cchsflow/articles/variables_sheet.html)).
 
+## Tables File
+
+This file lists the all the tables referenced within the variables and variable details sheet. Each row in this file gives the name of the table and the path of the table relative to this file. For example,
+
+```{r echo=FALSE}
+eg_tables_file <- data.frame(
+  "tableName" = c("table-one", "table-two"),
+  "tablePath" = c("./table-one.csv", "../table-two.csv")
+)
+
+DT::datatable(eg_model_steps, options = list(columnDefs = list(list(className = "dt-left", targets = "_all"))))
+```
+
+The above example tables file has entries for two tables named `table-one` and `table-two`. `table-one` is located in the same folder as the tables file and is called `table-one.csv` while `table-two` is located one folder above the tables file and is called `table-two.csv`.
+
 ## Dummy Step File
 
 Dummying is a transformation where a categorical variable with greater than categories is converted to a set of dicotomous variables. Information about how this transformation is done can be seen [here](https://en.wikiversity.org/wiki/Dummy_variable_(statistics)).
@@ -237,6 +252,21 @@ DT::datatable(eg_interaction_step, options = list(columnDefs = list(list(classNa
 ```
 
 The example above creates two new interaction variables, `AgeXCancer` and `AgeXHypertension`. `AgeXCancer` is created using the `Age` and `Cancer` variables while `AgeXHypertension` is created using the `Age` and `Hypertension` variables. Both new interaction variables are continuous. Notice how the interacting variables are seperated by a semi-colon in the example.
+
+## Simple Model 
+
+A simple is model is one whose outcome is calculated using a series of transformations defined in the variables and variable details file. Statistically speaking, a simple model is derived using a fitting process for example using the least squares method. For example, a model to calculate the daily sodium consumption for an individual would be calculated by summing the average sodium values for each item they eat in a day.
+
+The export file for a simple model only needs to specify the name of the outcome variable, which should correspond to a variable in the `variables.csv` sheet. An example is shown below,
+
+```{r}
+eg_simple_model <- data.frame(
+  "name" = c("outputVariableName"),
+  "value" = c("sodium_per_day")
+)
+```
+
+The above file defines a simple model to calculate the average daily sodium consumption for an individual. The model details i.e. how to calculate the `sodium_per_day` variable should be defined in the `variables.csv` and `variable-details.csv` files.
 
 ## Fine and Gray Model Step Files
 
