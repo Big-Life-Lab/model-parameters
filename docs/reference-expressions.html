@@ -62,6 +62,70 @@
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 </head>
@@ -76,93 +140,103 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction<span></span></a></li>
-<li class="chapter" data-level="2" data-path="model-parameter-files.html"><a href="model-parameter-files.html"><i class="fa fa-check"></i><b>2</b> Model Parameter files<span></span></a>
+<li><a href="index.html#introduction" id="toc-introduction"><span class="toc-section-number">1</span> Introduction<span></span></a></li>
+<li><a href="model-parameter-files.html#model-parameter-files" id="toc-model-parameter-files"><span class="toc-section-number">2</span> Model Parameter files<span></span></a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="model-parameter-files.html"><a href="model-parameter-files.html#model-exports-file"><i class="fa fa-check"></i><b>2.1</b> Model Exports File<span></span></a></li>
-<li class="chapter" data-level="2.2" data-path="model-parameter-files.html"><a href="model-parameter-files.html#model-steps-file"><i class="fa fa-check"></i><b>2.2</b> Model Steps File<span></span></a></li>
-<li class="chapter" data-level="2.3" data-path="model-parameter-files.html"><a href="model-parameter-files.html#variable-details-file"><i class="fa fa-check"></i><b>2.3</b> Variable Details File<span></span></a></li>
-<li class="chapter" data-level="2.4" data-path="model-parameter-files.html"><a href="model-parameter-files.html#variables-file"><i class="fa fa-check"></i><b>2.4</b> Variables File<span></span></a></li>
-<li class="chapter" data-level="2.5" data-path="model-parameter-files.html"><a href="model-parameter-files.html#dummy-step-file"><i class="fa fa-check"></i><b>2.5</b> Dummy Step File<span></span></a></li>
-<li class="chapter" data-level="2.6" data-path="model-parameter-files.html"><a href="model-parameter-files.html#centering-step-file"><i class="fa fa-check"></i><b>2.6</b> Centering Step File<span></span></a></li>
-<li class="chapter" data-level="2.7" data-path="model-parameter-files.html"><a href="model-parameter-files.html#restricted-cubic-spline-rcs-step-file"><i class="fa fa-check"></i><b>2.7</b> Restricted Cubic Spline (RCS) Step File<span></span></a></li>
-<li class="chapter" data-level="2.8" data-path="model-parameter-files.html"><a href="model-parameter-files.html#interaction-step-file"><i class="fa fa-check"></i><b>2.8</b> Interaction Step File<span></span></a></li>
-<li class="chapter" data-level="2.9" data-path="model-parameter-files.html"><a href="model-parameter-files.html#fine-and-gray-model-step-files"><i class="fa fa-check"></i><b>2.9</b> Fine and Gray Model Step Files<span></span></a></li>
+<li><a href="model-parameter-files.html#model-exports-file" id="toc-model-exports-file"><span class="toc-section-number">2.1</span> Model Exports File<span></span></a></li>
+<li><a href="model-parameter-files.html#model-steps-file" id="toc-model-steps-file"><span class="toc-section-number">2.2</span> Model Steps File<span></span></a></li>
+<li><a href="model-parameter-files.html#variable-details-file" id="toc-variable-details-file"><span class="toc-section-number">2.3</span> Variable Details File<span></span></a></li>
+<li><a href="model-parameter-files.html#variables-file" id="toc-variables-file"><span class="toc-section-number">2.4</span> Variables File<span></span></a></li>
+<li><a href="model-parameter-files.html#tables-file" id="toc-tables-file"><span class="toc-section-number">2.5</span> Tables File<span></span></a></li>
+<li><a href="model-parameter-files.html#dummy-step-file" id="toc-dummy-step-file"><span class="toc-section-number">2.6</span> Dummy Step File<span></span></a></li>
+<li><a href="model-parameter-files.html#centering-step-file" id="toc-centering-step-file"><span class="toc-section-number">2.7</span> Centering Step File<span></span></a></li>
+<li><a href="model-parameter-files.html#restricted-cubic-spline-rcs-step-file" id="toc-restricted-cubic-spline-rcs-step-file"><span class="toc-section-number">2.8</span> Restricted Cubic Spline (RCS) Step File<span></span></a></li>
+<li><a href="model-parameter-files.html#interaction-step-file" id="toc-interaction-step-file"><span class="toc-section-number">2.9</span> Interaction Step File<span></span></a></li>
+<li><a href="model-parameter-files.html#simple-model" id="toc-simple-model"><span class="toc-section-number">2.10</span> Simple Model<span></span></a></li>
+<li><a href="model-parameter-files.html#fine-and-gray-model-step-files" id="toc-fine-and-gray-model-step-files"><span class="toc-section-number">2.11</span> Fine and Gray Model Step Files<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-validation.html"><a href="data-validation.html"><i class="fa fa-check"></i><b>3</b> Data Validation<span></span></a>
+<li><a href="data-validation.html#data-validation" id="toc-data-validation"><span class="toc-section-number">3</span> Data Validation<span></span></a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="data-validation.html"><a href="data-validation.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction<span></span></a></li>
-<li class="chapter" data-level="3.2" data-path="data-validation.html"><a href="data-validation.html#validation-csv-file-overview"><i class="fa fa-check"></i><b>3.2</b> Validation CSV File Overview<span></span></a></li>
-<li class="chapter" data-level="3.3" data-path="data-validation.html"><a href="data-validation.html#validation-features"><i class="fa fa-check"></i><b>3.3</b> Validation Features<span></span></a>
+<li><a href="data-validation.html#introduction-1" id="toc-introduction-1"><span class="toc-section-number">3.1</span> Introduction<span></span></a></li>
+<li><a href="data-validation.html#validation-csv-file-overview" id="toc-validation-csv-file-overview"><span class="toc-section-number">3.2</span> Validation CSV File Overview<span></span></a></li>
+<li><a href="data-validation.html#validation-features" id="toc-validation-features"><span class="toc-section-number">3.3</span> Validation Features<span></span></a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="data-validation.html"><a href="data-validation.html#specifying-the-name-of-the-variable-to-validate"><i class="fa fa-check"></i><b>3.3.1</b> Specifying the name of the variable to validate<span></span></a></li>
-<li class="chapter" data-level="3.3.2" data-path="data-validation.html"><a href="data-validation.html#specifying-the-validation-rule-to-apply-to-the-variable-and-its-value"><i class="fa fa-check"></i><b>3.3.2</b> Specifying the validation rule to apply to the variable and its value<span></span></a></li>
-<li class="chapter" data-level="3.3.3" data-path="data-validation.html"><a href="data-validation.html#specifying-how-to-handle-failed-validations"><i class="fa fa-check"></i><b>3.3.3</b> Specifying how to handle failed validations<span></span></a></li>
-<li class="chapter" data-level="3.3.4" data-path="data-validation.html"><a href="data-validation.html#specifying-where-a-validation-rule-can-be-used"><i class="fa fa-check"></i><b>3.3.4</b> Specifying where a validation rule can be used<span></span></a></li>
+<li><a href="data-validation.html#specifying-the-name-of-the-variable-to-validate" id="toc-specifying-the-name-of-the-variable-to-validate"><span class="toc-section-number">3.3.1</span> Specifying the name of the variable to validate<span></span></a></li>
+<li><a href="data-validation.html#specifying-the-validation-rule-to-apply-to-the-variable-and-its-value" id="toc-specifying-the-validation-rule-to-apply-to-the-variable-and-its-value"><span class="toc-section-number">3.3.2</span> Specifying the validation rule to apply to the variable and its value<span></span></a></li>
+<li><a href="data-validation.html#specifying-how-to-handle-failed-validations" id="toc-specifying-how-to-handle-failed-validations"><span class="toc-section-number">3.3.3</span> Specifying how to handle failed validations<span></span></a></li>
+<li><a href="data-validation.html#specifying-where-a-validation-rule-can-be-used" id="toc-specifying-where-a-validation-rule-can-be-used"><span class="toc-section-number">3.3.4</span> Specifying where a validation rule can be used<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="reference-expressions.html"><a href="reference-expressions.html"><i class="fa fa-check"></i><b>4</b> Reference Expressions<span></span></a></li>
-<li class="chapter" data-level="5" data-path="reference.html"><a href="reference.html"><i class="fa fa-check"></i><b>5</b> Reference<span></span></a>
+<li><a href="reference-expressions.html#reference-expressions" id="toc-reference-expressions"><span class="toc-section-number">4</span> Reference Expressions<span></span></a></li>
+<li><a href="reference.html#reference" id="toc-reference"><span class="toc-section-number">5</span> Reference<span></span></a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="reference.html"><a href="reference.html#variables"><i class="fa fa-check"></i><b>5.1</b> variables<span></span></a>
+<li><a href="reference.html#variables" id="toc-variables"><span class="toc-section-number">5.1</span> variables<span></span></a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="reference.html"><a href="reference.html#columns"><i class="fa fa-check"></i><b>5.1.1</b> Columns<span></span></a></li>
+<li><a href="reference.html#columns" id="toc-columns"><span class="toc-section-number">5.1.1</span> Columns<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="reference.html"><a href="reference.html#variable-details"><i class="fa fa-check"></i><b>5.2</b> variable-details<span></span></a>
+<li><a href="reference.html#variable-details" id="toc-variable-details"><span class="toc-section-number">5.2</span> variable-details<span></span></a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="reference.html"><a href="reference.html#columns-1"><i class="fa fa-check"></i><b>5.2.1</b> Columns<span></span></a></li>
+<li><a href="reference.html#columns-1" id="toc-columns-1"><span class="toc-section-number">5.2.1</span> Columns<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="reference.html"><a href="reference.html#lookup"><i class="fa fa-check"></i><b>5.3</b> lookup<span></span></a>
+<li><a href="reference.html#lookup" id="toc-lookup"><span class="toc-section-number">5.3</span> lookup<span></span></a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="reference.html"><a href="reference.html#columns-2"><i class="fa fa-check"></i><b>5.3.1</b> Columns<span></span></a></li>
+<li><a href="reference.html#columns-2" id="toc-columns-2"><span class="toc-section-number">5.3.1</span> Columns<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="reference.html"><a href="reference.html#descriptive"><i class="fa fa-check"></i><b>5.4</b> descriptive<span></span></a>
+<li><a href="reference.html#descriptive" id="toc-descriptive"><span class="toc-section-number">5.4</span> descriptive<span></span></a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="reference.html"><a href="reference.html#columns-3"><i class="fa fa-check"></i><b>5.4.1</b> Columns<span></span></a></li>
+<li><a href="reference.html#columns-3" id="toc-columns-3"><span class="toc-section-number">5.4.1</span> Columns<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="reference.html"><a href="reference.html#model-export"><i class="fa fa-check"></i><b>5.5</b> model-export<span></span></a>
+<li><a href="reference.html#model-export" id="toc-model-export"><span class="toc-section-number">5.5</span> model-export<span></span></a>
 <ul>
-<li class="chapter" data-level="5.5.1" data-path="reference.html"><a href="reference.html#columns-4"><i class="fa fa-check"></i><b>5.5.1</b> Columns<span></span></a></li>
+<li><a href="reference.html#columns-4" id="toc-columns-4"><span class="toc-section-number">5.5.1</span> Columns<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="reference.html"><a href="reference.html#model-steps"><i class="fa fa-check"></i><b>5.6</b> model-steps<span></span></a>
+<li><a href="reference.html#model-steps" id="toc-model-steps"><span class="toc-section-number">5.6</span> model-steps<span></span></a>
 <ul>
-<li class="chapter" data-level="5.6.1" data-path="reference.html"><a href="reference.html#columns-5"><i class="fa fa-check"></i><b>5.6.1</b> Columns<span></span></a></li>
+<li><a href="reference.html#columns-5" id="toc-columns-5"><span class="toc-section-number">5.6.1</span> Columns<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="reference.html"><a href="reference.html#dummy"><i class="fa fa-check"></i><b>5.7</b> dummy<span></span></a>
+<li><a href="reference.html#dummy" id="toc-dummy"><span class="toc-section-number">5.7</span> dummy<span></span></a>
 <ul>
-<li class="chapter" data-level="5.7.1" data-path="reference.html"><a href="reference.html#columns-6"><i class="fa fa-check"></i><b>5.7.1</b> Columns<span></span></a></li>
+<li><a href="reference.html#columns-6" id="toc-columns-6"><span class="toc-section-number">5.7.1</span> Columns<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.8" data-path="reference.html"><a href="reference.html#center"><i class="fa fa-check"></i><b>5.8</b> center<span></span></a>
+<li><a href="reference.html#center" id="toc-center"><span class="toc-section-number">5.8</span> center<span></span></a>
 <ul>
-<li class="chapter" data-level="5.8.1" data-path="reference.html"><a href="reference.html#columns-7"><i class="fa fa-check"></i><b>5.8.1</b> Columns<span></span></a></li>
+<li><a href="reference.html#columns-7" id="toc-columns-7"><span class="toc-section-number">5.8.1</span> Columns<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.9" data-path="reference.html"><a href="reference.html#interaction"><i class="fa fa-check"></i><b>5.9</b> interaction<span></span></a>
+<li><a href="reference.html#interaction" id="toc-interaction"><span class="toc-section-number">5.9</span> interaction<span></span></a>
 <ul>
-<li class="chapter" data-level="5.9.1" data-path="reference.html"><a href="reference.html#columns-8"><i class="fa fa-check"></i><b>5.9.1</b> Columns<span></span></a></li>
+<li><a href="reference.html#columns-8" id="toc-columns-8"><span class="toc-section-number">5.9.1</span> Columns<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.10" data-path="reference.html"><a href="reference.html#rcs"><i class="fa fa-check"></i><b>5.10</b> rcs<span></span></a>
+<li><a href="reference.html#rcs" id="toc-rcs"><span class="toc-section-number">5.10</span> rcs<span></span></a>
 <ul>
-<li class="chapter" data-level="5.10.1" data-path="reference.html"><a href="reference.html#columns-9"><i class="fa fa-check"></i><b>5.10.1</b> Columns<span></span></a></li>
+<li><a href="reference.html#columns-9" id="toc-columns-9"><span class="toc-section-number">5.10.1</span> Columns<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.11" data-path="reference.html"><a href="reference.html#validate"><i class="fa fa-check"></i><b>5.11</b> validate<span></span></a>
+<li><a href="reference.html#validate" id="toc-validate"><span class="toc-section-number">5.11</span> validate<span></span></a>
 <ul>
-<li class="chapter" data-level="5.11.1" data-path="reference.html"><a href="reference.html#columns-10"><i class="fa fa-check"></i><b>5.11.1</b> Columns<span></span></a></li>
+<li><a href="reference.html#columns-10" id="toc-columns-10"><span class="toc-section-number">5.11.1</span> Columns<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.12" data-path="reference.html"><a href="reference.html#beta-coefficients"><i class="fa fa-check"></i><b>5.12</b> beta-coefficients<span></span></a>
+<li><a href="reference.html#beta-coefficients" id="toc-beta-coefficients"><span class="toc-section-number">5.12</span> beta-coefficients<span></span></a>
 <ul>
-<li class="chapter" data-level="5.12.1" data-path="reference.html"><a href="reference.html#columns-11"><i class="fa fa-check"></i><b>5.12.1</b> Columns<span></span></a></li>
+<li><a href="reference.html#columns-11" id="toc-columns-11"><span class="toc-section-number">5.12.1</span> Columns<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.13" data-path="reference.html"><a href="reference.html#baseline-hazards"><i class="fa fa-check"></i><b>5.13</b> baseline-hazards<span></span></a>
+<li><a href="reference.html#baseline-hazards" id="toc-baseline-hazards"><span class="toc-section-number">5.13</span> baseline-hazards<span></span></a>
 <ul>
-<li class="chapter" data-level="5.13.1" data-path="reference.html"><a href="reference.html#columns-12"><i class="fa fa-check"></i><b>5.13.1</b> Columns<span></span></a></li>
+<li><a href="reference.html#columns-12" id="toc-columns-12"><span class="toc-section-number">5.13.1</span> Columns<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.14" data-path="reference.html"><a href="reference.html#survival_bins"><i class="fa fa-check"></i><b>5.14</b> survival_bins<span></span></a>
+<li><a href="reference.html#survival_bins" id="toc-survival_bins"><span class="toc-section-number">5.14</span> survival_bins<span></span></a>
 <ul>
-<li class="chapter" data-level="5.14.1" data-path="reference.html"><a href="reference.html#columns-13"><i class="fa fa-check"></i><b>5.14.1</b> Columns<span></span></a></li>
+<li><a href="reference.html#columns-13" id="toc-columns-13"><span class="toc-section-number">5.14.1</span> Columns<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.15" data-path="reference.html"><a href="reference.html#lookup-1"><i class="fa fa-check"></i><b>5.15</b> lookup<span></span></a>
+<li><a href="reference.html#lookup-1" id="toc-lookup-1"><span class="toc-section-number">5.15</span> lookup<span></span></a>
 <ul>
-<li class="chapter" data-level="5.15.1" data-path="reference.html"><a href="reference.html#columns-14"><i class="fa fa-check"></i><b>5.15.1</b> Columns<span></span></a></li>
+<li><a href="reference.html#columns-14" id="toc-columns-14"><span class="toc-section-number">5.15.1</span> Columns<span></span></a></li>
+</ul></li>
+<li><a href="reference.html#tables" id="toc-tables"><span class="toc-section-number">5.16</span> tables<span></span></a>
+<ul>
+<li><a href="reference.html#columns-15" id="toc-columns-15"><span class="toc-section-number">5.16.1</span> Columns<span></span></a></li>
+</ul></li>
+<li><a href="reference.html#simple-model-1" id="toc-simple-model-1"><span class="toc-section-number">5.17</span> simple-model<span></span></a>
+<ul>
+<li><a href="reference.html#columns-16" id="toc-columns-16"><span class="toc-section-number">5.17.1</span> Columns<span></span></a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -186,20 +260,20 @@
 <h1><span class="header-section-number">4</span> Reference Expressions<a href="reference-expressions.html#reference-expressions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>When creating a set of model parameter files for an algorithm, you may encounter situations where you’re copying values between files. For example, you may want to use the median value of a variable described in a descriptive statistics file in a centering step file. Rather than copying the median value to the centering step file, we can use a reference expression to ensure that the two values are always synchronized, for example if the descriptive statistics file is updated. By using a reference expression we’re creating a link between the cells of two different model parameter files.</p>
 <p>Imagine an algorithm developed to predict the risk of developing diabetes that has three variables, age, sex, and ethnicity. Age is a continuous variable, sex is dichotomous with categories male and female, and ethnicity is dichotomous with categories white and other. The descriptive statistics file named <strong>diabetes-des-stats</strong> with the mean for each variable and its categories are shown below.</p>
-<div id="htmlwidget-61daf01091d06d6e9bf9" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-61daf01091d06d6e9bf9">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5"],["Age","Sex","Sex","Ethnicity","Ethnicity"],["N/A","Male","Female","White","Other"],[45,0.45,0.55,0.75,0.25]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>variable<\/th>\n      <th>catValue<\/th>\n      <th>mean<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-27e7c5ea66457bac1cbc" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-27e7c5ea66457bac1cbc">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5"],["Age","Sex","Sex","Ethnicity","Ethnicity"],["N/A","Male","Female","White","Other"],[45,0.45,0.55,0.75,0.25]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>variable<\/th>\n      <th>catValue<\/th>\n      <th>mean<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>Lets assume this is a cox proportionals hazards model, so the model parameter files should include all the steps to transform the initial set of variables to their final form, before they can be scored to calculate the risk of developing diabetes. This algorithm has only two steps, a step to create the dummy variables and a centering step. The variables are centered on their mean and the centering file can be seen below,</p>
-<div id="htmlwidget-735bb5e328647d12a44f" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-735bb5e328647d12a44f">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["Age","Sex_Male","Ethnicity_White"],["45","0.45","0.75"],["Age_centered","Sex_Male_centered","Ethnicity_White_centered"],["cont","cat","cat"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>origVariable<\/th>\n      <th>centerValue<\/th>\n      <th>centeredVariable<\/th>\n      <th>centeredVariableType<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-19c0cfaf28f9ac94955a" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-19c0cfaf28f9ac94955a">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["Age","Sex_Male","Ethnicity_White"],["45","0.45","0.75"],["Age_centered","Sex_Male_centered","Ethnicity_White_centered"],["cont","cat","cat"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>origVariable<\/th>\n      <th>centerValue<\/th>\n      <th>centeredVariable<\/th>\n      <th>centeredVariableType<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>Note that only the male and ethnicity white variables were centered, females and ethnicity “other” are the reference.</p>
 <p>Without reference expressions the centering values in the centerValue column need to be copied from the descriptive statistics file. Every time the descriptive statistics file changes, the centering values need to be updated also. This may work for one file or for an algorithm with a few variables but gets tedious for more complicated algorithms with more model parameter files.</p>
 <p>Using reference expressions, we can eliminate these issues. The new centering step file is shown below.</p>
-<div id="htmlwidget-b104ffd103cfa2193ed7" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b104ffd103cfa2193ed7">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["Age","Sex_Male","Ethnicity_White"],["diabetes-des-stats[diabetes-des-stats$variable == \"Age\", ]$mean","diabetes-des-stats[diabetes-des-stats$variable == \"Sex\" &amp; diabetes-des-stats$catValue == \"Male\", ]$mean","diabetes-des-stats[diabetes-des-stats$variable == \"Ethnicity\" &amp; diabetes-des-stats$catValue == \"White\", ]$mean"],["Age_centered","Sex_Male_centered","Ethnicity_White_centered"],["cont","cat","cat"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>origVariable<\/th>\n      <th>centerValue<\/th>\n      <th>centeredVariable<\/th>\n      <th>centeredVariableType<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b6974987228f1486e36b" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b6974987228f1486e36b">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["Age","Sex_Male","Ethnicity_White"],["diabetes-des-stats[diabetes-des-stats$variable == \"Age\", ]$mean","diabetes-des-stats[diabetes-des-stats$variable == \"Sex\" &amp; diabetes-des-stats$catValue == \"Male\", ]$mean","diabetes-des-stats[diabetes-des-stats$variable == \"Ethnicity\" &amp; diabetes-des-stats$catValue == \"White\", ]$mean"],["Age_centered","Sex_Male_centered","Ethnicity_White_centered"],["cont","cat","cat"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>origVariable<\/th>\n      <th>centerValue<\/th>\n      <th>centeredVariable<\/th>\n      <th>centeredVariableType<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>The centerValue column no longer has numbers but reference expressions. Each reference expression refers to a particular cell in the descriptive statistics file. If you’re familiar with R code than you’ll notice that its the same code you would use to subset a data frame. If you’re unfamiliar with R, you can use <a href="https://campus.datacamp.com/courses/model-a-quantitative-trading-strategy-in-r/chapter-1-introduction-to-r-for-trading?ex=4">this</a> datacamp tutorial to learn. In R, you would need to use the name of the data frame in your code, similarly here you would use the name of the referenced file instead. For example here the file name is <strong>diabetes-des-stats</strong>. There’s no need to include the file extension for example .csv when referencing a file.</p>
 <p>Lets look at another example, but this time in the validation file for this algorithm.</p>
-<div id="htmlwidget-6ea49e2276d2f3e0b287" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6ea49e2276d2f3e0b287">{"x":{"filter":"none","vertical":false,"data":[["1","2"],["Sex","Age_centered"],["allowed","nullable"],["diabetes-des-stats[diabetes-des-stats$variable == \"Sex\", ]$catValue","FALSE"],["error","warning"],["diabetes-des-stats[diabetes-des-stats$variable == \"Age\", ]$mean",""],["",""]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>variable<\/th>\n      <th>type<\/th>\n      <th>value<\/th>\n      <th>error_handle<\/th>\n      <th>error_replace<\/th>\n      <th>location<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-806961f0beae384fba70" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-806961f0beae384fba70">{"x":{"filter":"none","vertical":false,"data":[["1","2"],["Sex","Age_centered"],["allowed","nullable"],["diabetes-des-stats[diabetes-des-stats$variable == \"Sex\", ]$catValue","FALSE"],["error","warning"],["diabetes-des-stats[diabetes-des-stats$variable == \"Age\", ]$mean",""],["",""]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>variable<\/th>\n      <th>type<\/th>\n      <th>value<\/th>\n      <th>error_handle<\/th>\n      <th>error_replace<\/th>\n      <th>location<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>The validation file has two cells where a reference expression was used:</p>
 <ol style="list-style-type: decimal">
 <li>To specify the values that are allowed for the <code>Sex</code> variable. Here we want to specify all the category values for this variable but rather than adding in <code>Male;Female</code> we can simply reference these values from the <code>catValue</code> column in the descriptive statistics file using a reference expression.</li>

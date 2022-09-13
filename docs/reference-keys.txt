@@ -4,10 +4,12 @@ model-exports-file
 model-steps-file
 variable-details-file
 variables-file
+tables-file
 dummy-step-file
 centering-step-file
 restricted-cubic-spline-rcs-step-file
 interaction-step-file
+simple-model
 fine-and-gray-model-step-files
 data-validation
 introduction-1
@@ -117,3 +119,11 @@ lookup-1
 columns-14
 catvalue-4
 range-1
+tables
+columns-15
+tablename
+tablepath
+simple-model-1
+columns-16
+name
+value-1
