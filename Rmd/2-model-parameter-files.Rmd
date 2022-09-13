@@ -96,7 +96,7 @@ eg_tables_file <- data.frame(
   "tablePath" = c("./table-one.csv", "../table-two.csv")
 )
 
-DT::datatable(eg_model_steps, options = list(columnDefs = list(list(className = "dt-left", targets = "_all"))))
+DT::datatable(eg_tables_file, options = list(columnDefs = list(list(className = "dt-left", targets = "_all"))))
 ```
 
 The above example tables file has entries for two tables named `table-one` and `table-two`. `table-one` is located in the same folder as the tables file and is called `table-one.csv` while `table-two` is located one folder above the tables file and is called `table-two.csv`.
