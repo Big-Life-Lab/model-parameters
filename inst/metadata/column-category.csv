@@ -21,6 +21,7 @@ model-export,fileType,cox,A cox file
 model-export,fileType,survival_bins,File with survival data for the different bins
 model-export,fileType,lookup,Contains the range of score values for each biin in a survival algorithm
 model-export,fileType,validate,Contains the validation rules for variables in the algorithm
+model-export,fileType,tables,Defines a tables model export file
 model-steps,step,dummy,Step used to create dummy variables
 model-steps,step,center,Step used to create centered variables
 model-steps,step,rcs,Steps used to create spline terms
@@ -30,6 +31,7 @@ model-steps,step,cox,Step used to calculate the outcome of a cox proportional ha
 model-steps,fileType,N/A,Missing since certain steps don't need to specify the file type
 model-steps,fileType,beta-coefficients,A beta coefficients file for a fine and gray model or a cox model
 model-steps,fileType,baseline-hazards,The baseline hazards for a fine and gray model or a cox model
+model-steps,fileType,simple-model,For simple models
 interaction,interactionVariableType,cat,Categorical type
 interaction,interactionVariableType,cont,Continuous type
 validate,rule,type,Validate the data type of the variable
@@ -41,3 +43,4 @@ validate,error_handle,warning,Failed validations for the variable should log a w
 validate,error_handle,truncate,"Failed validations for the variable should log a warning, truncate the failed variable value, and continue scoring process"
 beta-coefficients,type,cat,Categorical type
 beta-coefficients,type,cont,Continuous type
+simple-model,name,outputVariableName,The name of the output variable for the model. Should be defined in the variables and variable details sheets.
