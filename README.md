@@ -8,7 +8,7 @@ The documentation is served by Github pages and its files are stored in the gh-p
 Switch to the gh-pages branch and merge main into it. Then run the following command,
 
 ```{r}
-blogdown::render_book(index = "./Rmd")
+bookdown::render_book(input = "./Rmd")
 ```
 
 Commit and push to update docs.
