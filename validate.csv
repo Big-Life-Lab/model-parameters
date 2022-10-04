@@ -1,8 +1,0 @@
-variable,location,versionStart,versionEnd,description_en,allow_unknown,allowed,allof,anyof,check_with,contains,dependencies,empty,forbidden,items,keysrules,min,max,default,minlength,maxlength,noneof,nullable,oneof,regex,required,type,coerce,error,warning
-Sex,user-questionnaire,,,,,variable_details,,,,variable_details,,FALSE,NA::2,,,,,,,,,,,,TRUE,variable_details,variable_details,Must enter sex,
-Sex,score-data,,,,,variable_details,,,,variable_details,,FALSE,,,,,,,,,,,,,TRUE,variable_details,variable_details,Sex missing,
-Age,user-questionnaire,,,,,,,,,,,FALSE,,,,20,,,,,,,,,FALSE,variable_details,variable_details,Age must be 20 years or older,
-Age,user-questionnaire,,,,,,,,,,,,,,,,100,,,,,,,,FALSE,variable_details,variable_details,Age must be less than 100 years,
-BMI,intermediate_variable,,,,,,,,,,,,,,,descr_stats:percentile[1],descr_stats:percentile[99],24.3,,,,,,,FALSE,variable_details,variable_details,,BMI outside 1st and 99th percentile
-Height,user-questionnaire,,,,,,,,,,,,,,,1.5,3,descr_stats:mean,,,,,,,FALSE,variable_details,variable_details,Heigth must be between 1.5 and 3.0 metres,
-Weight,user-questionnaire,,,,,,,,,,,,,,,,,descr_stats:mean,,,,,,,FALSE,variable_details,variable_details,,
