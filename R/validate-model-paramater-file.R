@@ -1,3 +1,11 @@
+#' Validates a set of model parameters file
+#'
+#' @param model_parameters_file_path Path to the model parametera file
+#'
+#' @return
+#' @export
+#'
+#' @examples
 validate_model_parameters <- function(model_parameters_file_path) {
   # Read all the metadata files
   file_metadata <- read.csv(
