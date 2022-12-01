@@ -32,7 +32,8 @@ validate_model_parameters <- function(model_parameters_file_path) {
   }
   
   model_parameters_file <- read.csv(model_parameters_file_path,
-                                    encoding = "UTF-8-BOM")
+                                    fileEncoding = "UTF-8-BOM")
+
   model_parameters_file_errors <- validate_file(
     model_parameters_file,
     "model-export",
