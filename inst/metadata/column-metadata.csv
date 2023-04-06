@@ -1,6 +1,6 @@
 ﻿fileName,columnName,columnLabel,columnType,optional,columnDesc,key,foreignKeyFile,foreignKeyColumn
 variables,variable,The name of the variable,string,FALSE,,,,
-variables,role,The different processes that the variable was part of during the algorithm development,string,FALSE,,,,
+variables,role,The different processes that the variable was part of during the algorithm development,string,TRUE,,,,
 variables,variableType,The statistical type of the variable,category,FALSE,,,,
 variables,databaseStart,The databases that the variable can be harmonized from,string,FALSE,,,,
 variables,variableStart,The names of the variable for each starting database,string,FALSE,,,,
@@ -23,7 +23,7 @@ variable-details,recStart,The value of the starting variable to harmonize from. 
 variable-details,catStartLabel,The description for the category of the start variable.,string,FALSE,,,,
 variable-details,variableStartShortLabel,A short description of the starting variables,string,FALSE,,,,
 variable-details,variableStartLabel,A long description of the starting variables,string,FALSE,,,,
-variable-details,notes,Any issues/problems that users of this variable should consider. Can also include any problems encountered during harmonization.,string,FALSE,,,,
+variable-details,notes,Any issues/problems that users of this variable should consider. Can also include any problems encountered during harmonization.,string,TRUE,,,,
 descriptive,variable,The variable whose descriptive statistics the row contains,string,FALSE,,,,
 descriptive,catValue,The value of the category whose descriptive statistics the row contains. N/A for continuous variables.,number,FALSE,,,,
 descriptive,n,The number of individuals used to calculate the row's statistics,number,TRUE,,,,
