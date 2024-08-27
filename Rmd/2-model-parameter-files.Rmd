@@ -80,11 +80,11 @@ Notice how the `fileType` columns for both these steps is `N/A` or `Not Applicab
 
 ## Variable Details File
 
-One of the mandatory files. Its structure is defined [here](https://big-life-lab.github.io/cchsflow/articles/variable_details.html)).
+One of the mandatory files. Its structure is defined in the [recodeflow library](https://big-life-lab.github.io/recodeflow/articles/variable_details.html).
 
 ## Variables File
 
-One of the mandatory files that defines the starting variables in the model. Its columns have been defined [here](https://big-life-lab.github.io/cchsflow/articles/variables_sheet.html)).
+One of the mandatory files that defines the starting variables in the model. Its columns have been defined in the [recodeflow library](https://big-life-lab.github.io/recodeflow/articles/variables_sheet.html).
 
 ## Tables File
 
