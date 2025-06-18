@@ -21,9 +21,7 @@ jobs:
         with:
           r-version: '4.1.2'
       - name: Install all project dependencies
-        uses: r-lib/actions/setup-r-dependencies@v2
-        env:
-          R_COMPILE_AND_INSTALL_PACKAGES: 'never'
+        uses: r-lib/actions/setup-renv@bd49c52ffe281809afa6f0fecbf37483c5dd0b93 # v2.11.3
       - name: Install the model.parameters package from github
         run: Rscript -e 'devtools::install_github("Big-Life-Lab/model-parameters-template", ref="validate", auth_token="${{ secrets.read-repos-token }}")'
       - name: Check the model parameter files
