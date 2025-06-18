@@ -1,14 +1,10 @@
 # model-parameters-template
 This repo provides a template for all current model parameter documents. The goal is to describe the model and outline all the steps to go from the starting variables in the model to calculating the outcome of the model. These files provide a transparent, detailed description of the model for publication and/or implementation. See https://big-life-lab.github.io/model-parameters/ for more details.
 
-# Building the Documentation
+## Documentation
 
-The documentation is served by Github pages and its files are stored in the gh-pages branch.
-
-Switch to the gh-pages branch and merge main into it. Then run the following command,
-
-```{r}
-bookdown::render_book(input = "./Rmd")
-```
-
-Commit and push to update docs.
+The `docs/` directory contains the Quarto project for the model parameter
+documentation website. This includes all the source files (.qmd),
+configuration (_quarto.yml), and supporting assets needed to build and deploy
+the documentation. The documentation is automatically built and deployed to
+GitHub Pages when changes are pushed to the main branch.

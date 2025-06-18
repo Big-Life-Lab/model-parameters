@@ -1,0 +1,23 @@
+project:
+  type: website
+  output-dir: dist
+
+website:
+  title: "Model Parameter Files"
+  sidebar:
+    contents:
+      - href: index.qmd
+        text: "Introduction"
+      - href: 2-model-parameter-files.qmd
+        text: "2. Model Parameter Files"
+      - href: 3-validate.qmd
+        text: "3. Data Validation"
+      - href: 4-reference-expressions.qmd
+        text: "4. Reference Expressions"
+      - href: 5-reference.qmd
+        text: "5. Reference"
+
+format:
+  html:
+    theme: default
+    toc: true
