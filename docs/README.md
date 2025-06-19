@@ -22,6 +22,19 @@ quarto render docs
 
 The rendered website will be generated in the `docs/dist/` directory.
 
+## AI Agent Support
+
+The build process automatically generates an `llms.md` file in the output 
+directory (`docs/dist/llms.md`) that provides a structured overview of the 
+site for AI agents. This file contains:
+
+- The website title from `_quarto.yml`
+- A list of all pages with their titles and HTML links
+- Easy navigation for AI agents to understand the site structure
+
+This file is regenerated automatically every time you run `quarto render` or 
+`quarto preview`.
+
 ## Viewing/Editing the Documentation
 
 After building, you can preview the documentation locally:
