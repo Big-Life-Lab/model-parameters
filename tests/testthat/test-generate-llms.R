@@ -33,8 +33,7 @@ test_that("generate_llms creates llms.md file with correct content", {
   setwd(test_project_dir)
   
   tryCatch({
-    source(file.path(old_wd, "R", "generate_llms.R"))
-    generate_llms()
+    model.parameters::generate_llms()
   }, finally = {
     setwd(old_wd)
   })
@@ -70,8 +69,7 @@ test_that("generate_llms throws error for missing _quarto.yml", {
   
   expect_error({
     tryCatch({
-      source(file.path(old_wd, "R", "generate_llms.R"))
-      generate_llms()
+      model.parameters::generate_llms()
     }, finally = {
       setwd(old_wd)
     })
@@ -97,8 +95,7 @@ test_that("generate_llms throws error for malformed _quarto.yml", {
   
   expect_error({
     tryCatch({
-      source(file.path(old_wd, "R", "generate_llms.R"))
-      generate_llms()
+      model.parameters::generate_llms()
     }, finally = {
       setwd(old_wd)
     })
@@ -140,8 +137,7 @@ test_that("generate_llms throws error for nested sidebar contents", {
   
   expect_error({
     tryCatch({
-      source(file.path(old_wd, "R", "generate_llms.R"))
-      generate_llms()
+      model.parameters::generate_llms()
     }, finally = {
       setwd(old_wd)
     })
@@ -191,8 +187,7 @@ test_that("generate_llms handles file write permission issues", {
     
     expect_error({
       tryCatch({
-        source(file.path(old_wd, "R", "generate_llms.R"))
-        generate_llms()
+        model.parameters::generate_llms()
       }, finally = {
         setwd(old_wd)
         # Restore permissions for cleanup
