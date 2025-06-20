@@ -21,3 +21,4 @@ LazyData: true
 URL: https://github.com/Big-Life-Lab/model-parameters-template
 BugReports: https://github.com/Big-Life-Lab/model-parameters-template/issues
 RoxygenNote: 7.2.1
+Config/testthat/edition: 3
