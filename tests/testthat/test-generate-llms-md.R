@@ -30,7 +30,7 @@ setup_test <- function(quarto_project_dir, env = parent.frame()) {
 
 }
 
-test_that("generate_llms creates llms.md file with correct content", {
+test_that("generate_llms_md creates llms.md file with correct content", {
   setup_info <- setup_test("test_quarto_project")
 
   # Create a test _quarto.yml file
@@ -49,25 +49,25 @@ test_that("generate_llms creates llms.md file with correct content", {
   yaml::write_yaml(quarto_yml_content, 
                    file.path(setup_info$quarto_project_dir, "_quarto.yml"))
   
-  model.parameters::generate_llms()
+  model.parameters::generate_llms_md()
   
   llms_file <- file.path(setup_info$output_dir, "llms.md")
   expect_true(file.exists(llms_file))
   
-  content <- readChar(llms_file, file.info(llms_file)$size)
+  content <- capture.output(cat(readChar(llms_file, file.info(llms_file)$size)))
 
   expect_snapshot(content)
 })
 
-test_that("generate_llms throws error for missing _quarto.yml", {
+test_that("generate_llms_md throws error for missing _quarto.yml", {
   setup_test("test_no_yml")
 
   expect_error({
-    model.parameters::generate_llms()
+    model.parameters::generate_llms_md()
   }, "Could not find _quarto.yml file")
 })
 
-test_that("generate_llms throws error for malformed _quarto.yml", {
+test_that("generate_llms_md throws error for malformed _quarto.yml", {
   setup_info <- setup_test("test_malformed_yml")
   
   malformed_yml <- file.path(setup_info$quarto_project_dir, "_quarto.yml")
@@ -75,11 +75,11 @@ test_that("generate_llms throws error for malformed _quarto.yml", {
              malformed_yml)
   
   expect_error({
-    model.parameters::generate_llms()
+    model.parameters::generate_llms_md()
   }, "Invalid _quarto.yml structure")
 })
 
-test_that("generate_llms throws error for nested sidebar contents", {
+test_that("generate_llms_md throws error for nested sidebar contents", {
   setup_info <- setup_test("test_nested_sidebar")
   
   nested_yml_content <- list(
@@ -103,11 +103,11 @@ test_that("generate_llms throws error for nested sidebar contents", {
                    file.path(setup_info$quarto_project_dir, "_quarto.yml"))
   
   expect_error({
-    model.parameters::generate_llms()
+    model.parameters::generate_llms_md()
   }, "Nested sidebar contents are not supported")
 })
 
-test_that("generate_llms handles file write permission issues", {
+test_that("generate_llms_md handles file write permission issues", {
   skip_on_cran()
   skip_on_ci()
 
@@ -135,6 +135,6 @@ test_that("generate_llms handles file write permission issues", {
   withr::defer(Sys.chmod(setup_info$output_dir, mode = "0755"))
 
   expect_error({
-      model.parameters::generate_llms()
+      model.parameters::generate_llms_md()
   }, "Failed to write llms.md file")
 })
