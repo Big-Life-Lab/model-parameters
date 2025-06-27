@@ -2,20 +2,24 @@
 #'
 #' It sets up the following:
 #' * Creating a test quarto project directory
-#' * Updating the working directory to the test quarto project directory.
-#' * Setting the QUARTO_PROJECT_OUTPUT_DIR env variable
+#' * Writing the provided _quarto.yml configuration to the project directory
 #' @param quarto_project_dir_name string that has the name of the test quarto
 #' project directory
+#' @param quarto_yml_content named list containing the _quarto.yml
+#' configuration
 #' @param env used for clean-up. Don't set this.
 #' @return A named list with the following fields:
-#' * quarto_project_dir: The path to the test quarto project directory
-#' * output_dir: The path to the directory where the rendered document
-#'               will be
-setup_test <- function(quarto_project_dir_name, env = parent.frame()) {
+#' * quarto_project_dir_path: The path to the test quarto project directory
+#' * quarto_render_cmd: The command to render the quarto project
+setup_test <- function(
+  quarto_project_dir_name, quarto_yml_content, env = parent.frame()) {
   temp_dir <- tempdir()
   quarto_project_dir_path <- file.path(temp_dir, quarto_project_dir_name)
   dir.create(quarto_project_dir_path, recursive = TRUE)
   withr::defer(unlink(quarto_project_dir_path, recursive = TRUE), env)
+
+  yaml::write_yaml(quarto_yml_content,
+                   file.path(quarto_project_dir_path, "_quarto.yml"))
 
   return(list(
     quarto_project_dir_path = quarto_project_dir_path,
@@ -24,8 +28,6 @@ setup_test <- function(quarto_project_dir_name, env = parent.frame()) {
 }
 
 test_that("generate_llms_md creates llms.md file with correct content", {
-  setup_info <- setup_test("test_quarto_project")
-  
   output_dir_name <- "dist"
 
   # Create a test _quarto.yml file
@@ -46,9 +48,9 @@ test_that("generate_llms_md creates llms.md file with correct content", {
       )
     )
   )
-  yaml::write_yaml(quarto_yml_content, 
-                   file.path(setup_info$quarto_project_dir_path, "_quarto.yml"))
   
+  setup_info <- setup_test("test_quarto_project", quarto_yml_content)
+
   system(setup_info$quarto_render_cmd)
 
   output_dir <- file.path(setup_info$quarto_project_dir_path, output_dir_name)
@@ -61,11 +63,9 @@ test_that("generate_llms_md creates llms.md file with correct content", {
 })
 
 test_that("generate_llms_md throws error for nested sidebar contents", {
-  setup_info <- setup_test("test_nested_sidebar")
-
   output_dir_name <- "dist"
 
-  # Create a test _quarto.yml file
+  # Create a test _quarto.yml file with nested sidebar contents
   nested_yml_content <- list(
     project = list(
       type = "website",
@@ -88,8 +88,7 @@ test_that("generate_llms_md throws error for nested sidebar contents", {
     )
   )
   
-  yaml::write_yaml(nested_yml_content, 
-                   file.path(setup_info$quarto_project_dir_path, "_quarto.yml"))
+  setup_info <- setup_test("test_nested_sidebar", nested_yml_content)
 
   output <- suppressWarnings(system2(
     "quarto", args = c("render", setup_info$quarto_project_dir_path),
@@ -107,10 +106,15 @@ test_that("generate_llms_md handles file write permission issues", {
   if (.Platform$OS.type == "unix") {
     skip("Skipping, not on unix system")
   }
-
-  setup_info <- setup_test("test_permissions")
   
+  output_dir_name <- "dist"
+
   quarto_yml_content <- list(
+    project = list(
+      type = "website",
+      `output-dir` = output_dir_name,
+      `post-render` = file.path(getwd(), "../../generate_llms_script.R")
+    ),
     website = list(
       title = "Test Site",
       sidebar = list(
@@ -121,13 +125,19 @@ test_that("generate_llms_md handles file write permission issues", {
     )
   )
   
-  yaml::write_yaml(quarto_yml_content, 
-                   file.path(setup_info$quarto_project_dir, "_quarto.yml"))
-  
-  Sys.chmod(setup_info$output_dir, mode = "0444")
-  withr::defer(Sys.chmod(setup_info$output_dir, mode = "0755"))
+  setup_info <- setup_test("test_permissions", quarto_yml_content)
 
-  expect_error({
-      model.parameters::generate_llms_md()
-  }, "Failed to write llms.md file")
+  output_dir_path <- file.path(
+    setup_info$quarto_project_dir_path, output_dir_name
+  )
+  Sys.chmod(output_dir_path, mode = "0444")
+  withr::defer(Sys.chmod(output_dir_path, mode = "0755"))
+
+  output <- suppressWarnings(system2(
+    "quarto", args = c("render", setup_info$quarto_project_dir_path),
+    stderr = TRUE, stdout = TRUE
+  ))
+
+  expect_equal(attr(output, "status"), 1)
+  expect_match(output, "Failed to write llms.md file", all = FALSE)
 })
