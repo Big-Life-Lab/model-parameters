@@ -10,7 +10,7 @@
 #' @param env used for clean-up. Don't set this.
 #' @return A named list with the following fields:
 #' * quarto_project_dir_path: The path to the test quarto project directory
-#' * quarto_render_cmd: The command to render the quarto project
+#' * quarto_render_cmd: A function that runs the quarto render command and returns its output
 setup_test <- function(
   quarto_project_dir_name, quarto_yml_content, env = parent.frame()) {
   temp_dir <- tempdir()
@@ -21,9 +21,18 @@ setup_test <- function(
   yaml::write_yaml(quarto_yml_content,
                    file.path(quarto_project_dir_path, "_quarto.yml"))
 
+  render_function <- function() {
+    return(system2(
+      "quarto",
+      args = c("render", quarto_project_dir_path),
+      stderr = TRUE,
+      stdout = TRUE
+    ))
+  }
+
   return(list(
     quarto_project_dir_path = quarto_project_dir_path,
-    quarto_render_cmd = paste0("quarto render ", quarto_project_dir_path)
+    quarto_render_cmd = render_function
   ))
 }
 
@@ -51,7 +60,7 @@ test_that("generate_llms_md creates llms.md file with correct content", {
   
   setup_info <- setup_test("test_quarto_project", quarto_yml_content)
 
-  system(setup_info$quarto_render_cmd)
+  setup_info$quarto_render_cmd()
 
   output_dir <- file.path(setup_info$quarto_project_dir_path, output_dir_name)
   llms_md_file <- file.path(output_dir, "llms.md")
@@ -90,10 +99,7 @@ test_that("generate_llms_md throws error for nested sidebar contents", {
   
   setup_info <- setup_test("test_nested_sidebar", nested_yml_content)
 
-  output <- suppressWarnings(system2(
-    "quarto", args = c("render", setup_info$quarto_project_dir_path),
-    stderr = TRUE, stdout = TRUE
-  ))
+  output <- suppressWarnings(setup_info$quarto_render_cmd())
 
   expect_equal(attr(output, "status"), 1)
   expect_match(output, "Nested sidebar contents are not supported", all = FALSE)
@@ -133,10 +139,7 @@ test_that("generate_llms_md handles file write permission issues", {
   Sys.chmod(output_dir_path, mode = "0444")
   withr::defer(Sys.chmod(output_dir_path, mode = "0755"))
 
-  output <- suppressWarnings(system2(
-    "quarto", args = c("render", setup_info$quarto_project_dir_path),
-    stderr = TRUE, stdout = TRUE
-  ))
+  output <- suppressWarnings(setup_info$quarto_render_cmd())
 
   expect_equal(attr(output, "status"), 1)
   expect_match(output, "Failed to write llms.md file", all = FALSE)
