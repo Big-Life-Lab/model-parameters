@@ -10,6 +10,9 @@ jobs:
         with:
           r-version: '4.0.3'
       - uses: r-lib/actions/setup-renv@bd49c52ffe281809afa6f0fecbf37483c5dd0b93 # v2.11.3
+      - name: Install R dependencies
+        run: |
+          Rscript -e "install.packages(c('yaml', 'purrr'), repos='https://cloud.r-project.org/')"
       - name: Render Quarto Project
         run: |
           quarto render docs
