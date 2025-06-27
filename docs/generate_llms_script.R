@@ -1,5 +1,8 @@
 #!/usr/bin/env Rscript
 
+args <- commandArgs()
+print(args)
+
 #' Generate llms.md file for AI agents
 #'
 #' This function reads the _quarto.yml configuration file, extracts the website
