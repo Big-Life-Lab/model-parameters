@@ -23,7 +23,7 @@ if (is.null(script_path)) {
 }
 
 # Source the generate_llms function directly
-source(file.path(script_dir, "R", "generate_llms.R"))
+source(file.path(script_dir, "R", "generate_llms_md.R"))
 
 # Call the generate_llms function
-generate_llms()
+generate_llms_md()

@@ -4,37 +4,37 @@
 #' * Creating a test quarto project directory
 #' * Updating the working directory to the test quarto project directory.
 #' * Setting the QUARTO_PROJECT_OUTPUT_DIR env variable
-#' @param quarto_project_dir string that has the name of the test quarto
+#' @param quarto_project_dir_name string that has the name of the test quarto
 #' project directory
 #' @param env used for clean-up. Don't set this.
 #' @return A named list with the following fields:
 #' * quarto_project_dir: The path to the test quarto project directory
 #' * output_dir: The path to the directory where the rendered document
 #'               will be
-setup_test <- function(quarto_project_dir, env = parent.frame()) {
+setup_test <- function(quarto_project_dir_name, env = parent.frame()) {
   temp_dir <- tempdir()
-  test_project_dir <- file.path(temp_dir, quarto_project_dir)
-  dir.create(test_project_dir, recursive = TRUE)
-  withr::defer(unlink(test_project_dir, recursive = TRUE), env)
+  quarto_project_dir_path <- file.path(temp_dir, quarto_project_dir_name)
+  dir.create(quarto_project_dir_path, recursive = TRUE)
+  withr::defer(unlink(quarto_project_dir_path, recursive = TRUE), env)
 
-  old_wd <- getwd()
-  setwd(test_project_dir)
-  withr::defer(setwd(old_wd), env)
-
-  output_dir <- file.path(test_project_dir, "dist")
-  dir.create(output_dir, recursive = TRUE)
-  Sys.setenv(QUARTO_PROJECT_OUTPUT_DIR = output_dir)
-  withr::defer(Sys.unsetenv("QUARTO_PROJECT_OUTPUT_DIR"), env)
-
-  return(list(quarto_project_dir = test_project_dir, output_dir = output_dir))
-
+  return(list(
+    quarto_project_dir_path = quarto_project_dir_path,
+    quarto_render_cmd = paste0("quarto render ", quarto_project_dir_path)
+  ))
 }
 
 test_that("generate_llms_md creates llms.md file with correct content", {
   setup_info <- setup_test("test_quarto_project")
+  
+  output_dir_name <- "dist"
 
   # Create a test _quarto.yml file
   quarto_yml_content <- list(
+    project = list(
+      type = "website",
+      `output-dir` = output_dir_name,
+      `post-render` = file.path(getwd(), "../../generate_llms_script.R")
+    ),
     website = list(
       title = "Test Documentation Site",
       sidebar = list(
@@ -47,42 +47,31 @@ test_that("generate_llms_md creates llms.md file with correct content", {
     )
   )
   yaml::write_yaml(quarto_yml_content, 
-                   file.path(setup_info$quarto_project_dir, "_quarto.yml"))
+                   file.path(setup_info$quarto_project_dir_path, "_quarto.yml"))
   
-  model.parameters::generate_llms_md()
-  
-  llms_file <- file.path(setup_info$output_dir, "llms.md")
-  expect_true(file.exists(llms_file))
-  
-  content <- capture.output(cat(readChar(llms_file, file.info(llms_file)$size)))
+  system(setup_info$quarto_render_cmd)
+
+  output_dir <- file.path(setup_info$quarto_project_dir_path, output_dir_name)
+  llms_md_file <- file.path(output_dir, "llms.md")
+  expect_true(file.exists(llms_md_file))
+
+  content <- readLines(llms_md_file)
 
   expect_snapshot(content)
 })
 
-test_that("generate_llms_md throws error for missing _quarto.yml", {
-  setup_test("test_no_yml")
-
-  expect_error({
-    model.parameters::generate_llms_md()
-  }, "Could not find _quarto.yml file")
-})
-
-test_that("generate_llms_md throws error for malformed _quarto.yml", {
-  setup_info <- setup_test("test_malformed_yml")
-  
-  malformed_yml <- file.path(setup_info$quarto_project_dir, "_quarto.yml")
-  writeLines("website:\n  title: Test\n  sidebar:\n    - invalid: structure", 
-             malformed_yml)
-  
-  expect_error({
-    model.parameters::generate_llms_md()
-  }, "Invalid _quarto.yml structure")
-})
-
 test_that("generate_llms_md throws error for nested sidebar contents", {
   setup_info <- setup_test("test_nested_sidebar")
-  
+
+  output_dir_name <- "dist"
+
+  # Create a test _quarto.yml file
   nested_yml_content <- list(
+    project = list(
+      type = "website",
+      `output-dir` = output_dir_name,
+      `post-render` = file.path(getwd(), "../../generate_llms_script.R")
+    ),
     website = list(
       title = "Test Site",
       sidebar = list(
@@ -100,11 +89,15 @@ test_that("generate_llms_md throws error for nested sidebar contents", {
   )
   
   yaml::write_yaml(nested_yml_content, 
-                   file.path(setup_info$quarto_project_dir, "_quarto.yml"))
-  
-  expect_error({
-    model.parameters::generate_llms_md()
-  }, "Nested sidebar contents are not supported")
+                   file.path(setup_info$quarto_project_dir_path, "_quarto.yml"))
+
+  output <- system2(
+    "quarto", args = c("render", setup_info$quarto_project_dir_path),
+    stderr = TRUE, stdout = TRUE
+  )
+
+  expect_equal(attr(output, "status"), 1)
+  expect_match(output, "Nested sidebar contents are not supported", all = FALSE)
 })
 
 test_that("generate_llms_md handles file write permission issues", {

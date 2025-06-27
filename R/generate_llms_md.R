@@ -6,18 +6,8 @@
 #'
 #' @export
 generate_llms_md <- function() {
-  # Check if _quarto.yml exists
-  if (!file.exists("_quarto.yml")) {
-    stop("Could not find _quarto.yml file in the current directory")
-  }
-  
-  # Read and parse the YAML file
-  tryCatch({
-    quarto_config <- yaml::read_yaml("_quarto.yml")
-  }, error = function(e) {
-    stop("Failed to read _quarto.yml file: ", e$message)
-  })
-  
+  quarto_config <- yaml::read_yaml("_quarto.yml")
+    
   # Validate YAML structure
   if (is.null(quarto_config$website)) {
     stop("Invalid _quarto.yml structure: missing 'website' section")
@@ -31,9 +21,9 @@ generate_llms_md <- function() {
   }
   
   title <- quarto_config$website$title
-  llms_md_title <- paste0("# ", title, "\n\n")
+  llms_md_title <- paste0("# ", title, "\n")
 
-  llms_md_pages_header <- paste0("## Pages", "\n\n")
+  llms_md_pages_header <- paste0("## Pages", "\n")
 
   sidebar_contents <- quarto_config$website$sidebar$contents
   # Check for nested sidebar contents (not supported)
@@ -47,7 +37,7 @@ generate_llms_md <- function() {
       return("")
     }
     link_href <- gsub("\\.qmd$", ".html", .x$href)
-    return(paste0("- [", .x$text, "](", link_href, ")\n"))
+    return(paste0("- [", .x$text, "](", link_href, ")"))
   })
 
   llms_content <- paste(

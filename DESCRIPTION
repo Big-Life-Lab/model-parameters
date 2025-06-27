@@ -10,7 +10,7 @@ Authors@R: c(
           email = "ysequeira@ohri.ca")
   )
 Depends:
-  R (>= 4.0),
+  R (>= 4.1),
   DT (>= 0.21),
   glue (>= 1.6.2),
   yaml (>= 2.3.5)
