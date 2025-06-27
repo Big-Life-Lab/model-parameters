@@ -1,3 +1,5 @@
+#!/usr/bin/env Rscript
+
 #' Generate llms.md file for AI agents
 #'
 #' This function reads the _quarto.yml configuration file, extracts the website
@@ -57,3 +59,6 @@ generate_llms_md <- function() {
   
   message("Generated llms.md file at: ", llms_file_path)
 }
+
+# Call the generate_llms function
+generate_llms_md()

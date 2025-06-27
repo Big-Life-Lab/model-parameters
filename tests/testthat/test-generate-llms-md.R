@@ -44,7 +44,7 @@ test_that("generate_llms_md creates llms.md file with correct content", {
     project = list(
       type = "website",
       `output-dir` = output_dir_name,
-      `post-render` = file.path(getwd(), "../../generate_llms_script.R")
+      `post-render` = file.path(getwd(), "../../docs/generate_llms_script.R")
     ),
     website = list(
       title = "Test Documentation Site",
@@ -79,7 +79,7 @@ test_that("generate_llms_md throws error for nested sidebar contents", {
     project = list(
       type = "website",
       `output-dir` = output_dir_name,
-      `post-render` = file.path(getwd(), "../../generate_llms_script.R")
+      `post-render` = file.path(getwd(), "../../docs/generate_llms_script.R")
     ),
     website = list(
       title = "Test Site",
@@ -119,7 +119,7 @@ test_that("generate_llms_md handles file write permission issues", {
     project = list(
       type = "website",
       `output-dir` = output_dir_name,
-      `post-render` = file.path(getwd(), "../../generate_llms_script.R")
+      `post-render` = file.path(getwd(), "../../docs/generate_llms_script.R")
     ),
     website = list(
       title = "Test Site",
