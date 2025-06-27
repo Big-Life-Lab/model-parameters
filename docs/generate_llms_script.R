@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-
+library(yaml)
 args <- commandArgs()
 print(args)
 
