@@ -91,10 +91,10 @@ test_that("generate_llms_md throws error for nested sidebar contents", {
   yaml::write_yaml(nested_yml_content, 
                    file.path(setup_info$quarto_project_dir_path, "_quarto.yml"))
 
-  output <- system2(
+  output <- suppressWarnings(system2(
     "quarto", args = c("render", setup_info$quarto_project_dir_path),
     stderr = TRUE, stdout = TRUE
-  )
+  ))
 
   expect_equal(attr(output, "status"), 1)
   expect_match(output, "Nested sidebar contents are not supported", all = FALSE)
