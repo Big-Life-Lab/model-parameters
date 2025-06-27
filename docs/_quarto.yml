@@ -1,7 +1,7 @@
 project:
   type: website
   output-dir: dist
-  post-render: ../generate_llms_script.R
+  post-render: ./generate_llms_script.R
 
 website:
   title: "Model Parameter Files"
