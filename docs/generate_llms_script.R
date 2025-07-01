@@ -1,8 +1,10 @@
 #!/usr/bin/env Rscript
-quarto_config <- yaml::read_yaml("_quarto.yml")
+quarto_config_path <- file.path(getwd(), "_quarto.yml")
 
 setwd("../")
 source(".Rprofile")
+
+quarto_config <- yaml::read_yaml(quarto_config_path)
 
 #' Generate llms.md file for AI agents
 #'
