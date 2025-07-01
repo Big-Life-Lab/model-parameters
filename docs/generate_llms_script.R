@@ -1,7 +1,6 @@
 #!/usr/bin/env Rscript
-library(yaml)
-args <- commandArgs()
-print(args)
+setwd("../")
+source(".Rprofile")
 
 #' Generate llms.md file for AI agents
 #'
