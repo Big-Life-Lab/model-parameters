@@ -1,0 +1,81 @@
+#!/usr/bin/env Rscript
+
+# This script generates a llms.md file in the output directory of a Quarto
+# project. Use it by adding the path to it to the post-render
+# https://quarto.org/docs/projects/scripts.html#pre-and-post-render
+# field of your quarto configuration file.
+
+quarto_project_path <- getwd()
+# If its running within a Github action
+# If this is not done then renv is not activated and the R can't load any
+# of the libraries.
+# Don't do this all the time otherwise the tests will fail
+if(Sys.getenv("GITHUB_ACTIONS") == "true") {
+  setwd('../')
+  source('.Rprofile')
+}
+
+#' Generate llms.md file for AI agents
+#'
+#' This function reads the _quarto.yml configuration file, extracts the website
+#' title and sidebar contents, and generates an llms.md file in the output 
+#' directory for AI agents to understand the site structure.
+#'
+#' @param quarto_project_path string
+#' @export
+generate_llms_md <- function(quarto_project_path) {
+  quarto_config <- yaml::read_yaml(
+    file.path(quarto_project_path, "_quarto.yml"))
+    
+  # Validate YAML structure
+  if (is.null(quarto_config$website)) {
+    stop("Invalid _quarto.yml structure: missing 'website' section")
+  }
+  if (is.null(quarto_config$website$title)) {
+    stop("Invalid _quarto.yml structure: missing 'website.title'")
+  }
+  if (is.null(quarto_config$website$sidebar) || 
+      is.null(quarto_config$website$sidebar$contents)) {
+    stop("Invalid _quarto.yml structure: missing 'website.sidebar.contents'")
+  }
+  
+  title <- quarto_config$website$title
+  llms_md_title <- paste0("# ", title, "\n")
+
+  llms_md_pages_header <- paste0("## Pages", "\n")
+
+  sidebar_contents <- quarto_config$website$sidebar$contents
+  # Check for nested sidebar contents (not supported)
+  for (item in sidebar_contents) {
+    if (!is.null(item$section) || !is.null(item$contents)) {
+      stop("Nested sidebar contents are not supported")
+    }
+  }
+  llms_md_page_links <- purrr::map_chr(sidebar_contents, ~ {
+    if (is.null(.x$href) || is.null(.x$text)) {
+      return("")
+    }
+    link_href <- gsub("\\.qmd$", ".html", .x$href)
+    return(paste0("- [", .x$text, "](", link_href, ")"))
+  })
+
+  llms_content <- paste(
+    c(llms_md_title, llms_md_pages_header, llms_md_page_links)
+  )
+
+  output_dir <- Sys.getenv("QUARTO_PROJECT_OUTPUT_DIR")
+  
+  # Write the llms.md file
+  llms_file_path <- file.path(output_dir, "llms.md")
+  
+  tryCatch({
+    writeLines(llms_content, llms_file_path)
+  }, error = function(e) {
+    stop("Failed to write llms.md file: ", e$message)
+  })
+  
+  message("Generated llms.md file at: ", llms_file_path)
+}
+
+# Call the generate_llms function
+generate_llms_md(quarto_project_path)
