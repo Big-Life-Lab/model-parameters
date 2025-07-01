@@ -1,4 +1,6 @@
 #!/usr/bin/env Rscript
+quarto_config <- yaml::read_yaml("_quarto.yml")
+
 setwd("../")
 source(".Rprofile")
 
@@ -9,9 +11,7 @@ source(".Rprofile")
 #' directory for AI agents to understand the site structure.
 #'
 #' @export
-generate_llms_md <- function() {
-  quarto_config <- yaml::read_yaml("_quarto.yml")
-    
+generate_llms_md <- function(quarto_config) {
   # Validate YAML structure
   if (is.null(quarto_config$website)) {
     stop("Invalid _quarto.yml structure: missing 'website' section")
@@ -63,4 +63,4 @@ generate_llms_md <- function() {
 }
 
 # Call the generate_llms function
-generate_llms_md()
+generate_llms_md(quarto_config)
