@@ -7,3 +7,5 @@ date: '2022-03-31'
 # Introduction
 
 This repo contains documentation and metadata for all the developed model parameter files. The goal of these files is to describe the model and outline all the steps to go from the starting variables in the model to calculating the outcome of the model. These files provide a transparent, detailed description of the model for publication and/or implementation.
+
+AI agents should look at the [llms.md](llms.md) file.
