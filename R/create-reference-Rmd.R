@@ -32,53 +32,64 @@ create_reference_Rmd <- function(
 
     reference_Rmd_lines <- c(reference_Rmd_lines, "### Columns")
 
-    for(column_metadata_row_index in 1:nrow(column_metadata_for_file)) {
-      column_name <- column_metadata_for_file[column_metadata_row_index, "columnName"]
-      column_type <- column_metadata_for_file[column_metadata_row_index, "columnType"]
-
-      reference_Rmd_lines <- c(reference_Rmd_lines, paste("####", column_name))
-
-      reference_Rmd_lines <- c(
-        reference_Rmd_lines,
-        column_metadata_for_file[column_metadata_row_index, "columnLabel"]
-      )
-
-      reference_Rmd_lines <- c(
-        reference_Rmd_lines,
-        paste("**Type:**", column_type)
-      )
-
-      if(column_type == "category") {
-        column_categories <- column_category_metadata[
-          column_category_metadata$fileName == file_name & column_category_metadata$columnName == column_name, ]
-        if(nrow(column_categories) == 0) {
-          stop(paste("No categories found for column", column_type, "for file", file_name))
-        }
-        
-        category_rmd_string <- c()
-        category_rmd_string <- c(
-          category_rmd_string,
-          "| Category Value | Category Description |",
-          "|-|-|"
+    columns_table_header <- paste0(
+      c(
+        "| Column Name | Description | Type | Category Values |",
+        "|-|-|-|-|"
+      ),
+      collapse = "\n"
+    )
+    columns_table_rows <- purrr::pmap_chr(
+     column_metadata_for_file,
+     function(columnName, columnType, columnLabel, ...) {
+        column_categories <- dplyr::if_else(
+          columnType == "category",
+          .format_column_categories(
+            column_category_metadata[
+              column_category_metadata$fileName == file_name &
+                column_category_metadata$columnName == columnName, ]
+          ),
+          ""
         )
-        for(column_category_index in 1:nrow(column_categories)) {
-          category_rmd_string <- c(
-            category_rmd_string,
-            paste(
-              "|", 
-              column_categories[column_category_index, "columnValue"],
-              "|",
-              column_categories[column_category_index, "desc"],
-              "|"
-            )
-          )
-        }
-        reference_Rmd_lines <- c(
-          reference_Rmd_lines,
-          paste(category_rmd_string, collapse = "\n")
+        columns_table_row <- paste(
+          "|", columnName,
+          "|", columnLabel,
+          "|", columnType,
+          "|", column_categories,
+          "|"
         )
+        return(columns_table_row)
       }
-    }
+    )
+    columns_table_contents <- c(
+      columns_table_header,
+      columns_table_rows
+    )
+    reference_Rmd_lines <- c(
+      reference_Rmd_lines, paste(columns_table_contents, collapse = "\n"))
   }
   return(cat(reference_Rmd_lines, sep = "\n\n"))
+}
+
+#' Formats the categories of a categorical column for display
+#' The categories are formatted as:
+#' {category_value_1}:{category_description_1}
+#' {category_value_2}:{category_description_2}
+#' ...
+#'
+#' @param categories a data.frame containing the metadata for all
+#' the categories that need to be formatted. The structure should follow
+#' what's in the inst/metadata/column-category.csv file.
+#' @returns a string containing the formatted categories
+.format_column_categories <- function(categories) {
+  if(nrow(categories) == 0) {
+    return("")
+  }
+  category_string <- purrr::pmap_chr(
+    categories,
+    function(columnValue, desc, ...) {
+      return(paste0("<b>", columnValue, ":</b> ", desc))
+    }
+  )
+  return(paste0(category_string, collapse = "<br/>"))
 }
