@@ -21,3 +21,11 @@ documentation website. This includes all the source files (.qmd),
 configuration (_quarto.yml), and supporting assets needed to build and deploy
 the documentation. The documentation is automatically built and deployed to
 GitHub Pages when changes are pushed to the main branch.
+
+## Changing files
+
+Before updating any files in the project make sure to first read and follow
+the rules in the README.md files of the containing and parent folders. For
+example, when modifying files in the `inst/metadata` folder you should follow
+the rules in the README.md files in the `inst/metadata` folder, the `inst`
+folder, and the project root folder.
