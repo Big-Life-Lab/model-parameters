@@ -1,18 +1,18 @@
-﻿fileName,fileLabel,fileDesc
-variables,Contains all the variables needed for algorithm development and implementation,
-variable-details,Contains the details for the variables defined in a variables sheet,
-lookup,Contains the score range that each bin belongs to,
-descriptive,"Contains descriptive information, for example mean, median etc. for variables",
-model-export,Contains the list of all files that are part of the export for an algorithm,
-model-steps,Contains the steps to score an algorithm,
-dummy,Contains the variables to convert to dummy variables,
-center,Contains the variables to create centered variables,
-interaction,Contains the interaction variables for an algorithm,
-rcs,Contains the RCS variables for an algorithm,
-validate,Contains the validation rules for variables in the algorithm,
-beta-coefficients,Contains the beta coefficients used to evaluate a cox proportional hazards model or a fine and grey model,
-baseline-hazards,Contains the baseline hazards to use with a cox proportional hazards model or a fine and grey model,
-survival_bins,Contains the survival data for the different bins in a survival algorithm,
-lookup,Contains the range of score values for each bin in a survival algorithm,
-tables,Contains the list of tables referenced in the variable and variable detail files,
-simple-model,Contains the metadata for a simple model,
+﻿fileName,fileLabel,fileDesc,algorithmType
+variables,Contains all the variables needed for algorithm development and implementation,,all
+variable-details,Contains the details for the variables defined in a variables sheet,,all
+lookup,Contains the score range that each bin belongs to,,all
+descriptive,"Contains descriptive information, for example mean, median etc. for variables",,all
+model-export,Contains the list of all files that are part of the export for an algorithm,,all
+model-steps,Contains the steps to score an algorithm,,all
+dummy,Contains the variables to convert to dummy variables,,all
+center,Contains the variables to create centered variables,,all
+interaction,Contains the interaction variables for an algorithm,,all
+rcs,Contains the RCS variables for an algorithm,,all
+validate,Contains the validation rules for variables in the algorithm,,all
+beta-coefficients,Contains the beta coefficients used to evaluate a cox proportional hazards model or a fine and grey model,,cox;fine-and-gray
+baseline-hazards,Contains the baseline hazards to use with a cox proportional hazards model or a fine and grey model,,cox;fine-and-gray
+survival_bins,Contains the survival data for the different bins in a survival algorithm,,survival
+lookup,Contains the range of score values for each bin in a survival algorithm,,survival
+tables,Contains the list of tables referenced in the variable and variable detail files,,all
+simple-model,Contains the metadata for a simple model,,simple-model

@@ -23,6 +23,25 @@ create_reference_Rmd <- function(
       file_metadata[file_metadata_row_index, "fileLabel"]
     )
 
+    algorithm_type <- file_metadata[file_metadata_row_index, "algorithmType"]
+    if (is.na(algorithm_type) | trimws(algorithm_type) == "") {
+      cli::cli_abort(c(
+        "Every file type must have an algorithm type",
+        "x" = "No algorithm type found for file type {file_name}",
+        "i" = "The error is in row {file_metadata_row_index} in the file
+               metadata",
+        "i" = "The allowed algorithm type values are all, simple-model,
+               survival, cox, and fine-and-gray"
+      ))
+    }
+    algorithm_type_display <- paste0(
+      "**Algorithm type(s):** ", gsub(";", ", ", algorithm_type)
+    )
+    reference_Rmd_lines <- c(
+      reference_Rmd_lines,
+      algorithm_type_display
+    )
+
     column_metadata_for_file <- column_metadata[
       column_metadata$fileName == file_name,
     ]
