@@ -10,7 +10,7 @@ center,Contains the variables to create centered variables,,all
 interaction,Contains the interaction variables for an algorithm,,all
 rcs,Contains the RCS variables for an algorithm,,all
 validate,Contains the validation rules for variables in the algorithm,,all
-beta-coefficients,Contains the beta coefficients used to evaluate a cox proportional hazards model or a fine and grey model,,cox;fine-and-gray
+beta-coefficients,Contains the coefficients for regression models,,cox;fine-and-gray;logistic-regression
 baseline-hazards,Contains the baseline hazards to use with a cox proportional hazards model or a fine and grey model,,cox;fine-and-gray
 survival_bins,Contains the survival data for the different bins in a survival algorithm,,survival
 lookup,Contains the range of score values for each bin in a survival algorithm,,survival

@@ -20,3 +20,10 @@ column in the `column-category.csv` file and the `fileDesc` column in the
 When the data type for a value is an array i.e. it needs to encode multiple
 values, a colon (;) should be used as the separator, for example, `a;b`. The
 `algorithmType` column in the `file-metadata.csv` file uses this format.
+
+## New Algorithms
+
+When adding a newly supported algorithm to the repository, make sure to update
+the `algorithmType` column in the `file-metadata.csv` appropriately. This 
+column is used to specify which algorithm(s) each file is applicable to. Use a 
+value of `all` if a file is applicable to all algorithms.
