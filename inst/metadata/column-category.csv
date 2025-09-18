@@ -45,3 +45,6 @@ validate,error_handle,truncate,"Failed validations for the variable should log a
 beta-coefficients,type,cat,Categorical type
 beta-coefficients,type,cont,Continuous type
 simple-model,name,outputVariableName,The name of the output variable for the model. Should be defined in the variables and variable details sheets.
+center,centeredVariableType,cat,Categorical type
+center,centeredVariableType,cont,Continuous type
+
