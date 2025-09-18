@@ -47,3 +47,5 @@ beta-coefficients,type,cont,Continuous type
 simple-model,name,outputVariableName,The name of the output variable for the model. Should be defined in the variables and variable details sheets.
 logistic-regression,type,cat,Categorical type
 logistic-regression,type,cont,Continuous type
+center,centeredVariableType,cat,Categorical type
+center,centeredVariableType,cont,Continuous type
