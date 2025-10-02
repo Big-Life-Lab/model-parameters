@@ -2,7 +2,10 @@
 #'
 #' @param model_parameters_file_path Path to the model parametera file
 #'
-#' @return
+#' @return A named list containing the following fields:
+#' * success: boolean indicating whether validation failed or succeeded.
+#' * errors: A character vector where each item is a validation error message.
+#'   this field is only present if validation failed.
 #' @export
 #'
 #' @examples
@@ -108,9 +111,9 @@ validate_model_parameters <- function(model_parameters_file_path) {
     }
   }
   if (length(file_errors) == 0) {
-    return(TRUE)
+    return(list(success = TRUE))
   }
-  return(file_errors)
+  return(list(success = FALSE, errors = file_errors))
 }
 
 validate_file <- function(file,
