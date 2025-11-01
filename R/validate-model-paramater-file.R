@@ -2,7 +2,10 @@
 #'
 #' @param model_parameters_file_path Path to the model parametera file
 #'
-#' @return
+#' @return A named list containing the following fields:
+#' * success: boolean indicating whether validation failed or succeeded.
+#' * errors: A character vector where each item is a validation error message.
+#'   this field is only present if validation failed.
 #' @export
 #'
 #' @examples
@@ -65,22 +68,52 @@ validate_model_parameters <- function(model_parameters_file_path) {
     
     model_parameter_file <- read.csv(model_parameter_file_path,
                                      fileEncoding = "UTF-8-BOM")
+    file_validation <- validate_file(
+      model_parameter_file,
+      model_parameter_file_row$fileType,
+      basename(model_parameter_file_path),
+      file_metadata,
+      column_metadata,
+      column_category_metadata
+    )
     file_errors <- c(
       file_errors,
-      validate_file(
-        model_parameter_file,
-        model_parameter_file_row$fileType,
-        basename(model_parameter_file_path),
-        file_metadata,
-        column_metadata,
-        column_category_metadata
-      )
+      file_validation 
     )
+
+    MODEL_STEPS_FILE_TYPE <- "model-steps"
+    if(model_parameter_file_row$fileType == MODEL_STEPS_FILE_TYPE &
+       length(file_validation) == 0) {
+      model_step_file_errors <- purrr::pmap(
+        model_parameter_file,
+        function(step, filePath, fileType, ...) {
+          model_step_file_path <- file.path(dirname(model_parameter_file_path), filePath)
+          model_step_file <- read.csv(model_step_file_path, fileEncoding = "UTF-8-BOM")
+          # Step types whose fileType value cannot be N/A
+          NON_NA_FILE_TYPE_STEPS <- c("fine-and-gray", "cox")
+          model_step_file_type <- if(step %in% NON_NA_FILE_TYPE_STEPS) {
+            fileType
+          } else {
+            step 
+          } 
+          validation <- validate_file(
+            model_step_file,
+            model_step_file_type,
+            basename(model_step_file_path),
+            file_metadata,
+            column_metadata,
+            column_category_metadata
+          )
+          return(validation)
+        }
+      ) %>% purrr::list_c()
+      file_errors <- c(file_errors, model_step_file_errors)
+    }
   }
   if (length(file_errors) == 0) {
-    return(TRUE)
+    return(list(success = TRUE))
   }
-  return(file_errors)
+  return(list(success = FALSE, errors = file_errors))
 }
 
 validate_file <- function(file,

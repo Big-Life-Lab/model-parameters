@@ -29,6 +29,7 @@ model-steps,step,interaction,Step used to create interaction terms
 model-steps,step,fine-and-gray,Step used to calculate the outcome of a fine and gray model
 model-steps,step,cox,Step used to calculate the outcome of a cox proportional hazards model
 model-steps,step,simple-model,Step used to calculate the outcome of a simple model
+model-steps,step,logistic-regression,Step used to calculate the outcome of a logistic regression model
 model-steps,fileType,N/A,Missing since certain steps don't need to specify the file type
 model-steps,fileType,beta-coefficients,A beta coefficients file for a fine and gray model or a cox model
 model-steps,fileType,baseline-hazards,The baseline hazards for a fine and gray model or a cox model
@@ -44,3 +45,7 @@ validate,error_handle,truncate,"Failed validations for the variable should log a
 beta-coefficients,type,cat,Categorical type
 beta-coefficients,type,cont,Continuous type
 simple-model,name,outputVariableName,The name of the output variable for the model. Should be defined in the variables and variable details sheets.
+logistic-regression,type,cat,Categorical type
+logistic-regression,type,cont,Continuous type
+center,centeredVariableType,cat,Categorical type
+center,centeredVariableType,cont,Continuous type
