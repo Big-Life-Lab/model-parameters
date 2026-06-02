@@ -123,12 +123,12 @@ validate_file <- function(file,
                           column_metadata,
                           column_category_metadata) {
   current_file_metadata <- file_metadata[file_metadata$fileName == file_type,]
-  
+
   if (nrow(current_file_metadata) == 0) {
     stop(glue::glue("No rows found in file metadata for file type {file_type}"))
   }
-  
-  file_column_metadata <- column_metadata[column_metadata$fileName == file_type,]
+
+  file_column_metadata <- column_metadata[.matches_file_type(column_metadata$fileName, file_type),]
   if (nrow(file_column_metadata) == 0) {
     stop(glue::glue("No rows found in columns metadata for file type {file_type}"))
   }

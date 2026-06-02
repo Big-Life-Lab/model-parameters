@@ -1,4 +1,5 @@
 ```{r echo=FALSE}
+source("../R/matches-file-type.R")
 source("../R/create-Rmd-table.R")
 ```
 

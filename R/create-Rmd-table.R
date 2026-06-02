@@ -1,5 +1,5 @@
 create_Rmd_table <- function(file_type, file_metadata, column_metadata, column_category_metadata) {
-  column_metadata_rows <- column_metadata[column_metadata$fileName == file_type, ]
+  column_metadata_rows <- column_metadata[.matches_file_type(column_metadata$fileName, file_type), ]
   if(nrow(column_metadata_rows) == 0) {
     stop(glue::glue("No column metadata rows found for file {file_type}"))
   }
