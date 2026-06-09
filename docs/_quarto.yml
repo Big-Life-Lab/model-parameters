@@ -3,6 +3,8 @@ project:
   output-dir: dist
   post-render: ./generate_llms_script.R
 
+quarto-required: ">=1.9.0"
+
 website:
   title: "Model Parameter Files"
   sidebar:
