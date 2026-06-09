@@ -43,7 +43,7 @@ create_reference_Rmd <- function(
     )
 
     column_metadata_for_file <- column_metadata[
-      column_metadata$fileName == file_name,
+      .matches_file_type(column_metadata$fileName, file_name),
     ]
     if(nrow(column_metadata_for_file) == 0) {
       stop(paste("No column metadata found for file", file_name))

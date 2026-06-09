@@ -1,4 +1,5 @@
 ```{r, echo=FALSE, results='asis'}
+source("../R/matches-file-type.R")
 source("../R/create-reference-Rmd.R")
 
 file_metadata <- read.csv(
