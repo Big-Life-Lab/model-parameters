@@ -1,12 +1,13 @@
 ```{r echo=FALSE}
 source("../R/matches-file-type.R")
 source("../R/create-Rmd-table.R")
+source("../R/get-categories.R")
 ```
 
 ```{r read metadata files, echo=FALSE}
 file_metadata <- read.csv("../inst/metadata/file-metadata.csv", fileEncoding = "UTF-8-BOM")
 column_metadata <- read.csv("../inst/metadata/column-metadata.csv", fileEncoding = "UTF-8-BOM")
-column_category_metadata <- read.csv("../inst/metadata/column-category.csv", fileEncoding = "UTF-8-BOM")
+category_set_metadata <- read.csv("../inst/metadata/category-set.csv", fileEncoding = "UTF-8-BOM")
 ```
 
 # Model Parameter files
@@ -22,7 +23,7 @@ create_Rmd_table(
   "model-export",
   file_metadata,
   column_metadata,
-  column_category_metadata
+  category_set_metadata
 )
 ```
         
@@ -55,7 +56,7 @@ create_Rmd_table(
   "model-steps",
   file_metadata,
   column_metadata,
-  column_category_metadata
+  category_set_metadata
 )
 ```
     
@@ -113,7 +114,7 @@ create_Rmd_table(
   "dummy",
   file_metadata,
   column_metadata,
-  column_category_metadata
+  category_set_metadata
 )
 ```
     
@@ -156,7 +157,7 @@ create_Rmd_table(
   "center",
   file_metadata,
   column_metadata,
-  column_category_metadata
+  category_set_metadata
 )
 ```
     
@@ -188,7 +189,7 @@ create_Rmd_table(
   "rcs",
   file_metadata,
   column_metadata,
-  column_category_metadata
+  category_set_metadata
 )
 ```
     
@@ -236,7 +237,7 @@ create_Rmd_table(
   "interaction",
   file_metadata,
   column_metadata,
-  column_category_metadata
+  category_set_metadata
 )
 ```
     
@@ -283,7 +284,7 @@ create_Rmd_table(
   "beta-coefficients",
   file_metadata,
   column_metadata,
-  column_category_metadata
+  category_set_metadata
 )
 ```
     
@@ -294,7 +295,7 @@ create_Rmd_table(
   "baseline-hazards",
   file_metadata,
   column_metadata,
-  column_category_metadata
+  category_set_metadata
 )
 ```
 
