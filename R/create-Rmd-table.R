@@ -1,4 +1,4 @@
-create_Rmd_table <- function(file_type, file_metadata, column_metadata, column_category_metadata) {
+create_Rmd_table <- function(file_type, file_metadata, column_metadata, category_set_metadata) {
   column_metadata_rows <- column_metadata[.matches_file_type(column_metadata$fileName, file_type), ]
   if(nrow(column_metadata_rows) == 0) {
     stop(glue::glue("No column metadata rows found for file {file_type}"))
@@ -15,10 +15,7 @@ create_Rmd_table <- function(file_type, file_metadata, column_metadata, column_c
     column_metadata_row <- column_metadata_rows[column_metadata_row_index, ]
     
     if(column_metadata_row$columnType == "category") {
-      column_categories_metadata_rows <- column_category_metadata[column_category_metadata$fileName == file_type & column_category_metadata$columnName == column_metadata_row$columnName, ]
-      if(nrow(column_categories_metadata_rows) == 0) {
-        stop(glue::glue("No column categories metadata rows found for file {file_type} for column {column_metadata_row$columnName}"))
-      }
+      column_categories_metadata_rows <- get_categories(column_metadata_row$categorySet, category_set_metadata)
       for(column_categories_metadata_rows_index in 1:nrow(column_categories_metadata_rows)) {
         column_categories_metadata_row <- column_categories_metadata_rows[column_categories_metadata_rows_index, ]
         if(column_categories_metadata_rows_index == 1) {

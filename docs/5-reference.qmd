@@ -1,6 +1,7 @@
 ```{r, echo=FALSE, results='asis'}
 source("../R/matches-file-type.R")
 source("../R/create-reference-Rmd.R")
+source("../R/get-categories.R")
 
 file_metadata <- read.csv(
   "../inst/metadata/file-metadata.csv",
@@ -10,13 +11,13 @@ column_metadata <- read.csv(
   "../inst/metadata/column-metadata.csv",
   fileEncoding = "UTF-8-BOM"
 )
-column_category_metadata <- read.csv(
-  "../inst/metadata/column-category.csv",
+category_set_metadata <- read.csv(
+  "../inst/metadata/category-set.csv",
   fileEncoding = "UTF-8-BOM"
 )
 create_reference_Rmd(
   file_metadata,
   column_metadata,
-  column_category_metadata
+  category_set_metadata
 )
 ```

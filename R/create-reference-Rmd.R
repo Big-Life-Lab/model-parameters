@@ -1,7 +1,7 @@
 create_reference_Rmd <- function(
   file_metadata,
   column_metadata,
-  column_category_metadata
+  category_set_metadata
   ) {
   reference_Rmd_lines <- c()
   
@@ -60,16 +60,14 @@ create_reference_Rmd <- function(
     )
     columns_table_rows <- purrr::pmap_chr(
      column_metadata_for_file,
-     function(columnName, columnType, columnLabel, ...) {
-        column_categories <- dplyr::if_else(
-          columnType == "category",
+     function(columnName, columnType, columnLabel, categorySet, ...) {
+        column_categories <- if (columnType == "category") {
           .format_column_categories(
-            column_category_metadata[
-              column_category_metadata$fileName == file_name &
-                column_category_metadata$columnName == columnName, ]
-          ),
+            get_categories(categorySet, category_set_metadata)
+          )
+        } else {
           ""
-        )
+        }
         columns_table_row <- paste(
           "|", columnName,
           "|", columnLabel,
@@ -98,7 +96,7 @@ create_reference_Rmd <- function(
 #'
 #' @param categories a data.frame containing the metadata for all
 #' the categories that need to be formatted. The structure should follow
-#' what's in the inst/metadata/column-category.csv file.
+#' what is returned by [get_categories()].
 #' @returns a string containing the formatted categories
 .format_column_categories <- function(categories) {
   if(nrow(categories) == 0) {

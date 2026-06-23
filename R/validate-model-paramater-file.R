@@ -20,9 +20,9 @@ validate_model_parameters <- function(model_parameters_file_path) {
       system.file("metadata/column-metadata.csv", package = "model.parameters"),
       fileEncoding = "UTF-8-BOM"
     )
-  column_category_metadata <-
+  category_set_metadata <-
     read.csv(
-      system.file("metadata/column-category.csv", package = "model.parameters"),
+      system.file("metadata/category-set.csv", package = "model.parameters"),
       fileEncoding = "UTF-8-BOM"
     )
   
@@ -43,7 +43,7 @@ validate_model_parameters <- function(model_parameters_file_path) {
     basename(model_parameters_file_path),
     file_metadata,
     column_metadata,
-    column_category_metadata
+    category_set_metadata
   )
   if (length(model_parameters_file_errors) > 0) {
     stop(cat(model_parameters_file_errors, sep = "\n"))
@@ -74,7 +74,7 @@ validate_model_parameters <- function(model_parameters_file_path) {
       basename(model_parameter_file_path),
       file_metadata,
       column_metadata,
-      column_category_metadata
+      category_set_metadata
     )
     file_errors <- c(
       file_errors,
@@ -102,7 +102,7 @@ validate_model_parameters <- function(model_parameters_file_path) {
             basename(model_step_file_path),
             file_metadata,
             column_metadata,
-            column_category_metadata
+            category_set_metadata
           )
           return(validation)
         }
@@ -121,7 +121,7 @@ validate_file <- function(file,
                           file_name,
                           file_metadata,
                           column_metadata,
-                          column_category_metadata) {
+                          category_set_metadata) {
   current_file_metadata <- file_metadata[file_metadata$fileName == file_type,]
 
   if (nrow(current_file_metadata) == 0) {
@@ -172,16 +172,11 @@ validate_file <- function(file,
                }
              },
              "category" = {
-               column_categories_metadata <- column_category_metadata[column_category_metadata$fileName == file_type &
-                                                                        column_category_metadata$columnName == column_metadata_row$columnName,]
-               if (nrow(column_category_metadata) == 0) {
-                 stop(
-                   glue::glue(
-                     "No categories metadata found for file {file_type} for column {column_category_metadata$columnName}"
-                   )
-                 )
-               }
-               
+               column_categories_metadata <- get_categories(
+                 column_metadata_row$categorySet,
+                 category_set_metadata
+               )
+
                column_values <- column_categories_metadata$columnValue
                if (!column_value %in% column_values) {
                  errors <- c(

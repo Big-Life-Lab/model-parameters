@@ -1,0 +1,41 @@
+categorySet,columnValue,desc
+variable-type,cat,Categorical type
+variable-type,cont,Continuous type
+variable-type-full,Categorical,Categorical type
+variable-type-full,Continuous,Continuous type
+type-start-na,N/A,Used mainly for derived variables when there are many start variables
+model-export-file-type,variables,A variables file
+model-export-file-type,variable-details,A variable details file
+model-export-file-type,descriptive,A descriptive lookup file
+model-export-file-type,descriptive-bins,A descriptive bins file
+model-export-file-type,model-export,A model export file
+model-export-file-type,model-steps,A model steps
+model-export-file-type,dummy,A dummy file
+model-export-file-type,center,A centering file
+model-export-file-type,rcs,An RCS file
+model-export-file-type,interaction,An interaction file
+model-export-file-type,fine-and-gray,A fine and gray file
+model-export-file-type,cox,A cox file
+model-export-file-type,survival_bins,File with survival data for the different bins
+model-export-file-type,lookup,Contains the range of score values for each biin in a survival algorithm
+model-export-file-type,validate,Contains the validation rules for variables in the algorithm
+model-export-file-type,tables,Defines a tables model export file
+model-step,dummy,Step used to create dummy variables
+model-step,center,Step used to create centered variables
+model-step,rcs,Steps used to create spline terms
+model-step,interaction,Step used to create interaction terms
+model-step,fine-and-gray,Step used to calculate the outcome of a fine and gray model
+model-step,cox,Step used to calculate the outcome of a cox proportional hazards model
+model-step,simple-model,Step used to calculate the outcome of a simple model
+model-step,logistic-regression,Step used to calculate the outcome of a logistic regression model
+model-steps-file-type,N/A,Missing since certain steps don't need to specify the file type
+model-steps-file-type,beta-coefficients,A beta coefficients file for a fine and gray model or a cox model
+model-steps-file-type,baseline-hazards,The baseline hazards for a fine and gray model or a cox model
+validation-rule,type,Validate the data type of the variable
+validation-rule,range,Validate that the variable is within a range of values. Meant for continuous variables.
+validation-rule,allowed,Validate that the variable contains a value from a set of valid values. Meant for categorical variables.
+validation-rule,nullable,Whether missing values are allowed for a variable
+error-handle,error,"Failed validations for the variable should throw an error, stopping the scoring process"
+error-handle,warning,Failed validations for the variable should log a warning and continue the scoring process
+error-handle,truncate,"Failed validations for the variable should log a warning, truncate the failed variable value, and continue scoring process"
+simple-model-name,outputVariableName,The name of the output variable for the model. Should be defined in the variables and variable details sheets.
